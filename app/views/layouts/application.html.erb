@@ -3,14 +3,109 @@
   <head>
     <title>Allershare</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <a href="#" ><img class="menu" src="/menu2.png" width=35 height=35></a>
+        <p>アレルシェア<p>
+      </div>
+      <a herf="#" class="header-home"><ion-icon size="large" name="home-outline"></ion-icon></a>
+      <ul class="header-menus">
+          <li>
+            <%= link_to("新規登録", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+     <!-- サイドバー部分 -->
+    <div class="sidebar">
+        <header>
+            <p>アレルシェア</p>
+            <a href="#"><img class="batu" src="/batu.png" width=34 height=34></a>
+        </header>
+        <ul>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                    <span class="title">ブログ</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="logo-wechat"></ion-icon></span>
+                    <span class="title">チャット</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">マイページ</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
+                    <span class="title">お問い合わせ</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- スタートのロゴ -->
+    <div class="start">
+       <p><img src="/rogo(仮).jpg" alt=""></p>
+    </div>
+
+    <script>
+      $(function(){
+       $('.menu').click(function(){
+        $('.sidebar').animate({left:"-10px"});
+       });
+      });
+
+      $(function(){
+        $('.batu').click(function(){
+         $('.sidebar').animate({left: "-250px"});
+       });
+      });
+
+      $(function() {
+        setTimeout(function(){
+          $('.start p').fadeIn(1600);
+        },500); //0.5秒後にロゴをフェードイン!
+        setTimeout(function(){
+          $('.start').fadeOut(500);
+        },2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+      });
+    </script>
+    
     <%= yield %>
+    <!-- icon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
