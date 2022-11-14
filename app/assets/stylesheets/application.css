@@ -68,6 +68,10 @@ header {
   display:flex;
 }
 
+.header-logo p{
+  padding-left: 10px;
+}
+
 .header-logo a{
   line-height: 56px;
 }
@@ -86,14 +90,12 @@ header {
 .header-menus li {
   float: left;
   line-height: 64px;
-  font-size: 13px;
-  color: white;
   padding-left: 15px;
 }
 
 .header-menus a {
   float: left;
-  font-size: 13px;
+  font-size: 16px;
   color: white;
 }
 

@@ -24,7 +24,9 @@
         <a href="#" ><img class="menu" src="/menu2.png" width=35 height=35></a>
         <p>アレルシェア<p>
       </div>
-      <a herf="#" class="header-home"><ion-icon size="large" name="home-outline"></ion-icon></a>
+      <%= link_to "/" do %>
+        <div class="header-home"><ion-icon size="large" name="home-outline"></ion-icon></div>
+      <% end %>
       <ul class="header-menus">
           <li>
             <%= link_to("新規登録", "/signup") %>
