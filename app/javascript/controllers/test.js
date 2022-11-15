@@ -1,3 +1,3 @@
-function al () {
+function OnButtonClick() {
     alert("hello, world!");
 };
