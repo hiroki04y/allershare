@@ -216,3 +216,15 @@ header {
 	z-index: 9999;
 	width: 280px;
 }
+
+
+.col{
+  color:aqua;
+  width:500px;
+  height:500px;
+  position:absolute;
+  top:10px;
+  left:500px;
+  z-index:8000;
+  background-color:#6e2850
+}
