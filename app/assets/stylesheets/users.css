@@ -5,6 +5,15 @@
   clear: both;
 }
 
+.main {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 89%;
+  background-color: #f5f8fa;
+}
+
 /* フォーム================================ */
 
 /* フォーム上の文字 */
@@ -53,4 +62,8 @@
   content: '';
   display: table;
   clear: both;
+}
+
+.login {
+  letter-spacing: 5px;
 }
