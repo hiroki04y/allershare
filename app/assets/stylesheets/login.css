@@ -1,8 +1,16 @@
-.container {
+.container2 {
     max-width: 600px;
     margin: 60px auto;
     padding-left: 15px;
     padding-right: 15px;
     clear: both;
-    background-color:aqua
+    background-color:aqua;
+    text-align: center;
 }
+
+.form {
+    max-width: 200px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 2px 6px #c1ced7;
+  }
