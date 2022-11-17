@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'jquery-rails'
+
+gem 'rails-i18n'
