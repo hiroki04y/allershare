@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+        @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.png")
         if @user.save
           flash[:notice] = "ユーザー登録が完了しました"
           redirect_to("/users/#{@user.id}")
@@ -19,5 +19,11 @@ class UsersController < ApplicationController
             render :signup,status: :unprocessable_entity
         end
     end
+
+    def destroy
+        User.find(params[:id]).destroy
+        flash[:notice] = "ユーザを削除しました"
+        redirect_to("/login")
+      end
     
 end

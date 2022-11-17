@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/login' => 'users#login'
   get '/blog' => 'blog#blog'
   post '/users/create' => 'users#create'
+  get "users/:id/destroy" => "users#destroy"
 end
