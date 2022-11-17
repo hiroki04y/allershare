@@ -2,15 +2,25 @@
     <div class="container">
         <div class="form-heading login">新規ユーザー登録</div>
         <div class="form">
-          <div class="form-body">  
-            <p>ユーザ名</p>
-            <input name="name" value="<%= @email %>">
-            <p>メールアドレス</p>
-            <input name="email" value="<%= @email %>">
-            <p>パスワード</p>
-            <input type="password" name="password" value="<%= @password %>">
-            <input type="submit" value="新規登録">
-          </div>
+          <div class="form-body">
+          <%# エラーメッセージ %>
+          <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+               <%= message %>
+            </div>
+          <% end %>
+        
+          <%# 新規登録ボタンが押されたらcreateに飛ぶ %>
+          <%= form_tag("/users/create") do %>  
+              <p>ユーザ名</p>
+              <input name="name" value="<%= @name %>">
+              <p>メールアドレス</p>
+              <input name="email" value="<%= @email %>">
+              <p>パスワード</p>
+              <input type="password" name="password" value="<%= @password %>">
+              <input type="submit" value="新規登録">
+            </div>
+          <% end %>
         </div>
     </div>
 </div>
