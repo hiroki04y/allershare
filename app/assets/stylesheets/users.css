@@ -19,7 +19,7 @@
 /* フォーム上の文字 */
 .form-heading {
   font-weight: 300;
-  margin: 60px 0 20px;
+  margin: 40px 0 20px;
   font-size: 48px;
   color: #bcc8d4;
 }
@@ -29,10 +29,17 @@
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
+  border: 1px solid white;
+  border-radius:10px;
 }
 
 .form-body {
   padding: 30px;
+}
+
+.form-body p{
+  font-size:15px;
+  margin-top:10px;
 }
 
 .form-error {
@@ -40,10 +47,13 @@
 }
 
 .form input {
+  width: 100%;
   padding: 10px;
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
+  border: 1px solid #aeafaf;
+  border-radius: 10px;
 }
 
 .form input[type="submit"] {
@@ -55,6 +65,8 @@
   border-radius: 2px;
   letter-spacing: 2px; /*文字の幅間*/
   float: right;
+  margin-top: 15px;
+  margin-bottom: 0;
 }
 
 /* ボタンの後に擬似的な文章を追加して行間調節 */
