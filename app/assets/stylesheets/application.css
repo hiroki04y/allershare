@@ -41,12 +41,23 @@ body {
   min-height: 100vh;
 }
 
+.blackcover{
+	position: fixed; /* ブラウザの定位置に固定 */
+	background: rgba(0, 0, 0, .5);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0; 
+	z-index: 9; /* 要素をコンテンツより前面に */
+  display:none;
+}
+
 /* ヘッダー ================================ */
 header {
   height: 65px;
   position: relative;
   background-color: #FFD3EC;
-  z-index: 1;
+  z-index: 8;
   width: 100%;
 }
 
@@ -75,7 +86,7 @@ header {
 
 .header-home {
   position:absolute;
-  left:43.5%;
+  left:45.2%;
   top:15px;
   font-size:25px;
   color:rgb(109, 193, 246);
@@ -115,10 +126,10 @@ header {
   position: fixed;
   top:0px;
   left:-300px;
-  width: 17%;
+  width: 200px;
   background: white;
   border-right: 1px solid rgba(66, 66, 66, 0.47);
-  z-index: 8000;
+  z-index: 10;
 }
 
 .sidebar header {
@@ -146,6 +157,7 @@ header {
   text-decoration: none;
   /* cssプロパティが変化するときの速度 */
   transition: 0.4s;
+  white-space:nowrap;
 }
 
 .sidebar ul li:hover a {
@@ -166,7 +178,7 @@ header {
   text-align: center;
   position: absolute;
   top: 64px;
-  z-index: 10;
+  z-index: 8;
   width: 100%;
   border-radius: 0 0 2px 2px;
   font-size: 14px;
@@ -182,7 +194,7 @@ header {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 9000;
+	z-index: 20;
 }
 .start p {
 	position: fixed;
@@ -194,3 +206,14 @@ header {
 	width: 280px;
 }
 
+
+/* z-index
+20--最初のロゴ
+10--サイドバー
+9---半透明黒背景
+8---ヘッダー
+
+
+
+
+*/
