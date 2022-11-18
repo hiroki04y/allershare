@@ -1,0 +1,129 @@
+/* 画面左 */
+.base {
+    position:fixed;
+    width:22%;
+    height:100%;
+    border-right: 2px solid;
+    border-color: #9e9e9e;
+}
+
+.w90{
+    width:95%;
+}
+
+.grouplist {
+    left:0px;
+}
+
+.grouplist ul {
+    list-style: none;
+    padding-left: 4px;
+    white-space:nowrap;
+}
+
+.list {
+    line-height: 65px;
+    border-bottom: 1px solid;
+    border-color: #9e9e9e;
+}
+
+/* 画面右 */
+.base2 {
+    position:fixed;
+    left:22%;
+    width:100%;
+    height:100%;
+    /* z-index:10; */
+}
+
+.partner{
+    height:45px;
+    width:100%;
+    border-bottom:2px solid;
+    border-color:#9e9e9e;
+    margin-top:5px;
+}
+.partner img{
+    margin-left:10px;
+    margin-right:10px;
+    float:left;
+    border-radius: 50%;
+}
+
+.send_username{
+    line-height:40px;
+    font-size:20px;
+}
+
+
+.sendchat {
+    width:100%;
+    position:fixed;
+    bottom:10px;
+    border-top:2px solid;
+    border-color:#9e9e9e;
+}
+
+.chat-area{
+    font-size:18px;
+    padding: 13px;
+    width:67%;
+    height: calc( 1.27em * 2);
+    line-height: 1.1;
+    max-height: 150px;
+    margin-left:20px;
+    margin-top:8px;
+    border-radius:20px;
+    border: 1px solid #aeafaf;
+    resize: none;
+}
+
+/* チャット部分 */
+#chat-container{
+    position:relative;
+    width:76%;
+    height:68%;
+    max-height:68%;
+    min-height:50%;
+    border: 2px;
+    background-color:rgb(255, 255, 255);
+
+}
+
+  .mycomment {
+    margin: 0 0;
+  }
+  .mycomment p {
+    display: inline-block;
+    position: relative; 
+    margin: 0 0 0 auto;
+    padding: 8px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #6ffcf0;
+    font-size: 15px;
+  }
+  
+  .mycomment p:after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #6ffcf0;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+  }
+
+.chat-sendbutton{
+    position:absolute;
+    bottom:7px;
+    left:71%;
+    width:60px;
+    height:40px;
+    border-radius:20%;
+    border: 1px solid rgb(55, 175, 65);
+    background-color:white;
+    color:rgb(55, 175, 65);
+}
+

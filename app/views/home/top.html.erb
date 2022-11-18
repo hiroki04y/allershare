@@ -1,3 +1,19 @@
 <div class="top-main">
   <h2>TOP画面</h2>
 </div>
+
+<!-- スタートのロゴ -->
+<div class="start">
+  <p><img src="/rogo(仮).jpg" alt=""></p>
+</div>
+
+<script>
+  $(function() {  
+    setTimeout(function(){
+      $('.start p').fadeIn(1600);
+    },500); //0.5秒後にロゴをフェードイン!
+    setTimeout(function(){
+      $('.start').fadeOut(500);
+    },2000); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+  });
+</script>

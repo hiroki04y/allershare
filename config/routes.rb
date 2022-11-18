@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/blog' => 'blog#blog'
   post '/users/create' => 'users#create'
   get 'users/:id/destroy' => "users#destroy"
+  get '/chat' => "chat#chat"
 end

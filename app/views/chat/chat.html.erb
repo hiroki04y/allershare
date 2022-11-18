@@ -1,0 +1,48 @@
+<div class="base">
+    <!-- 検索ボタン -->
+        <div class="input-group mt-2 mx-2 w90">
+            <input type="text" class="form-control" placeholder="チャットグループを検索">
+            <button class="btn btn-outline-success w-20" type="button" id="button-addon2"><i class="fas fa-search"></i> 検索</button>
+        </div>
+    <!-- グループリスト -->
+    <div class="grouplist">
+        <ul>
+        <% @user.each do |post| %>
+            <li class="list">
+                <img src="<%="/user_images/#{post.image_name}"%>" width=50 height=50><%= post.name %>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+</div>
+<div class="base2">
+    <div class="partner">
+        <img src="/user_images/default_user.jpg" width=40 height=40>
+        <div class="send_username">testuser</div>
+    </div>
+    <div id="chat-container">
+        <div class="mycomment">
+            <p>
+            右ふきだし文aaaaaaaaaaaaaaaaa
+            </p>
+        </div>
+    </div>
+
+
+    <div class="sendchat">
+        <textarea id="textarea" class="chat-area" placeholder="メッセージを入力" style="overflow:hidden;"></textarea>
+        <button class="chat-sendbutton">送信</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById('textarea').focus();
+    var chat = document.getElementById('chat-container');
+    document.querySelectorAll("#textarea").forEach(function(){
+        this.addEventListener('keyup',function(e){
+            e.srcElement.style.height = 0
+            e.srcElement.style.height = e.srcElement.scrollHeight+"px"
+            chat.style.height = 450 - e.srcElement.scrollHeight+"px"
+        })
+    })
+</script>

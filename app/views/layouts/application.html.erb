@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <%= stylesheet_link_tag "application", "users", "blog", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "users", "blog", "chat", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -21,12 +21,12 @@
   <body>
     <header>
       <div class="header-logo">
-        <a href="#" ><img class="menu" src="/menu2.png" width=35 height=35></a>
-        <p>アレルシェア<p>
+        <a href="#" ><img class="menu" src="/menu.png" width=35 height=35></a>
+        <%= link_to "/" do %>
+          <img src="/home.png" width=35 height=35>
+        <% end %>
       </div>
-      <%= link_to "/" do %>
-        <div class="header-home"><ion-icon size="large" name="home-outline"></ion-icon></div>
-      <% end %>
+      <div class="header-home">アレルシェア</div>
       <ul class="header-menus">
           <li>
             <%= link_to("新規登録", "/signup") %>
@@ -47,18 +47,17 @@
      <!-- サイドバー部分 -->
     <div class="sidebar">
         <header>
-            <p>アレルシェア</p>
-            <a href="#"><img class="batu" src="/batu.png" width=34 height=34></a>
+            <a href="#"><img class="close" src="/close.png" width=47 height=47></a>
         </header>
         <ul>
             <li class="list">
-                <a href="#">
+                <a href="/blog">
                     <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
                     <span class="title">ブログ</span>
                 </a>
             </li>
             <li class="list">
-                <a href="#">
+                <a href="/chat">
                     <span class="icon"><ion-icon name="logo-wechat"></ion-icon></span>
                     <span class="title">チャット</span>
                 </a>
@@ -78,11 +77,6 @@
         </ul>
     </div>
 
-    <!-- スタートのロゴ -->
-    <div class="start">
-       <p><img src="/rogo(仮).jpg" alt=""></p>
-    </div>
-
     <script>
       $(function(){
        $('.menu').click(function(){
@@ -91,19 +85,11 @@
       });
 
       $(function(){
-        $('.batu').click(function(){
+        $('.close').click(function(){
          $('.sidebar').animate({left: "-250px"});
        });
       });
 
-      $(function() {
-        setTimeout(function(){
-          $('.start p').fadeIn(1600);
-        },10); //0.5秒後にロゴをフェードイン!
-        setTimeout(function(){
-          $('.start').fadeOut(500);
-        },100); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
-      });
     </script>
     
     <%= yield %>
