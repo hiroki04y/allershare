@@ -52,12 +52,12 @@
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
-  border: 1px solid #aeafaf;
+  border: 1px solid #53cf87;
   border-radius: 10px;
 }
 
 .form input[type="submit"] {
-  background-color: #3ecdc6;
+  background-color: #53cf87;
   color: white;
   cursor: pointer;
   width: 120px;
