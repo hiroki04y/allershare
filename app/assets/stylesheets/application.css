@@ -2,6 +2,7 @@
 * {
   /* 全ての要素にpadingやborderも100%に含める */
   box-sizing: border-box; 
+  /* outline:solid #ff0077; */
 }
 
 html {
@@ -56,7 +57,7 @@ body {
 header {
   height: 65px;
   position: relative;
-  background-color: #FFD3EC;
+  background-color: #fed1e6;
   z-index: 8;
   width: 100%;
 }
@@ -86,10 +87,8 @@ header {
 
 .header-home {
   position:absolute;
-  left:45.2%;
-  top:15px;
-  font-size:25px;
-  color:rgb(109, 193, 246);
+  left:41.2%;
+  top:0px;
 }
 
 .header-menus li {

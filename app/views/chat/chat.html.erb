@@ -20,7 +20,32 @@
         <img src="/user_images/default_user.jpg" width=40 height=40>
         <div class="send_username">testuser</div>
     </div>
-    <div id="chat-container">
+    <div class="chat-container">
+        <div class="mycomment">
+            <p>
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。自分の文章です。自分の文章です。
+            </p>
+        </div>
+        <div class="paircomment">
+            <p>
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。相手の文章です。相手の文章です。
+            </p>
+        </div>
+        <div class="mycomment">
+            <p>
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
+            </p>
+        </div>
+        <div class="mycomment">
+            <p>
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
+            </p>
+        </div>
+        <div class="mycomment">
+            <p>
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
+            </p>
+        </div>
         <div class="mycomment">
             <p>
             >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
@@ -37,12 +62,13 @@
 
 <script>
     document.getElementById('textarea').focus();
-    var chat = document.getElementById('chat-container');
+    var chat = document.getElementsByClassName('chat-container');
+    chat[0].scrollTop = chat[0].scrollHeight;
     document.querySelectorAll("#textarea").forEach(function(){
         this.addEventListener('keyup',function(e){
             e.srcElement.style.height = 0
             e.srcElement.style.height = e.srcElement.scrollHeight+"px"
-            chat.style.height = 450 - e.srcElement.scrollHeight+"px"
+            chat[0].style.height = 450 - e.srcElement.scrollHeight+"px"
         })
     })
 </script>

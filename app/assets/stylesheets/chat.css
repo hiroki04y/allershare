@@ -59,7 +59,7 @@
 .sendchat {
     width:100%;
     position:fixed;
-    bottom:10px;
+    bottom:4px;
     border-top:2px solid;
     border-color:#9e9e9e;
 }
@@ -78,26 +78,43 @@
     resize: none;
 }
 
+.chat-sendbutton{
+  position:absolute;
+  bottom:7px;
+  left:71%;
+  width:60px;
+  height:40px;
+  border-radius:20%;
+  border: 1px solid rgb(55, 175, 65);
+  background-color:white;
+  color:rgb(55, 175, 65);
+}
+
 /* チャット部分 */
-#chat-container{
-    position:relative;
-    width:76%;
+.chat-container{
+    position:fixed;
+    width:77.5%;
     height:68%;
     max-height:68%;
     min-height:50%;
     border: 2px;
-    background-color:rgb(255, 255, 255);
-
+    background-color:rgb(255, 164, 164);
+    overflow: scroll;
+}
+.chat-container::-webkit-scrollbar {
+  display:none;
 }
 
+
   .mycomment {
-    margin: 0 0;
+    position: relative;
   }
   .mycomment p {
     display: inline-block;
-    position: absolute; 
-    right:5px;
-    bottom:10px;
+    position: relative; 
+    left: 96%;
+    margin-top:13px;
+    transform: translateX(-96%);
     padding: 8px;
     max-width: 400px;
     border-radius: 12px;
@@ -117,15 +134,31 @@
     transform: rotate(-35deg);
   }
 
-.chat-sendbutton{
-    position:absolute;
-    bottom:7px;
-    left:71%;
-    width:60px;
-    height:40px;
-    border-radius:20%;
-    border: 1px solid rgb(55, 175, 65);
-    background-color:white;
-    color:rgb(55, 175, 65);
-}
+  .paircomment {
+    position: relative;
+    margin-top:10px;
+  }
+  .paircomment p {
+    display: inline-block;
+    position: relative; 
+    left: 20px;
+    padding: 8px;
+    max-width: 400px;
+    border-radius: 12px;
+    background: #b7b7b7;
+    font-size: 15px;
+    overflow-wrap:  break-word;
+  }
+  
+  .paircomment p:after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #b7b7b7;
+    -webkit-transform: rotate(-145deg);
+    transform: rotate(-145deg);
+  }
+
 
