@@ -77,16 +77,20 @@
         </ul>
     </div>
 
+    <div class="blackcover"></div>
+
     <script>
       $(function(){
        $('.menu').click(function(){
         $('.sidebar').animate({left:"-10px"});
+        $('.blackcover').fadeIn(300);
        });
       });
 
       $(function(){
         $('.close').click(function(){
          $('.sidebar').animate({left: "-250px"});
+         $('.blackcover').fadeOut(300);
        });
       });
 
