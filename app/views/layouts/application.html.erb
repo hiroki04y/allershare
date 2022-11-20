@@ -28,6 +28,12 @@
       </div>
       <img src="/header.jpg" class="header-home" width=220 height=60>
       <ul class="header-menus">
+          <% if session[:user_id] %>
+            <li>
+              現在ログインしているユーザーのid:
+              <%= session[:user_id] %>
+            </li>
+          <% end %>
           <li>
             <%= link_to("新規登録", "/signup") %>
           </li>

@@ -9,6 +9,9 @@
       <p><%= @user.email%></p>
       <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <%= link_to("アカウント削除", "/users/#{@user.id}/destroy") %>
+      <% if session[:user_id] %>
+        <%= link_to("ログアウト", "/logout") %>
+      <% end %>
     </div>
   </div>
 </div>

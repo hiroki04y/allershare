@@ -8,6 +8,28 @@ class UsersController < ApplicationController
     end
 
     def login
+        # 入力内容と一致するユーザーを取得し、変数@userに代入
+        @user = User.find_by(email: params[:email], password: params[:password])
+        # @userが存在するかどうかを判定するif
+        if @user
+            session[:user_id] = @user.id
+            flash[:notice] = "ログインしました"
+            redirect_to("/users/index")
+        else
+            @error_message = "メールアドレスまたはパスワードが間違っています"
+            @email = params[:email]
+            @password = params[:password]
+            render :login_form,status: :unprocessable_entity
+        end
+    end
+
+    def login_form
+    end
+
+    def logout
+        session[:user_id] = nil
+        flash[:notice] = "ログアウトしました"
+        redirect_to("/login")
     end
 
     def index
