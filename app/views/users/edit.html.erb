@@ -11,13 +11,15 @@
           <% end %>
         
           <%# 新規登録ボタンが押されたらcreateに飛ぶ %>
-          <%= form_tag("/users/#{@user.id}/change") do %>  
+          <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>  
               <p>ユーザ名</p>
               <input name="name" value="<%= @user.name %>">
               <p>メールアドレス</p>
               <input name="email" value="<%= @user.email %>">
               <p>パスワード</p>
-              <input type="password" name="password" value="<%= @user.password %>">
+              <input type="password" name="password" value="<%= @user.password %>"> 
+              <p>画像</p>
+              <input name="image" type="file">
               <input type="submit" value="編集">
             </div>
           <% end %>

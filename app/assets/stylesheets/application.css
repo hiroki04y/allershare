@@ -86,9 +86,10 @@ header {
 }
 
 .header-home {
-  position:absolute;
-  left:39.8%;
-  top:0px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .header-menus li {
