@@ -1,5 +1,6 @@
 .container {
-  max-width: 600px;
+  margin-top:4%;
+  max-width: 540px;
   padding-left: 15px;
   padding-right: 15px;
   clear: both;
@@ -13,16 +14,18 @@
   min-height: 89%;
   background-color: #f5f8fa;
 }
+.main p{
+  margin-top:5px;
+  font-size:15px;
+  color:#828282;
+  text-align:center;
+}
+
+.main a{
+  color:#2dbac9;
+}
 
 /* フォーム================================ */
-
-/* フォーム上の文字 */
-.form-heading {
-  font-weight: 300;
-  margin: 40px 0 20px;
-  font-size: 48px;
-  color: #bcc8d4;
-}
 
 .form {
   max-width: 600px;
@@ -30,7 +33,7 @@
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   border: 1px solid white;
-  border-radius:10px;
+  border-radius:20px;
 }
 
 .form-body {
@@ -38,8 +41,14 @@
 }
 
 .form-body p{
-  font-size:15px;
-  margin-top:10px;
+  font-size:10px;
+}
+
+.form-body h2{
+  margin:10px 0 10px 0;
+  font-size:30px;
+  font-family:"MSゴシック";
+  text-align:center;
 }
 
 .form-error {
@@ -47,13 +56,18 @@
 }
 
 .form input {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
   border: 1px solid #53cf87;
-  border-radius: 10px;
+  border-radius: 20px;
+  margin-top:25px;
+  position:relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .form input[type="submit"] {
@@ -62,10 +76,11 @@
   cursor: pointer;
   width: 120px;
   border: 1px solid #d8dadf;
-  border-radius: 2px;
+  border-radius: 30px;
   letter-spacing: 2px; /*文字の幅間*/
-  float: right;
-  margin-top: 15px;
+  position:relative;
+  left: 12%;
+  margin-top: 25px;
   margin-bottom: 0;
 }
 

@@ -21,9 +21,9 @@
   <body>
     <header>
       <div class="header-logo">
-        <a href="#" ><img class="menu" src="/menu.png" width=35 height=35></a>
+        <a href="#" ><img class="menu" src="/menu.png" width=39 height=39></a>
         <%= link_to "/" do %>
-          <img src="/home.png" width=35 height=35>
+          <img src="/home.png" width=39 height=39>
         <% end %>
       </div>
       <img src="/header.jpg" class="header-home" width=220 height=60>
@@ -35,10 +35,7 @@
             </li>
           <% end %>
           <li>
-            <%= link_to("新規登録", "/signup") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
+            <a href="/login"><img src="/user_images/default_image.png" width=40 height=40></a>
           </li>
       </ul>
     </header>
