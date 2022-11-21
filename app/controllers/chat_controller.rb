@@ -1,5 +1,5 @@
 class ChatController < ApplicationController
     def chat
-        @user = User.all
+        @room = Chatroom.all
     end
 end

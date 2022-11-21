@@ -1,15 +1,14 @@
 <div class="base">
     <!-- 検索ボタン -->
         <div class="input-group mt-2 mx-2 w90">
-            <input type="text" class="form-control" placeholder="チャットグループを検索">
-            <button class="btn btn-outline-success w-20" type="button" id="button-addon2"><i class="fas fa-search"></i> 検索</button>
+            <input type="text" id="roomsearch" placeholder="チャットグループを検索">
         </div>
     <!-- グループリスト -->
     <div class="grouplist">
         <ul>
-        <% @user.each do |post| %>
-            <li class="list">
-                <img src="<%="/user_images/#{post.image_name}"%>" width=50 height=50><%= post.name %>
+        <% @room.each do |post| %>
+            <li class="chat-list">
+                <a href="#index"><%= post.roomname %></a>
             </li>
         <% end %>
         </ul>
@@ -23,7 +22,7 @@
     <div class="chat-container">
         <div class="mycomment">
             <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。自分の文章です。自分の文章です。
+            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。自分の文章です。自分の文章です。自分の
             </p>
         </div>
         <div class="paircomment">
@@ -71,4 +70,36 @@
             chat[0].style.height = 450 - e.srcElement.scrollHeight+"px"
         })
     })
+
+    $(function () {
+        var room
+        $('#roomsearch').on('keyup', function (e) {
+            if (e.which == 13) {
+                // 何もせずに処理を終える
+                return false;
+            }
+            room = $.trim($(this).val());
+            console.log(room); // 検索窓の値が取れているか確認
+
+            $.ajax({
+                type: 'GET', // リクエストのタイプ
+                url: 'message/search', // リクエストを送信するURL
+                data:  { roomname: room }, // サーバーに送信するデータ
+                dataType: 'json' // サーバーから返却される型
+            })
+
+            .done(function(data){ // dataにはレスポンスされたデータが入る
+                $('.grouplist li').remove();
+                console.log(data);
+
+                $(data).each(function(i,room) {
+                    $('.grouplist ul').append(
+                        `<li class="chat-list"><a href="index">${room.roomname}</a></li>`
+                    );
+                });
+            })
+
+        });
+
+    });
 </script>
