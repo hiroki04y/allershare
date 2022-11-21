@@ -1,28 +1,21 @@
 <div class="main">
     <div class="container">
-        <div class="form-heading login">ユーザ情報編集</div>
         <div class="form">
-          <div class="form-body">
-          <%# エラーメッセージ %>
-          <% @user.errors.full_messages.each do |message| %>
-            <div class="form-error">
-               <%= message %>
+            <div class="form-body">
+              <% @user.errors.full_messages.each do |message| %>
+                 <div class="form-error">
+                    <%= @error_message %>
+                 </div>
+              <% end %>
+              <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>   
+                <h2>編集</h2> 
+                <input name="name" value="<%= @user.name %>">
+                <input name="email" value="<%= @user.email %>">
+                <input type="password" name="password" value="<%= @user.password %>"> 
+                <p>半角英数字8文字以上で入力してください。<p>
+                <input type="submit" value="編集">
+              <% end %>
             </div>
-          <% end %>
-        
-          <%# 新規登録ボタンが押されたらcreateに飛ぶ %>
-          <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>  
-              <p>ユーザ名</p>
-              <input name="name" value="<%= @user.name %>">
-              <p>メールアドレス</p>
-              <input name="email" value="<%= @user.email %>">
-              <p>パスワード</p>
-              <input type="password" name="password" value="<%= @user.password %>"> 
-              <p>画像</p>
-              <input name="image" type="file">
-              <input type="submit" value="編集">
-            </div>
-          <% end %>
         </div>
     </div>
 </div>
