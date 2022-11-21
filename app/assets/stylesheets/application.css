@@ -158,6 +158,8 @@ header {
   /* cssプロパティが変化するときの速度 */
   transition: 0.4s;
   white-space:nowrap;
+  border-bottom: 1px solid;
+  border-color: #9e9e9e;
 }
 
 .sidebar ul li:hover a {

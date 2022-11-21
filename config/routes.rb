@@ -18,4 +18,10 @@ Rails.application.routes.draw do
 
   # チャット
   get '/chat' => "chat#chat"
+
+  namespace :message do 
+    resources :search, only: :index, defaults: { format: :json }
+  end
+
+  resources :message
 end

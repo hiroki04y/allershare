@@ -1,7 +1,7 @@
 /* 画面左 */
 .base {
     position:fixed;
-    width:22%;
+    width:20%;
     height:100%;
     border-right: 2px solid;
     border-color: #9e9e9e;
@@ -21,16 +21,33 @@
     white-space:nowrap;
 }
 
-.list {
-    line-height: 65px;
+.chat-list {
+    line-height: 60px;
     border-bottom: 1px solid;
     border-color: #9e9e9e;
 }
+.chat-list a{
+  position:relative;
+  left:20%;
+  font-size:20px;
+}
+
+#roomsearch{
+  font-size:14px;
+  padding-left: 20px;
+  width:100%;
+  height:40px;
+  min-height:40px;
+  resize: none;
+  border-radius:20px;
+  border: 1px solid #aeafaf;
+}
+
 
 /* 画面右 */
 .base2 {
     position:fixed;
-    left:22%;
+    left:20%;
     width:100%;
     height:100%;
     /* z-index:10; */
@@ -71,7 +88,7 @@
     height: calc( 1.27em * 2);
     line-height: 1.1;
     max-height: 150px;
-    margin-left:20px;
+    margin-left:35px;
     margin-top:8px;
     border-radius:20px;
     border: 1px solid #aeafaf;
@@ -81,7 +98,7 @@
 .chat-sendbutton{
   position:absolute;
   bottom:7px;
-  left:71%;
+  left:73%;
   width:60px;
   height:40px;
   border-radius:20%;
@@ -93,12 +110,12 @@
 /* チャット部分 */
 .chat-container{
     position:fixed;
-    width:77.5%;
+    width:79%;
     height:68%;
     max-height:68%;
     min-height:50%;
     border: 2px;
-    background-color:rgb(255, 164, 164);
+    background-color:rgb(255, 255, 255);
     overflow: scroll;
 }
 .chat-container::-webkit-scrollbar {
@@ -116,9 +133,9 @@
     margin-top:13px;
     transform: translateX(-96%);
     padding: 8px;
-    max-width: 400px;
+    max-width: 480px;
     border-radius: 12px;
-    background: #6ffcf0;
+    background: #a0ffff;
     font-size: 15px;
     overflow-wrap:  break-word;
   }
@@ -129,7 +146,7 @@
     top: 3px; 
     right: -19px;
     border: 8px solid transparent;
-    border-left: 18px solid #6ffcf0;
+    border-left: 18px solid #a0ffff;
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
   }
@@ -143,9 +160,9 @@
     position: relative; 
     left: 20px;
     padding: 8px;
-    max-width: 400px;
+    max-width: 480px;
     border-radius: 12px;
-    background: #b7b7b7;
+    background: #f0f0f0;
     font-size: 15px;
     overflow-wrap:  break-word;
   }
@@ -156,7 +173,7 @@
     top: 3px; 
     left: -19px;
     border: 8px solid transparent;
-    border-left: 18px solid #b7b7b7;
+    border-left: 18px solid #f0f0f0;
     -webkit-transform: rotate(-145deg);
     transform: rotate(-145deg);
   }
