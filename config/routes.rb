@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/users/create' => 'users#create'
   post '/users/:id/change' => 'users#change'
   get 'users/:id/destroy' => "users#destroy"
+  post 'users/:id/destroy' => "users#destroy"
 
   # チャット
   get '/chat' => "chat#chat"

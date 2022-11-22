@@ -8,10 +8,11 @@
                  </div>
               <% end %>
               <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>   
-                <h2>編集</h2> 
-                <input name="name" value="<%= @user.name %>">
-                <input name="email" value="<%= @user.email %>">
-                <input type="password" name="password" value="<%= @user.password %>"> 
+                <h2>編集</h2>
+                <input name="name" placeholder="ユーザ名" value="<%= @user.name %>">
+                <input name="email" placeholder="メールアドレス" value="<%= @user.email %>">
+                <input name="image" type="file">
+                <input type="password" name="password" placeholder="パスワード" value="<%= @user.password %>">
                 <p>半角英数字8文字以上で入力してください。<p>
                 <input type="submit" value="編集">
               <% end %>

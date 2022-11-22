@@ -73,6 +73,9 @@ class UsersController < ApplicationController
 
 
     def destroy
+        if User.find(params[:id]).image_name != "default_image.png"
+            File.delete("public/user_images/#{params[:id]}.jpg")
+        end
         User.find(params[:id]).destroy
         flash[:notice] = "ユーザを削除しました"
         redirect_to("/login")
