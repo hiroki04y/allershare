@@ -62,7 +62,7 @@
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
-  border: 1px solid #53cf87;
+  border: 1px solid #a4e38b;
   border-radius: 20px;
   margin-top:25px;
   position:relative;
@@ -72,11 +72,11 @@
 }
 
 .form input[type="submit"] {
-  background-color: #53cf87;
+  background-color: #a4e38b;
   color: white;
   cursor: pointer;
   width: 120px;
-  border: 1px solid #d8dadf;
+  border: 1px solid #6ea857;
   border-radius: 30px;
   letter-spacing: 2px; /*文字の幅間*/
   position:relative;
