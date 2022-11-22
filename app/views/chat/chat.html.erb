@@ -17,37 +17,12 @@
 </div>
 <div class="base2">
     <div class="partner">
-        <div class="send_group">お知らせ</div>
+        <div class="send_group">おしらせ</div>
     </div>
     <div class="chat-container">
-        <div class="mycomment">
-            <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。自分の文章です。自分の文章です。自分の
-            </p>
-        </div>
         <div class="paircomment">
             <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。相手の文章です。相手の文章です。
-            </p>
-        </div>
-        <div class="mycomment">
-            <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
-            </p>
-        </div>
-        <div class="mycomment">
-            <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
-            </p>
-        </div>
-        <div class="mycomment">
-            <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
-            </p>
-        </div>
-        <div class="mycomment">
-            <p>
-            >>右ふきだし文<<<br>この文章はテスト文章です。<br>文章を感知して自動で改行されます。
+            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
             </p>
         </div>
     </div>
@@ -55,7 +30,7 @@
 
     <div class="sendchat">
         <textarea id="textarea" class="chat-area" placeholder="メッセージを入力" style="overflow:hidden;"></textarea>
-        <button class="chat-sendbutton" onclick="addmessage(<%= session[:user_id] %>)">送信</button>
+        <button class="chat-sendbutton" onclick="addmessage(<%= session[:user_id] %>,)">送信</button>
     </div>
 </div>
 
@@ -107,8 +82,8 @@
     // room名を変更する
     function roomchange(name,id){
         $('.send_group').html(name);
-        room_name = Number(id.substr( 1, 1 ));
-        //alert(room_name)
+        room_num = Number(id.substr( 1, 1 ));
+        //alert(room_num)
 
         $.ajax({
             type: 'GET', // リクエストのタイプ
@@ -118,37 +93,39 @@
         })
         .done(function(data){ // dataにはレスポンスされたデータが入る
                 $('.chat-container div').remove();
-                //console.log(data);
+                console.log(data);
 
                 $(data).each(function(i,room_num) {
                     $('.chat-container').append(
-                        `<div class="mycomment"><p>${room_name.content}</p></div>`
+                        `<div class="mycomment"><p>${room_num.content}</p></div>`
                     );
                 });
          })
 
     }
 
+    //chat内容の更新。登録。
     function addmessage(str){
         var chat = $('.chat-area').val();
-        //alert(str);
+        str = Number(str);
+        if(chat != "" && room_num != 0){
+            $.ajax({
+                type: 'get', // リクエストのタイプ
+                url: 'message/createchat', // リクエストを送信するURL
+                data:  { text : chat, room : room_num, user : str}, // サーバーに送信するデータ
+                dataType: 'json' // サーバーから返却される型
+            })
+            .done(function(data){ // dataにはレスポンスされたデータが入る
+                    $('.chat-container div').remove();
+                    //console.log(data);
 
-        $.ajax({
-            type: 'POST', // リクエストのタイプ
-            url: 'message/createchat', // リクエストを送信するURL
-            data:  { text : chat, room : room_num, user : str}, // サーバーに送信するデータ
-            dataType: 'json' // サーバーから返却される型
-        })
-        .done(function(data){ // dataにはレスポンスされたデータが入る
-                $('.chat-container div').remove();
-                console.log(data);
-
-                $(data).each(function(i,room_name) {
-                    $('.chat-container').append(
-                        `<div class="mycomment"><p>${room_name.content}</p></div>`
-                    );
-                });
-         })
+                    $(data).each(function(i,room_num) {
+                        $('.chat-container').append(
+                            `<div class="mycomment"><p>${room_num.content}</p></div>`
+                        );
+                    });
+            })
+        }
 
          //valを削除
         $('.chat-area').val("");
