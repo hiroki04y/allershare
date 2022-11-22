@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         # @userが存在するかどうかを判定するif
         if @user
             session[:user_id] = @user.id
-            flash[:notice] = "ログインしました"
+            flash[:notice] = "ようこそallershareへ"
             redirect_to("/users/index")
         else
             @error_message = "メールアドレスまたはパスワードが間違っています"
@@ -40,7 +40,8 @@ class UsersController < ApplicationController
     def create
         @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.png")
         if @user.save
-          flash[:notice] = "ユーザー登録が完了しました"
+          session[:user_id] = @user.id
+          flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
             render :signup,status: :unprocessable_entity
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
         end
 
         if @user.save
-            flash[:notice] = "ユーザー情報を編集しました"
+            flash[:notice] = "アカウント情報を編集しました"
             redirect_to("/users/#{@user.id}")
         else
             render :edit,status: :unprocessable_entity
@@ -76,8 +77,9 @@ class UsersController < ApplicationController
         if User.find(params[:id]).image_name != "default_image.png"
             File.delete("public/user_images/#{params[:id]}.jpg")
         end
+        session[:user_id] = nil
         User.find(params[:id]).destroy
-        flash[:notice] = "ユーザを削除しました"
+        flash[:notice] = "アカウントを削除しました"
         redirect_to("/login")
     end
     

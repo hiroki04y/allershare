@@ -8,7 +8,7 @@
         <ul>
         <% @room.each do |post| %>
             <li class="chat-list">
-                <a href="#index"><%= post.roomname %></a>
+                <a href="#<%= post.roomname %>" id="room"><%= post.roomname %></a>
             </li>
         <% end %>
         </ul>
@@ -60,6 +60,7 @@
 </div>
 
 <script>
+    // 高さ調節script
     document.getElementById('textarea').focus();
     var chat = document.getElementsByClassName('chat-container');
     chat[0].scrollTop = chat[0].scrollHeight;
@@ -73,6 +74,7 @@
 
     $(function () {
         var room
+        // room検索script
         $('#roomsearch').on('keyup', function (e) {
             if (e.which == 13) {
                 // 何もせずに処理を終える
@@ -99,6 +101,10 @@
                 });
             })
 
+        });
+
+        $('#room').on('click', function () {
+            alert("クリックされたよ！！！");
         });
 
     });
