@@ -22,7 +22,8 @@ Rails.application.routes.draw do
 
   namespace :message do 
     resources :search, only: :index, defaults: { format: :json }
+    resources :sendchat, only: :index, defaults: { format: :json }
+    resources :createchat, only: :index, defaults: { format: :json }
   end
-
   resources :message
 end

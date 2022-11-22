@@ -7,8 +7,9 @@
     <div class="grouplist">
         <ul>
         <% @room.each do |post| %>
+            <% id = post.roomname %>
             <li class="chat-list">
-                <a href="#<%= post.roomname %>" id="room"><%= post.roomname %></a>
+                <a id="#<%= post.id %>" href="#<%= post.roomname %>" onclick="roomchange(this.text,this.id)"><%= post.roomname %></a>
             </li>
         <% end %>
         </ul>
@@ -16,8 +17,7 @@
 </div>
 <div class="base2">
     <div class="partner">
-        <img src="/user_images/default_user.jpg" width=40 height=40>
-        <div class="send_username">testuser</div>
+        <div class="send_group">お知らせ</div>
     </div>
     <div class="chat-container">
         <div class="mycomment">
@@ -55,7 +55,7 @@
 
     <div class="sendchat">
         <textarea id="textarea" class="chat-area" placeholder="メッセージを入力" style="overflow:hidden;"></textarea>
-        <button class="chat-sendbutton">送信</button>
+        <button class="chat-sendbutton" onclick="addmessage(<%= session[:user_id] %>)">送信</button>
     </div>
 </div>
 
@@ -72,8 +72,9 @@
         })
     })
 
+    var room //チャット検索用
+    var room_num = 0 //チャット送信用
     $(function () {
-        var room
         // room検索script
         $('#roomsearch').on('keyup', function (e) {
             if (e.which == 13) {
@@ -81,7 +82,7 @@
                 return false;
             }
             room = $.trim($(this).val());
-            console.log(room); // 検索窓の値が取れているか確認
+            //console.log(room); // 検索窓の値が取れているか確認
 
             $.ajax({
                 type: 'GET', // リクエストのタイプ
@@ -89,10 +90,9 @@
                 data:  { roomname: room }, // サーバーに送信するデータ
                 dataType: 'json' // サーバーから返却される型
             })
-
             .done(function(data){ // dataにはレスポンスされたデータが入る
                 $('.grouplist li').remove();
-                console.log(data);
+                // console.log(data);
 
                 $(data).each(function(i,room) {
                     $('.grouplist ul').append(
@@ -102,10 +102,56 @@
             })
 
         });
-
-        $('#room').on('click', function () {
-            alert("クリックされたよ！！！");
-        });
-
     });
+
+    // room名を変更する
+    function roomchange(name,id){
+        $('.send_group').html(name);
+        room_name = Number(id.substr( 1, 1 ));
+        //alert(room_name)
+
+        $.ajax({
+            type: 'GET', // リクエストのタイプ
+            url: 'message/sendchat', // リクエストを送信するURL
+            data:  { room: room_num }, // サーバーに送信するデータ
+            dataType: 'json' // サーバーから返却される型
+        })
+        .done(function(data){ // dataにはレスポンスされたデータが入る
+                $('.chat-container div').remove();
+                //console.log(data);
+
+                $(data).each(function(i,room_num) {
+                    $('.chat-container').append(
+                        `<div class="mycomment"><p>${room_name.content}</p></div>`
+                    );
+                });
+         })
+
+    }
+
+    function addmessage(str){
+        var chat = $('.chat-area').val();
+        //alert(str);
+
+        $.ajax({
+            type: 'POST', // リクエストのタイプ
+            url: 'message/createchat', // リクエストを送信するURL
+            data:  { text : chat, room : room_num, user : str}, // サーバーに送信するデータ
+            dataType: 'json' // サーバーから返却される型
+        })
+        .done(function(data){ // dataにはレスポンスされたデータが入る
+                $('.chat-container div').remove();
+                console.log(data);
+
+                $(data).each(function(i,room_name) {
+                    $('.chat-container').append(
+                        `<div class="mycomment"><p>${room_name.content}</p></div>`
+                    );
+                });
+         })
+
+         //valを削除
+        $('.chat-area').val("");
+    }
+
 </script>

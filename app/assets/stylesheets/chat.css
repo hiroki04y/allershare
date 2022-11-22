@@ -60,16 +60,12 @@
     border-color:#9e9e9e;
     margin-top:5px;
 }
-.partner img{
-    margin-left:10px;
-    margin-right:10px;
-    float:left;
-    border-radius: 50%;
-}
 
-.send_username{
+.send_group{
     line-height:40px;
     font-size:20px;
+    margin-left:20px;
+    font-weight: bold;
 }
 
 
