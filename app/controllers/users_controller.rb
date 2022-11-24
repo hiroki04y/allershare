@@ -74,7 +74,7 @@ class UsersController < ApplicationController
 
 
     def destroy
-        chats = ChatMessage.where(user_id : "#{params[:id]}")
+        chats = ChatMessage.where("user_id = ?", "#{params[:id]}")
         chats.each do |chat|
             chat.destroy
         end
