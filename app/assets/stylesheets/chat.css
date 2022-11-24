@@ -151,7 +151,6 @@
 
   .paircomment {
     position: relative;
-    margin-top:10px;
   }
 
   .pair-icon{
@@ -174,6 +173,7 @@
     top:-10px;
     left: 52px;
     padding: 8px;
+    width:fit-content;
     max-width: 400px;
     border-radius: 12px;
     background: #f0f0f0;
