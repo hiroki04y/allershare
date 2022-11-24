@@ -8,11 +8,12 @@
       <!-- メールアドレス -->
       <p><%= @user.email%></p>
       <%# セッションのユーザと参照しているユーザが同じなら %>
-      <% if Integer(cookies[:user_id]) == @user.id %>
-        <%= link_to("編集", "/users/#{@user.id}/edit") %>
-        <%= link_to("アカウント削除", "/users/#{@user.id}/destroy") %>
-      <% end %>
+
       <% if cookies[:user_id] %>
+        <% if Integer(cookies[:user_id]) == @user.id %>
+          <%= link_to("編集", "/users/#{@user.id}/edit") %>
+          <%= link_to("アカウント削除", "/users/#{@user.id}/destroy") %>
+        <% end %>
         <%= link_to("ログアウト", "/logout") %>
       <% end %>
     </div>

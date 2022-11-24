@@ -82,7 +82,7 @@
 .chat-area{
     font-size:18px;
     padding: 13px;
-    width:67%;
+    width:68vw;
     height: calc( 1.27em * 2);
     line-height: 1.1;
     max-height: 150px;
@@ -96,7 +96,8 @@
 .chat-sendbutton{
   position:absolute;
   bottom:8px;
-  left:73%;
+  left:78%;
+  transform: translateX(-100%);
   width:60px;
   height:40px;
   border-radius:20%;
@@ -138,6 +139,22 @@
     font-size: 15px;
     overflow-wrap:  break-word;
   }
+
+  @media (max-width: 600px) {
+    .mycomment p {
+      display: inline-block;
+      position: relative; 
+      left: 97%;
+      margin-top:13px;
+      transform: translateX(-100%);
+      padding: 8px;
+      max-width: 250px;
+      border-radius: 12px;
+      background: #a0ffff;
+      font-size: 15px;
+      overflow-wrap:  break-word;
+    }
+  }
   
   .mycomment p:after {
     content: "";
@@ -175,12 +192,28 @@
     left: 52px;
     padding: 8px;
     width:fit-content;
-    max-width: 400px;
+    max-width: 380px;
     border-radius: 12px;
     background: #f0f0f0;
     font-size: 15px;
     overflow-wrap:  break-word;
   }
+
+  @media (max-width: 600px) {
+    .paircomment p {
+      position: relative;
+      top:-8px;
+      left: 52px;
+      padding: 8px;
+      width:fit-content;
+      max-width: 250px;
+      border-radius: 12px;
+      background: #f0f0f0;
+      font-size: 15px;
+      overflow-wrap:  break-word;
+    }
+  }
+  
   
   .paircomment p:after {
     content: "";
