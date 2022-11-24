@@ -22,45 +22,13 @@
     </div>
     <div class="chat-container">
         <div class="paircomment">
+            <img src="/rogo.png" class="pair-icon" width=33 height=33>
+            <div class="pair-name">allershare管理人</div>
             <p>
             グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
             </p>
         </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
-        <div class="paircomment">
-            <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
-            </p>
-        </div>
+        
     </div>
 
 
@@ -143,16 +111,20 @@
         })
         .done(function(data){ // dataにはレスポンスされたデータが入る
                 $('.chat-container div').remove();
-                //console.log(data);
+                console.log(data);
 
                 $(data).each(function(i,room) {
-                    if (room.user == usr) {
+                    if (room.user_id == usr) {
                             $('.chat-container').append(
                                 `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
                             );
                         }else{
                             $('.chat-container').append(
-                                `<div class="paircomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
+                                `<div class="paircomment">
+                                <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
+                                <div class="pair-name">${room.name}</div>
+                                <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
+                                </div>`  
                             );
                         }
                 });
@@ -173,16 +145,20 @@
             })
             .done(function(data){ // dataにはレスポンスされたデータが入る
                     $('.chat-container div').remove();
-                    //console.log(data);
+                    console.log(data);
 
                     $(data).each(function(i,room) {
-                        if (room.user == usr) {
+                        if (room.user_id == usr) {
                             $('.chat-container').append(
                                 `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
                             );
                         }else{
                             $('.chat-container').append(
-                                `<div class="paircomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
+                                `<div class="paircomment">
+                                <img src="/rogo.png" class="pair-icon" width=33 height=33>
+                                <div class="pair-name">${room.email}</div>
+                                <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
+                                </div>`    
                             );
                         }
                     });

@@ -153,10 +153,26 @@
     position: relative;
     margin-top:10px;
   }
+
+  .pair-icon{
+    display:inline-block;
+    position:relative;
+    top:8px;
+    left:10px;
+    border-radius:50%;
+  }
+
+  .pair-name{
+    display:inline-block;
+    font-size:11px;
+    position:relative;
+    left:10px;
+    color:#9e9e9e;
+  }
   .paircomment p {
-    display: inline-block;
-    position: relative; 
-    left: 25px;
+    position: relative;
+    top:-10px;
+    left: 52px;
     padding: 8px;
     max-width: 400px;
     border-radius: 12px;

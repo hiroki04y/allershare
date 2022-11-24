@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
 
     def create
-        @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.png")
+        @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.jpg")
         if @user.save
           session[:user_id] = @user.id
           flash[:notice] = "アカウントを作成しました"
@@ -74,7 +74,11 @@ class UsersController < ApplicationController
 
 
     def destroy
-        if User.find(params[:id]).image_name != "default_image.png"
+        chats = ChatMessage.where(user_id : "#{params[:id]}")
+        chats.each do |chat|
+            chat.destroy
+        end
+        if User.find(params[:id]).image_name != "default_image.jpg"
             File.delete("public/user_images/#{params[:id]}.jpg")
         end
         session[:user_id] = nil
