@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:email], password: params[:password])
         # @userが存在するかどうかを判定するif
         if @user
-            session[:user_id] = @user.id
+            cookies.permanent[:user_id] = @user.id
             flash[:notice] = "ようこそallershareへ"
             redirect_to("/users/index")
         else
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     end
 
     def logout
-        session[:user_id] = nil
+        cookies.delete :user_id
         flash[:notice] = "ログアウトしました"
         redirect_to("/login")
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.jpg")
         if @user.save
-          session[:user_id] = @user.id
+          cookies.permanent[:user_id] = @user.id
           flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
         if User.find(params[:id]).image_name != "default_image.jpg"
             File.delete("public/user_images/#{params[:id]}.jpg")
         end
-        session[:user_id] = nil
+        cookies.delete :user_id
         User.find(params[:id]).destroy
         flash[:notice] = "アカウントを削除しました"
         redirect_to("/login")

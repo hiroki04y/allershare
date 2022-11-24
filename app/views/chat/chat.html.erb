@@ -1,4 +1,4 @@
-<% if session[:user_id] %>
+<% if cookies[:user_id] %>
 <div class="base">
     <!-- 検索ボタン -->
         <div class="input-group mt-2 mx-2 w90">
@@ -10,7 +10,7 @@
         <% @room.each do |post| %>
             <% id = post.roomname %>
             <li class="chat-list">
-                <a id="#<%= post.id %>" href="#<%= post.roomname %>" onclick="roomchange(this.text,this.id,<%= session[:user_id] %>)"><%= post.roomname %></a>
+                <a id="#<%= post.id %>" href="#<%= post.roomname %>" onclick="roomchange(this.text,this.id,<%= cookies[:user_id] %>)"><%= post.roomname %></a>
             </li>
         <% end %>
         </ul>
@@ -34,7 +34,7 @@
 
     <div class="sendchat">
         <textarea id="textarea" class="chat-area" placeholder="メッセージを入力" style="overflow:hidden;"></textarea>
-        <button class="chat-sendbutton" onclick="addmessage(<%= session[:user_id] %>)">送信</button>
+        <button class="chat-sendbutton" onclick="addmessage(<%= cookies[:user_id] %>)">送信</button>
     </div>
 </div>
 <% else %>
