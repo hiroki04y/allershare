@@ -13,7 +13,9 @@
 .search_container{
     position: absolute;
     top: 20px;
-    left: 38%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     box-sizing: border-box;
     border: 1px solid #a4e38b;
     background-color: #ffffff;
