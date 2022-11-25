@@ -1,9 +1,9 @@
 <% if cookies[:user_id] %>
 <div class="base">
     <!-- 検索ボタン -->
-        <div class="input-group mt-2 mx-2 w90">
-            <input type="text" id="roomsearch" placeholder="チャットグループを検索">
-        </div>
+    <div class="input-group mt-2 mx-2 w90">
+        <input type="text" id="roomsearch" placeholder="チャットグループを検索">
+    </div>
     <!-- グループリスト -->
     <div class="grouplist">
         <ul>
@@ -25,7 +25,7 @@
             <img src="/rogo.png" class="pair-icon" width=33 height=33>
             <div class="pair-name">allershare管理人</div>
             <p>
-            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成しました。
+            グループを選択するとメッセージが送信できるようになっています。<br>chatの基礎的な部分は完成
             </p>
         </div>
         
@@ -136,6 +136,7 @@
     //chat内容の更新。登録。
     function addmessage(usr){
         var cont = $('.chat-area').val();
+        $('.chat-area').css('background-color','orange');
         if(cont != "" && room_num != 0){
             $.ajax({
                 type: 'get', // リクエストのタイプ
@@ -155,7 +156,7 @@
                         }else{
                             $('.chat-container').append(
                                 `<div class="paircomment">
-                                <img src="/rogo.png" class="pair-icon" width=33 height=33>
+                                <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
                                 <div class="pair-name">${room.email}</div>
                                 <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
                                 </div>`    
