@@ -1,0 +1,2 @@
+class BlogViewController < ApplicationController
+end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   
   get '/blog' => 'blog#blog'
+  get '/blog_view' => 'blog_view#blog_view'
 
   #ユーザ関連
   get '/login' => 'users#login_form'
