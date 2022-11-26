@@ -3,16 +3,23 @@
     position:fixed;
     width:20%;
     height:100%;
-    border-right: 2px solid;
-    border-color: #9e9e9e;
 }
 
 .w90{
-    width:95%;
+  width:95%;
 }
 
 .grouplist {
-    left:0px;
+  left:0px;
+}
+
+.grouplogo {
+  float:left;
+  margin-top:11px;
+  width:40px;
+  height:40px;
+  margin-left:5px;
+  border-radius:50%;
 }
 
 .grouplist ul {
@@ -28,20 +35,49 @@
 }
 .chat-list a{
   position:relative;
-  left:20%;
+  left:2%;
   font-size:20px;
+}
+
+.changeroom{
+  position:relative;
+  width:100%;
+  height:40px;
+}
+
+.group{
+  float:right;
+  background-color:white;
+  text-align:center;
+  color:rgb(55, 175, 65);
+}
+
+.parson{
+  float:left;
+  background-color:rgba(230,230,230,40%);
+  text-align:center;
+  color:black;
+}
+
+.select{
+  width:50%;
+  height:40px;
+  text-align:center;
+  padding-top:9px;
+  cursor:pointer;
+  white-space: nowrap
 }
 
 #roomsearch{
   position:relative;
-  left:50%;
+  left:49%;
   transform: translateX(-50%);
   font-size:14px;
   padding-left: 15px;
-  width:80%;
+  width:90%;
   min-height:40px;
   resize: none;
-  border-radius:20px;
+  border-radius:10px;
   border: 1px solid #aeafaf;
 }
 
@@ -52,23 +88,25 @@
     left:20%;
     width:100%;
     height:100%;
+    background-color:#fff7fc;
     /* z-index:10; */
 }
 
 .partner{
-    height:45px;
+    height:36px;
     width:100%;
-    border-bottom:2px solid;
-    border-color:#9e9e9e;
+    border-bottom:1px solid;
+    border-color:#eae8e8;
     margin-top:5px;
     z-index:5;
 }
 
 .send_group{
-    line-height:40px;
-    font-size:20px;
+    line-height:31px;
+    font-size:18px;
     margin-left:20px;
     font-weight: bold;
+    float:left;
 }
 
 
@@ -76,9 +114,7 @@
     width:100%;
     position:fixed;
     bottom:2px;
-    border-top:2px solid;
-    border-color:#9e9e9e;
-    background-color:white;
+    background-color:#fff7fc;
 }
 
 .chat-area{
@@ -91,7 +127,6 @@
     margin-left:35px;
     margin-top:8px;
     border-radius:20px;
-    border: 1px solid #aeafaf;
     resize: none;
 }
 
@@ -115,8 +150,7 @@
     height:68.5%;
     max-height:68%;
     min-height:50%;
-    border: 2px;
-    background-color:rgb(255, 255, 255);
+    background-color:#fff7fc;
     overflow: scroll;
     margin-top:5px;
 }
