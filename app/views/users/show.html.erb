@@ -5,16 +5,18 @@
       <img src="<%="/user_images/#{@user.image_name}"%>">
       <!-- ユーザ名 -->
       <h2><%= @user.name%></h2>
-      <!-- メールアドレス -->
-      <p><%= @user.email%></p>
       <%# セッションのユーザと参照しているユーザが同じなら %>
 
       <% if cookies[:user_id] %>
         <% if Integer(cookies[:user_id]) == @user.id %>
+          <p><%= @user.email%></p>
           <%= link_to("編集", "/users/#{@user.id}/edit") %>
           <%= link_to("アカウント削除", "/users/#{@user.id}/destroy") %>
+          <%= link_to "ログアウト", "/logout" %>
+        <% else %>
+          <p></p>
+          <%= link_to "ダイレクトメッセージに追加", "/follow" ,users_follow_path(:user1 => "#{cookies[:user_id]}", :user2 => "#{@user_id}") %>
         <% end %>
-        <%= link_to("ログアウト", "/logout") %>
       <% end %>
     </div>
   </div>

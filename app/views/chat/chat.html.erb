@@ -1,12 +1,14 @@
 <% if cookies[:user_id] %>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="base">
     <!-- 検索ボタン -->
     <div class="changeroom">
         <div class="parson select">個人</div>
         <div class="group select">グループ</div>
     </div>
-    <div class="input-group mt-2 mx-2 w90">
-        <input type="text" id="roomsearch" placeholder="チャットグループを検索">
+    <div id="roomsearch">
+        <input type="text" id="roomtext" placeholder="グループを検索">
+        <input type="submit" id="roomsubmit" value="&#xf002">
     </div>
     <!-- グループリスト -->
     <div class="grouplist">
@@ -28,7 +30,7 @@
     <div class="chat-container">
         <div class="paircomment">
             <img src="/rogo.png" class="pair-icon" width=33 height=33>
-            <div class="pair-name">allershare管理人</div>
+            <div class="pair-name">allershare公式</div>
             <p>
             <% @top.each do |post| %>
                 <%= post.content.gsub(/\n|\r|\r\n/, "<br>").html_safe %>
@@ -88,13 +90,15 @@
     })
 
 
-    // 個人チャットとグループチャットを変更-----------------------------------------
+    // 個人チャットとグループチャットを変更------------------------------------------
     $(function () {
+        //グループを選択時----------------------------------------------------------
         $('.group').on('click', function(){
             $(this).css('background-color','white');
             $(this).css('color','rgb(55, 175, 65)');
             $('.parson').css('background-color','rgba(230,230,230,40%)');
             $('.parson').css('color','black');
+            $(roomtext).attr('placeholder','グループを検索');
             ch = "1"
 
             $.ajax({
@@ -120,11 +124,13 @@
             
         })
 
+        //個人チャットを選択時---------------------------------------------------------------
         $('.parson').on('click', function(){
             $(this).css('background-color','white');
             $(this).css('color','rgb(55, 175, 65)');
             $('.group').css('background-color','rgba(230,230,230,40%)');
             $('.group').css('color','black');
+            $(roomtext).attr('placeholder','アカウントを検索');
             ch = "2"
             $.ajax({
                 type: 'GET', // リクエストのタイプ
@@ -158,12 +164,8 @@
     $(function () {
 
         // room検索script
-        $('#roomsearch').on('keyup', function (e) {
-            if (e.which == 13) {
-                // 何もせずに処理を終える
-                return false;
-            }
-            room = $.trim($(this).val());
+        $('#roomsubmit').on('click', function () {
+            room = $.trim($(roomtext).val());
             //console.log(room); // 検索窓の値が取れているか確認
 
             $.ajax({
@@ -182,7 +184,7 @@
                 if(ch == "1"){
                     $(data).each(function(i,room) {
                         $('.grouplist ul').append(
-                            `<img src="/user_images/${room.image_name}" class="grouplogo">
+                            `<img src="/user_images/default_image.jpg" class="grouplogo">
                             <li class="chat-list"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
                         );
                     });
@@ -199,7 +201,7 @@
         });
     });
 
-    // グループをクリックでグループのルームに飛ぶ----------------------------------------
+    // 左側の選択グループをクリックでグループのルームに飛ぶ----------------------------------------
     function roomchange(name,id,usr){
         $('.send_group').html(name);
         $(".chat-list").css('background-color','white');

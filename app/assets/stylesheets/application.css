@@ -105,6 +105,8 @@ header {
 }
 .header-menus img{
   border-radius: 50%;
+  box-shadow: 0 2px 18px #c1ced7;
+  object-fit: cover;
   margin-top:-4px;
 }
 

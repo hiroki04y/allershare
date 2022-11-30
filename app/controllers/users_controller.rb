@@ -44,6 +44,9 @@ class UsersController < ApplicationController
           flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
+            @name = params[:name]
+            @email = params[:email]
+            @password = params[:password]
             render :signup,status: :unprocessable_entity
         end
     end
@@ -70,6 +73,16 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:id])
+    end
+
+    def follow
+        @user = FollowUser.new(user1_id: params[:user1], user2_id: params[:user2])
+        if @user.save
+            flash[:notice] = "フォローしました"
+            redirect_to("/top")
+        else
+            redirect_to("/users/index")
+        end
     end
 
 
