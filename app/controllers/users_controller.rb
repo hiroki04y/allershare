@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+    # ログインしている場合の処理
+    before_action :forbid_login_user, {only:[:signup,:create,:login_form,:login]}
+
+
     def signup
         @user = User.new
     end
@@ -75,17 +79,6 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
     end
 
-    def follow
-        @user = FollowUser.new(user1_id: params[:user1], user2_id: params[:user2])
-        if @user.save
-            flash[:notice] = "フォローしました"
-            redirect_to("/top")
-        else
-            redirect_to("/users/index")
-        end
-    end
-
-
     def destroy
         chats = ChatMessage.where("user_id = ?", "#{params[:id]}")
         chats.each do |chat|
@@ -98,6 +91,16 @@ class UsersController < ApplicationController
         User.find(params[:id]).destroy
         flash[:notice] = "アカウントを削除しました"
         redirect_to("/login")
+    end
+
+    def follows
+        user = User.find(params[:id])
+        @users = user.following_user.page(params[:page]).per(3).reverse_order
+    end
+      
+    def followers
+        user = User.find(params[:id])
+        @users = user.follower_user.page(params[:page]).per(3).reverse_order
     end
     
 end

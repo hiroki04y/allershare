@@ -286,3 +286,18 @@
   }
 
 
+
+  /* ログインしていない場合 */
+  .chat-login{
+    position: relative;
+    resize: none;
+    left: 15%;
+    width: 70%;
+    min-width: 600px;
+    min-height: 550px;
+    height: 550px;
+    margin-top:30px;
+    display: flex;
+  }
+
+

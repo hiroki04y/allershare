@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_045727) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_003547) do
   create_table "chat_messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
@@ -36,6 +36,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_045727) do
     t.index ["send_id"], name: "index_personal_chats_on_send_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -48,4 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_045727) do
   add_foreign_key "chat_messages", "users"
   add_foreign_key "personal_chats", "pairs"
   add_foreign_key "personal_chats", "sends"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end

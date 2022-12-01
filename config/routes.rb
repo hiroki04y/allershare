@@ -7,6 +7,16 @@ Rails.application.routes.draw do
   get '/blog_view' => 'blog_view#blog_view'
 
   #ユーザ関連
+  resources :users, only:[:show, :edit, :update] do
+    member do
+      get :follows, :followers
+    end
+    resource :relationships, only: [:create]
+    resource :deleterelationships, only: [:create]
+  end
+  get '/users/:user_id/relationships'=> 'relationship#create'
+  get '/users/:user_id/deleterelationships' => 'relationship#destroy'
+
   get '/login' => 'users#login_form'
   post "/login" => "users#login"
   get '/logout' => "users#logout"
@@ -28,4 +38,5 @@ Rails.application.routes.draw do
     resources :createchat, only: :index, defaults: { format: :json }
   end
   resources :message
+
 end
