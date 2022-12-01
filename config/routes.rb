@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/blog_view' => 'blog_view#blog_view'
 
   #ユーザ関連
-  resources :users, only:[:show, :edit, :update] do
+  resources :users, only:[:edit, :update] do
     member do
       get :follows, :followers
     end
