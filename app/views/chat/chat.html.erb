@@ -23,21 +23,14 @@
         </ul>
     </div>
 </div>
+<div class="base3">
+    <p>左から既存の会話を選択してください</p>
+</div>
 <div class="base2">
     <div class="partner">
         <div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= cookies[:user_id] %></div>
     </div>
     <div class="chat-container">
-        <div class="paircomment">
-            <img src="/rogo.png" class="pair-icon" width=33 height=33>
-            <div class="pair-name">allershare公式</div>
-            <p>
-            <% @top.each do |post| %>
-                <%= post.content.gsub(/\n|\r|\r\n/, "<br>").html_safe %>
-            <% end %>
-            </p>
-        </div>
-        
     </div>
 
 
@@ -116,7 +109,7 @@
         this.addEventListener('keyup',function(e){
             e.srcElement.style.height = 0
             e.srcElement.style.height = e.srcElement.scrollHeight+"px"
-            chat[0].style.height = 450 - e.srcElement.scrollHeight+"px"
+            chat[0].style.height = 475 - e.srcElement.scrollHeight+"px"
             scroll(1);
         })
     })
@@ -149,7 +142,7 @@
                 $(data).each(function(i,room) {
                     $('.grouplist ul').append(
                         `<img src="/user_images/default_image.jpg" class="grouplogo">
-                        <li class="chat-list"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
+                        <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
                     );
                 });
             })
@@ -180,7 +173,7 @@
                 $(data).each(function(i,room) {
                     $('.grouplist ul').append(
                         `<img src="/user_images/${room.image_name}" class="grouplogo">
-                        <li class="chat-list"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
+                        <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
                     );
                 });
             })
@@ -195,10 +188,11 @@
     var room_num = 0 //チャット送信用
     $(function () {
 
-        // room検索script
+        // room検索script ボタン用
         $('#roomsubmit').on('click', function () {
             room = $.trim($(roomtext).val());
             //console.log(room); // 検索窓の値が取れているか確認
+            //alert(e);
 
             $.ajax({
                 type: 'GET', // リクエストのタイプ
@@ -217,18 +211,57 @@
                     $(data).each(function(i,room) {
                         $('.grouplist ul').append(
                             `<img src="/user_images/default_image.jpg" class="grouplogo">
-                            <li class="chat-list"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
+                            <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
                         );
                     });
                 }else{
                     $(data).each(function(i,room) {
                         $('.grouplist ul').append(
                             `<img src="/user_images/${room.image_name}" class="grouplogo">
-                            <li class="chat-list"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
+                            <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
                         );
                     });
                 }
             })
+
+        });
+
+        //Enterを押したときにも同じ処理
+        $(roomtext).on('keypress', function (e) {
+            room = $.trim($(this).val());
+            console.log(room); // 検索窓の値が取れているか確認
+            //console.log(e);
+            if(e.keyCode == 13){
+                $.ajax({
+                    type: 'GET', // リクエストのタイプ
+                    url: 'message/search', // リクエストを送信するURL
+                    data:  { roomname: room , id: ch}, // サーバーに送信するデータ
+                    dataType: 'json' // サーバーから返却される型
+                })
+                .done(function(data){ // dataにはレスポンスされたデータが入る
+                    $('.grouplist ul').remove();
+                    //console.log(data);
+                    $('.grouplist').append(
+                        '<ul></ul>'
+                    )
+
+                    if(ch == "1"){
+                        $(data).each(function(i,room) {
+                            $('.grouplist ul').append(
+                                `<img src="/user_images/default_image.jpg" class="grouplogo">
+                                <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.roomname }" onclick="roomchange(this.text,this.id,${cookie})">${room.roomname}</a></li>`
+                            );
+                        });
+                    }else{
+                        $(data).each(function(i,room) {
+                            $('.grouplist ul').append(
+                                `<img src="/user_images/${room.image_name}" class="grouplogo">
+                                <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
+                            );
+                        });
+                    }
+                })
+            }
 
         });
     });
@@ -238,6 +271,7 @@
         $('.send_group').html(name);
         $(".chat-list").css('background-color','white');
         $(".-" + id).css('background-color','#fffff0');
+        $(".base3").css("visibility", "hidden");
         room_num = Number(id);
         //alert(id)
 
