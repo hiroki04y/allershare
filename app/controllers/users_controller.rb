@@ -69,12 +69,12 @@ class UsersController < ApplicationController
     end
 
     def imagechange
+        @user = User.find_by(id: params[:id])
         if params[:image]
             @user.image_name = "#{@user.id}.jpg"
             image = params[:image]
             File.binwrite("public/user_images/#{@user.image_name}", image.read)
             @user.save
-            redirect_to("/users/#{@user.id}")
         end
     end
 
