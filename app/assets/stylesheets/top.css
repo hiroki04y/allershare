@@ -3,16 +3,61 @@
     background-color: #fff7fc;
 }
 
+.exp{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #fed1e6;
+    box-shadow: 0 3px 6px #d6d6d6;
+}
+
+.exp1{
+    position: relative;
+    color:#a4e38b;
+    top: 65px;
+    left: 34%;
+    text-shadow:
+    1px 0 0 #ffffff,
+    0 1px 0 #ffffff,
+    -1px 0 0 #ffffff,
+    0 -1px 0 #ffffff;
+}
+
+.exp2{
+    position: relative;
+    color:#2d2d2d;
+    top: -20px;
+    left: 32%;
+}
+
+.hianimal-logo{
+    position: relative;
+    bottom:10px;
+    left: 25%;
+}
+
+.rianimal-logo{
+    position: relative;
+    top:30%;
+    left: 73%;
+}
+
+.peanimal-logo{
+    position: relative;
+    top:27%;
+    left: 73%;
+}
+
 .t1{
     position: relative;
     display: flex;
     width: 100%;
-    height: 80px;
+    height: 108px;
 }
 
 .search_container{
     position: absolute;
-    top: 20px;
+    top: 36px;
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -49,7 +94,7 @@
 
 .blog-genre{
     position: absolute;
-    top: 50px;
+    top: 80px;
     left: 15%;
     color: #9b9b9b;
 }
@@ -150,10 +195,10 @@
     resize: none;
     position: relative;
     text-align: center;
-    width: 500px;
+    width: 345px;
     height: 250px;
     padding: 10px;
-    min-width: 400px;
+    min-width: 345px;
     min-height: 250px;
     margin-bottom: 100px;
     border: 1px
@@ -168,8 +213,8 @@
     left: 15%;
     width: 70%;
     min-width: 600px;
-    min-height: 550px;
-    height: 550px;
+    min-height: 530px;
+    height: 530px;
     display: flex;
 }
 
