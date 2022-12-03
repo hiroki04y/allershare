@@ -153,6 +153,7 @@
 .blog_pickup{
     position: relative;
     color: #9b9b9b;
+    width: 100px;
     top: 10px;
     left: 39%;
 }
