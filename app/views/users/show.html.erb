@@ -1,8 +1,33 @@
 <div class="main user-show">
-  <div class="container">
+  <div class="mycontainer">
+    <div class="user_index"><b>ユーザ情報</b></div>
     <div class="user">
-      <%# アイコン %>
-      <img src="<%="/user_images/#{@user.image_name}"%>">
+      <div class="user_left">
+      <p>ユーザ名<br>プロフィール画像<br><br>メールアドレス<br>パスワード<br>自己紹介<br><br>アレルギー</p>
+      </div>
+      <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
+        <div class="user_border">
+          <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
+        </div>
+        <div class="user_borderbig">
+          <img name="image" src="<%="/user_images/#{@user.image_name}"%>">
+          <input type="button" id="iconimage" class="show_submit" value="アイコン編集">
+        </div>
+        <div class="user_border">
+          <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
+        </div>
+        <div class="user_border">
+          <h5>******</h5>
+        </div>
+        <div class="user_borderbig">
+          <textarea name="myinto" maxlength="140" placeholder="140字以内" rows="10"></textarea>
+        </div>
+        <div class="user_borderbig">
+        </div>
+        <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
+        <input type="submit" class="user_save" value="保存する">
+        </div>
+      <% end %>
       <!-- ユーザ名 -->
       <h2><%= @user.name%></h2>
       <%# セッションのユーザと参照しているユーザが同じなら %>
@@ -21,6 +46,58 @@
           <% end %>
         <% end %>
       <% end %>
+  
+  </div>
+  <div class="t7">
+    <img src="/header.jpg" class="under-logo" width=220 height=60>
+    <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
+  </div>
+
+  <div class="imagecover">
+    <div class="imagepopup"></div>
+    <div class="imageselect">
+      <%= form_with model: @recipe, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :image, class: "newselect" do %>
+            <b>画像を選択</b>
+            <%= f.file_field :image,style:"display:none;" %>
+          <% end %>
+        </div>
+        <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div> 
+        <input type="button" class="new-imagebutton" value="保存">
+      <% end %>
     </div>
   </div>
 </div>
+
+<script>
+var blob;
+$(function(){
+  $('.show_submit').click(function(){
+    $('.imagecover').fadeIn(300);
+  });
+  $('.imagepopup').click(function(){
+    $('.imagecover').fadeOut(300);
+  })
+  $('.new-imagebutton').click(function(){
+    $('.imagecover').fadeOut(300);
+    $(".user_borderbig img").attr('src', blob)
+  })
+});
+
+const createImageHTML = (blob) => {  
+   $("#new-image img").remove();
+   const imageElement = document.getElementById('new-image'); 
+   const blobImage = document.createElement('img'); 
+   blobImage.setAttribute('class', 'new-img') 
+   blobImage.setAttribute('src', blob); 
+   imageElement.appendChild(blobImage);
+}; 
+
+document.getElementById('image').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  blob = window.URL.createObjectURL(file);
+  createImageHTML(blob);
+});
+
+</script>
