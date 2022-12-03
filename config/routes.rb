@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => "home#top"
   get '/signup' => "users#signup"
+  get '/test' => 'test#test'
   
   
   get '/blog' => 'blog#blog'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show'
   post '/users/create' => 'users#create'
   post '/users/:id/change' => 'users#change'
+  post '/users/:id/imagechange' => 'users#imagechange'
   get 'users/:id/destroy' => "users#destroy"
   post 'users/:id/destroy' => "users#destroy"
   get 'follow' => "users#follow"
