@@ -56,7 +56,7 @@
   <div class="imagecover">
     <div class="imagepopup"></div>
     <div class="imageselect">
-      <%= form_with model: @recipe, local: true do |f| %>
+      <%= form_with do |f| %>
         <div class="form-group">
           <%= f.label :image, class: "newselect" do %>
             <b>画像を選択</b>
