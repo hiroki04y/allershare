@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post '/users/create' => 'users#create'
   post '/users/:id/change' => 'users#change'
   post '/users/:id/imagechange' => 'users#imagechange'
+  post '/users/:id/passchange' => 'users#passchange'
   get 'users/:id/destroy' => "users#destroy"
   post 'users/:id/destroy' => "users#destroy"
   get 'follow' => "users#follow"
