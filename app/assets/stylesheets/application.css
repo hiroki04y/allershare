@@ -60,6 +60,7 @@ header {
   background-color: #fed1e6;
   z-index: 8;
   width: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); /*これを付け足し*/
 }
 
 .header-logo {
