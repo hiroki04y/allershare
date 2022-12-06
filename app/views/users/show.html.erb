@@ -1,102 +1,124 @@
-<% if @current_user %>
+<% if Integer(@current_user.id) == @user.id %>
 
-  <% if Integer(@current_user.id) == @user.id %>
+  <div class="main user-show">
+    <div class="mycontainer">
+      <div class="user_index"><b>ユーザ情報</b></div>
+      <%# パスワード変更画面 %>
+      <div class="password_change">
+        <div class="back"><b><</b></div>
+        <%= form_tag("/users/#{@user.id}/passchange") do %>
+          <div class="now_password">
+            <p>現在のパスワード</p>
+            <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
+            <% if @error_message %>
+                  <p><%= @error_message %></p>
+            <% end %>
+          </div>
+          <div class="now_password">
+            <p>新しいパスワード*</p>
+            <input id="pass1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
+          </div>
+          <div class="now_password">
+            <p>新しいパスワードを確認*</p>
+            <input id="pass2"name="pass2" placeholder="再度入力してください" type="password">
+          </div>
+          <input type="button" value="変更" onclick="checkpassword('<%= @user.password %>')">
+        <% end %>
 
-    <div class="main user-show">
-      <div class="mycontainer">
-        <div class="user_index"><b>ユーザ情報</b></div>
-        <div class="user">
+      
+      </div>
 
-          <div class="user_left">
-            <p>ユーザ名<br>プロフィール画像<br><br>メールアドレス<br>パスワード<br>自己紹介<br><br>アレルギー</p>
+      <%# ユーザ編集画面 %>
+      <div class="user">
+        <div class="user_left">
+          <p>ユーザ名<br>プロフィール画像<br><br>メールアドレス<br>パスワード<br>自己紹介<br><br>アレルギー</p>
+        </div>
+
+        <%# 保存ボタンでユーザ情報の書き換え %>
+        <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
+          <%# ユーザ名 %>
+          <div class="user_border">
+            <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
           </div>
 
-          <%# 保存ボタンでユーザ情報の書き換え %>
-          <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
-            <%# ユーザ名 %>
-            <div class="user_border">
-              <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
-            </div>
+          <%# アイコン %>
+          <div class="user_borderbig">
+            <img name="image" src="<%="/user_images/#{@user.image_name}"%>">
+            <input type="button" id="iconimage" class="show_submit" value="アイコン編集">
+          </div>
 
-            <%# アイコン %>
-            <div class="user_borderbig">
-              <img name="image" src="<%="/user_images/#{@user.image_name}"%>">
-              <input type="button" id="iconimage" class="show_submit" value="アイコン編集">
-            </div>
+          <%# メールアドレス %>
+          <div class="user_border">
+            <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
+          </div>
 
-            <%# メールアドレス %>
-            <div class="user_border">
-              <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
-            </div>
+          <%# パスワード %>
+          <div class="user_border">
+            <h5>******</h5>
+          </div>
 
-            <%# パスワード %>
-            <div class="user_border">
-              <h5>******</h5>
-            </div>
+          <%# 自己紹介 %>
+          <div class="user_borderbig">
+            <textarea name="myinto" maxlength="140" placeholder="140字以内" rows="10"></textarea>
+          </div>
 
-            <%# 自己紹介 %>
-            <div class="user_borderbig">
-              <textarea name="myinto" maxlength="140" placeholder="140字以内" rows="10"></textarea>
-            </div>
+          <%# アレルギー情報 %>
+          <div class="user_borderbig">
+          </div>
 
-            <%# アレルギー情報 %>
-            <div class="user_borderbig">
-            </div>
+          <%# 各種ボタン %>
+          <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#" id="passchange">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
+            <input type="submit" class="user_save" value="保存する">
+          </div>
 
-            <%# 各種ボタン %>
-            <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
-              <input type="submit" class="user_save" value="保存する">
-            </div>
-
-          <% end %>      
-        </div>
-
-        <%# フッター %>
-        <div class="t7">
-          <img src="/header.jpg" class="under-logo" width=220 height=60>
-          <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
-        </div>
-
-      <div class="imagecover">
-        <div class="popup"></div>
-        <div class="imageselect">
-          <%= form_tag("/users/#{@user.id}/imagechange",{multipart: true}) do |f| %>
-            <div class="form-group">
-              <%= label_tag :image, class: "newselect" do %>
-                <b>画像を選択</b>
-                <%= file_field_tag :image, style:"display:none;" %>
-              <% end %>
-            </div>
-            <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div> 
-            <input type="submit" class="new-imagebutton" value="保存">
-          <% end %>
-        </div>
+        <% end %>      
       </div>
 
-      <div class="deletecover">
-        <div class="popup"></div>
-        <div class="imageselect">
-        <h3>本当に削除しますか？</h3>
-        <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
-        <input type="button" class="chancelbutton" value="キャンセル">
-        <a href="/users/#{@user.id}/destroy"><input type="button" class="deletebutton" value="削除"></a>
-        </div>
+      <%# フッター %>
+      <div class="t7">
+        <img src="/header.jpg" class="under-logo" width=220 height=60>
+        <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
+      </div>
+
+    <%# プロフィール画像変更画面------------------------------- %>
+    <div class="image_cover">
+      <div class="popup"></div>
+      <div class="imageselect">
+        <%= form_tag("/users/#{@user.id}/imagechange",{multipart: true}) do |f| %>
+          <div class="form-group">
+            <%= label_tag :image, class: "newselect" do %>
+              <b>画像を選択</b>
+              <%= file_field_tag :image, style:"display:none;" %>
+            <% end %>
+          </div>
+          <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div> 
+          <input type="submit" class="new-imagebutton" value="保存">
+        <% end %>
       </div>
     </div>
-  <% else %>
-      <!-- ユーザ名 -->
-      <h2><%= @user.name%></h2>
-      <% if @current_user.following?(@user) %>
-        <%= link_to 'フォロー外す', user_deleterelationships_path(@user.id), class: "btn-sm btn" %>
-      <% else %>
-        <%= link_to 'フォローする', user_relationships_path(@user.id), class:"btn-sm btn" %>
-      <% end %>
 
-  <% end %>
-
+    <%# アカウント削除画面表示------------------------------------- %>
+    <div class="delete_cover">
+      <div class="popup"></div>
+      <div class="imageselect">
+      <h3>本当に削除しますか？</h3>
+      <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
+      <input type="button" class="chancelbutton" value="キャンセル">
+      <a href="/users/#{@user.id}/destroy"><input type="button" class="deletebutton" value="削除"></a>
+      </div>
+    </div>
+  </div>
 <% else %>
-  ログインして～
+    <!-- ユーザ名 -->
+    <h2><%= @user.name%></h2>
+    <% if @current_user.following?(@user) %>
+      <%= link_to 'フォロー外す', user_deleterelationships_path(@user.id), class: "btn-sm btn" %>
+    <% else %>
+      <%= link_to 'フォローする', user_relationships_path(@user.id), class:"btn-sm btn" %>
+    <% end %>
+
 <% end %>
+
 
 <%# スクリプト---------------------------------------------------------------------------------- %>
 <script>
@@ -105,25 +127,35 @@
   //各種モーダルウィンドウの変更
   $(function(){
     $('.show_submit').click(function(){
-      $('.imagecover').fadeIn(300);
+      $('.image_cover').fadeIn(300);
     });
     $('.popup').click(function(){
-      $('.imagecover').fadeOut(300);
+      $('.image_cover').fadeOut(300);
     })
     $('.new-imagebutton').click(function(){
-      $('.imagecover').fadeOut(300);
+      $('.image_cover').fadeOut(300);
       $(".user_borderbig img").attr('src', blob)
     })
 
     $('#red').click(function(){
-      $('.deletecover').fadeIn(300);
+      $('.delete_cover').fadeIn(300);
     });
     $('.chancelbutton').click(function(){
-      $('.deletecover').fadeOut(300);
+      $('.delete_cover').fadeOut(300);
     });
     $('.popup').click(function(){
-      $('.deletecover').fadeOut(300);
+      $('.delete_cover').fadeOut(300);
     })
+
+    $('#passchange').click(function(){
+      $('.password_change').fadeIn(300);
+      $('.user_index b').html("パスワード変更");
+    });
+
+    $('.back').click(function(){
+      $('.password_change').fadeOut(200);
+      $('.user_index b').html("ユーザ情報");
+    });
   });
 
   //アイコン画像の編集
@@ -141,5 +173,14 @@
     blob = window.URL.createObjectURL(file);
     createImageHTML(blob);
   });
+
+  function checkpassword(e){
+    pass = document.getElementById("nowpass").value;
+    if ( pass == e){
+      alert("パスワードが一致しています");
+    }else{
+      alert("パスワードが違います");
+    }
+  }
 
 </script>

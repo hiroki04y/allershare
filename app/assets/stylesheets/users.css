@@ -1,5 +1,5 @@
 .container {
-  margin-top:4%;
+  margin-top:6%;
   max-width: 540px;
   padding-left: 15px;
   padding-right: 15px;
@@ -108,6 +108,7 @@
 .mycontainer {
   position:relative;
   max-width:800px;
+  width:80%;
   clear: both;
   margin-top:50px;
   left:50%;
@@ -307,7 +308,7 @@
 
 
 /* アイコン画像を選択する */
-.imagecover{
+.image_cover{
   position: fixed; /* ブラウザの定位置に固定 */
 	background: rgba(0, 0, 0, .5);
 	width: 100%;
@@ -368,7 +369,7 @@
 }
 
 /* アカウント削除の最終確認 */
-.deletecover{
+.delete_cover{
   position: fixed; 
 	background: rgba(0, 0, 0, .5);
 	width: 100%;
@@ -414,4 +415,67 @@
   border-radius:10px;
   background-color:rgb(255, 255, 255);
   color:#a4e38b;
+}
+
+
+/* パスワード変更画面 */
+.password_change{
+  position:absolute;
+  max-width:800px;
+  width:90%;
+  height:630px;
+  background-color:rgb(255, 255, 255);
+  border-radius:10px;
+  box-shadow: 0 2px 18px #ededed;
+  left:50%;
+  transform: translateX(-50%);
+  z-index:1;
+  display:none;
+}
+
+.back{
+  font-size:30px;
+  text-align:left;
+  position:relative;
+  top:10px;
+  left:20px;
+  color:#323232;
+  cursor:pointer;
+  width:20px;
+}
+
+.now_password{
+  margin-top:40px;
+  position:relative;
+  top:0px;
+  left:50%;
+  transform: translateX(-50%);
+  text-align:left;
+  width:60%;
+}
+
+.password_change input{
+  width:100%;
+  height:40px;
+  border-radius:5px;
+  padding-left:10px;
+  border: 1px solid rgb(24, 24, 24);
+}
+
+.password_change p{
+  text-align:left;
+  margin-bottom:10px;
+  color:#323232;
+}
+
+.password_change input[type="submit"]{
+  width:90px;
+  height:50px;
+  margin-top:50px;
+  font-size:18px;
+  padding-left:5px;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius:10px;
+  background-color:#a4e38b;
+  color:white;
 }
