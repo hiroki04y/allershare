@@ -7,69 +7,39 @@
         </form>
 
         <div class="blog_view-genre">
-            <h5>ブログを探す</h5>
+            <h3>ブログを探す</h3>
         </div>
 
     </div>
 
-    <div class="v2">
-        <a class="button1" href="#">食物性</a>
-        <a class="button2" href="#">吸引性</a>
-        <a class="button3" href="#">接触性</a>
+    <div class="t3">
+    <div class="search-blog">
+      <h5>タグを選択してください。（複数選択できます）</h5>
+      <div class="tag-view">
+        <a class="tag-button" href="/blog_view">小麦</a>
+        <a class="tag-button" href="/blog_view">ミルク</a>
+        <a class="tag-button" href="/blog_view">卵白</a>
+        <a class="tag-button" href="/blog_view">ゼラチン</a>
+      </div>
+      <div class="tag-view-reco">
+        <a class="tag-button" href="/blog_view">小麦</a>
+        <a class="tag-button" href="/blog_view">ミルク</a>
+        <a class="tag-button" href="/blog_view">卵白</a>
+        <a class="tag-button" href="/blog_view">ゼラチン</a>
+      </div>
+      <a class="button1" href="/blog_view">検索結果を見る</a>
     </div>
-
-    <div class="v3">
-        <div class="search-blog">
-            <h1>#管理方法  #育児  #事故防止  #牛乳  #たまご  #ナッツ  #負荷試験  #小児科  #甲殻類  #症状  #アナフィラキシー  #エピペン  #代替食品  #離乳食  #貝類  #原材料</h1>
-        </div>
-    </div>
+  </div>
 
     <div class="v4">
-        <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
-        </div>
-        <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
-        </div>
-        <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
-        </div>
-    </div>
 
-    <div class="v5">
+      <% @titles.each do |title| %>
         <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
+            <%= title %><br>
+            <a href= "/blog">表示</a>
         </div>
-        <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
-        </div>
-        <div class="blog_view-display">
-            <h3>タイトルが入ります<h3>
-            <h6><br>吾輩は猫である。 名前はまだない。 <br>
-            どこで生れたか頓と見当がつかぬ。<br><br>
-            </h6>
-        <a href= "/blog">表示</a>
-        </div>
+      <% end %>
+
     </div>
 
     <div class="v6">
