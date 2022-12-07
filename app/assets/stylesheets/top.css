@@ -8,7 +8,13 @@
     width: 100%;
     height: 250px;
     background-color: #fed1e6;
-    box-shadow: 0 3px 6px #d6d6d6;
+}
+
+.topimage{
+    position: relative;
+    width: 50%;
+    left: 60%;
+    height: 250px;
 }
 
 .exp1{
@@ -16,8 +22,8 @@
     color:#a4e38b;
     width: 400px;
     text-align: center;
-    top: 55px;
-    left: 50%;
+    top: -180px;
+    left: 30%;
     transform: translateX(-50%);
     text-shadow:
     1px 0 0 #ffffff,
@@ -32,8 +38,8 @@
     width: 500px;
     text-align: center;
     color:#2d2d2d;
-    top: -20px;
-    left: 50%;
+    top: -175px;
+    left: 30%;
     transform: translateX(-50%);
     z-index: 2;
 }
@@ -41,19 +47,19 @@
 .hianimal-logo{
     position: relative;
     bottom:20px;
-    left: 23%;
+    left: 4%;
 }
 
 .rianimal-logo{
     position: relative;
-    top:30%;
-    left: 73%;
+    top:31%;
+    left: 40%;
 }
 
 .peanimal-logo{
     position: relative;
-    top:27%;
-    left: 73%;
+    top:28%;
+    left: 38%;
 }
 
 .t1{
@@ -65,8 +71,8 @@
 
 .search_container{
     position: absolute;
-    top: 36px;
-    left: 50%;
+    top: 41px;
+    left: 72%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     box-sizing: border-box;
@@ -75,7 +81,7 @@
     padding: 3px 10px;
     border-radius: 20px;
     height: 2.3em;
-    width: 260px;
+    width: 330px;
     overflow: hidden;
 }
 .search_container input[type="text"]{
@@ -102,7 +108,7 @@
 
 .blog-genre{
     position: absolute;
-    top: 80px;
+    top: 45px;
     left: 15%;
     color: #9b9b9b;
 }
@@ -114,64 +120,87 @@
     resize: none;
     display: flex;
     justify-content: left;
-    border-bottom:5px solid #ffeb9d;
 }
-
-.button1{
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #ffeb9d;
-    border:1px solid#ffeb9d;
-    padding: 10px 10px;
-    height: 3em;
-    width: 150px;
-    border-radius: 5px;
-    left: 100px;
-}
-
-.button2{
-    left: 10px;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #a4e38b;
-    border:1px solid#a4e38b;
-    padding: 10px 10px;
-    height: 3em;
-    width: 150px;
-    border-radius: 5px;
-}
-
-.button3{
-    left: 10px;
-    text-align: center;
-    background-color: #afdfff;
-    border:1px solid#afdfff;
-    padding: 10px 10px;
-    height: 3em;
-    width: 150px;
-    border-radius: 5px;
-}
-
 
 .t3{
     position: relative;
     resize: none;
     left: 15%;
     width: 70%;
-    height: 400px;
+    height: 460px;
     display: flex;
 }
 
 .search-blog{
+    position: relative;
     resize: none;
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    height: 400px;
+    height: 460px;
     padding: 10px;
     margin-bottom: 100px;
+    color: #9b9b9b;
     border: 1px solid #ffffff;
     background-color: #ffffff;
+}
+
+.tag-view{
+    position: relative;
+    resize: none;
+    text-align: center;
+    box-sizing: border-box;
+    top: 12px;
+    left: 8%;
+    width: 84%;
+    height: 210px;
+    padding: 10px;
+    margin-bottom: 100px;
+    color: #9b9b9b;
+    border: 1px solid #9b9b9b;
+    background-color: #ffffff;
+}
+
+.tag-view-reco{
+    position: relative;
+    resize: none;
+    text-align: center;
+    box-sizing: border-box;
+    top: -70px;
+    left: 8%;
+    width: 84%;
+    height: 100px;
+    padding: 10px;
+    color: #9b9b9b;
+    border: 1px solid #9b9b9b;
+    background-color: #ffffff;
+}
+
+.tag-button{
+    position: relative;
+    position: relative;
+    margin-right: 5px;
+    top: 10px;
+    left: -200px;
+    width: 150px;
+    height: 20px;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #9b9b9b;
+    color: #484848;
+    border-radius: 20px;
+}
+
+.button1{
+    position: relative;
+    top: -40px;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    background-color: #a4e38b;
+    border: 1px solid #6ea857;
+    color: #ffffff;
+    border-radius: 20px;
 }
 
 .t4{
@@ -196,7 +225,7 @@
     left: 15%;
     width: 70%;
     display: flex;
-    height: 300px;
+    height: 250px;
 }
 
 .blog-display{
@@ -209,10 +238,58 @@
     min-width: 200px;
     min-height: 250px;
     margin-bottom: 100px;
-    border: 1px
-    solid #a4e38b;
+    border: 1px solid #a4e38b;
     border-radius: 25px;
     background-color: #ffffff;
+    box-shadow: 1px 1px 1px 0 #7d7d7d;
+}
+
+.y4{
+    position: relative;
+    resize: none;
+    left: 15%;
+    width: 70%;
+    height: 60px;
+    display: flex;
+}
+
+.y5{
+    position: relative;
+    justify-content: space-evenly;
+    resize: none;
+    left: 15%;
+    width: 70%;
+    display: flex;
+    height: 200px;
+}
+
+.user-reco{
+    resize: none;
+    position: relative;
+    text-align: center;
+    width: 275px;
+    height: 150px;
+    padding: 10px;
+    min-width: 200px;
+    min-height: 150px;
+    margin-bottom: 100px;
+    border: 1px solid #a4e38b;
+    border-radius: 25px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 1px 0 #7d7d7d;
+}
+
+.top-username{
+    position: relative;
+    top: -90px;
+    left: 58px;
+}
+
+.topuserimage{
+    position: relative;
+    border-radius: 100px;
+    top: 13px;
+    left: -50px;
 }
 
 .t6{
