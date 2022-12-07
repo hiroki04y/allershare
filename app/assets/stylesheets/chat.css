@@ -1,8 +1,9 @@
 /* 画面左 */
 .base {
     position:fixed;
+    top:65px;
     width:20%;
-    height:100%;
+    height:78%;
 }
 
 .w90{
@@ -108,6 +109,7 @@
 /* 画面右 */
 .base2 {
     position:fixed;
+    top:64px;
     left:20%;
     width:100%;
     height:100%;
@@ -117,9 +119,10 @@
 
 .base3 {
   position:fixed;
+  top:65px;
   left:20%;
   width:100%;
-  height:100%;
+  height:90%;
   background-color:#fff7fc;
   z-index:8;
   visibility:visible;
@@ -128,10 +131,9 @@
 .partner{
     height:36px;
     width:100%;
-    border-bottom:1px solid;
-    border-color:#eae8e8;
     margin-top:5px;
     z-index:5;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 5%);
 }
 
 .send_group{
@@ -146,34 +148,38 @@
 .sendchat {
     width:100%;
     position:fixed;
-    bottom:2px;
+    bottom:-5px;
     background-color:#fff7fc;
 }
 
 .chat-area{
+    position:relative;
     font-size:18px;
-    padding: 13px;
-    width:68vw;
-    height: calc( 1.27em * 2);
+    padding: 10px;
+    padding-left:15px;
+    width:66%;
+    height: calc( 1.18em * 2);
     line-height: 1.1;
     max-height: 150px;
-    margin-left:35px;
-    margin-top:8px;
-    border-radius:20px;
+    left:3%;
+    margin-top:10px;
+    margin-right:4.5%;
+    border-radius:15px;
     resize: none;
+    display:inline-block
 }
 
 .chat-sendbutton{
-  position:absolute;
-  bottom:8px;
-  left:78%;
-  transform: translateX(-100%);
-  width:60px;
+  position:relative;
+  bottom:15px;
+  left:0px;
+  width:70px;
   height:40px;
-  border-radius:20%;
+  border-radius:10px;
   border: 1px solid rgb(55, 175, 65);
-  background-color:white;
-  color:rgb(55, 175, 65);
+  background-color:#a4e38b;
+  color:white;
+  font-size:20px;
 }
 
 /* チャット部分 */
@@ -181,8 +187,8 @@
     position:fixed;
     width:80%;
     height:71%;
-    max-height:71%;
-    min-height:55%;
+    max-height:66%;
+    min-height:48%;
     background-color:#fff7fc;
     overflow: scroll;
     margin-top:5px;

@@ -84,13 +84,9 @@ class UsersController < ApplicationController
             if params[:pass1] == params[:pass2]
                 @user.password = params[:pass1]
                 @user.save
-                flash[:notice] = "アカウント情報を編集しました"
+                flash[:notice] = "パスワードを編集しました"
                 redirect_to("/users/#{@user.id}")
-            else
-                @error_message2 = "パスワードが一致しません"
             end
-        else
-            @error_message = "パスワードが間違っています"
         end
     end
 

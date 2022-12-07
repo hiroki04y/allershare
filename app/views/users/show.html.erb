@@ -3,35 +3,35 @@
   <div class="main user-show">
     <div class="mycontainer">
       <div class="user_index"><b>ユーザ情報</b></div>
-      <%# パスワード変更画面 %>
+      <%# パスワード変更画面------------------------------------------------------------------- %>
       <div class="password_change">
         <div class="back"><b><</b></div>
         <%= form_tag("/users/#{@user.id}/passchange") do %>
           <div class="now_password">
-            <p>現在のパスワード</p>
+            <p>現在のパスワード*</p>
             <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
-            <% if @error_message %>
-                  <p><%= @error_message %></p>
-            <% end %>
+            <p class="error_message"></p>
           </div>
           <div class="now_password">
             <p>新しいパスワード*</p>
-            <input id="pass1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
+            <input id="p1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
+            <p class="error_message1"></p>
           </div>
           <div class="now_password">
             <p>新しいパスワードを確認*</p>
-            <input id="pass2"name="pass2" placeholder="再度入力してください" type="password">
+            <input id="p2"name="pass2" placeholder="再度入力してください" type="password">
+            <p class="error_message2"></p>
           </div>
-          <input type="button" value="変更" onclick="checkpassword('<%= @user.password %>')">
+          <input type="submit" value="変更" onclick="checkpassword('<%= @user.password %>')">
         <% end %>
 
       
       </div>
 
-      <%# ユーザ編集画面 %>
+      <%# ユーザ編集画面----------------------------------------------------------------------------------- %>
       <div class="user">
         <div class="user_left">
-          <p>ユーザ名<br>プロフィール画像<br><br>メールアドレス<br>パスワード<br>自己紹介<br><br>アレルギー</p>
+          <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー</p>
         </div>
 
         <%# 保存ボタンでユーザ情報の書き換え %>
@@ -47,6 +47,11 @@
             <input type="button" id="iconimage" class="show_submit" value="アイコン編集">
           </div>
 
+          <%# 自己紹介 %>
+          <div class="user_borderbig">
+            <textarea name="myinto" maxlength="140" placeholder="140字以内" rows="4"></textarea>
+          </div>
+
           <%# メールアドレス %>
           <div class="user_border">
             <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
@@ -54,12 +59,7 @@
 
           <%# パスワード %>
           <div class="user_border">
-            <h5>******</h5>
-          </div>
-
-          <%# 自己紹介 %>
-          <div class="user_borderbig">
-            <textarea name="myinto" maxlength="140" placeholder="140字以内" rows="10"></textarea>
+            <h5>登録済み</h5>
           </div>
 
           <%# アレルギー情報 %>
@@ -80,7 +80,7 @@
         <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
       </div>
 
-    <%# プロフィール画像変更画面------------------------------- %>
+    <%# プロフィール画像変更画面------------------------------------------------------------------------- %>
     <div class="image_cover">
       <div class="popup"></div>
       <div class="imageselect">
@@ -97,7 +97,7 @@
       </div>
     </div>
 
-    <%# アカウント削除画面表示------------------------------------- %>
+    <%# アカウント削除画面表示--------------------------------------------------------------- %>
     <div class="delete_cover">
       <div class="popup"></div>
       <div class="imageselect">
@@ -175,11 +175,28 @@
   });
 
   function checkpassword(e){
-    pass = document.getElementById("nowpass").value;
-    if ( pass == e){
-      alert("パスワードが一致しています");
+    np = document.getElementById("nowpass").value;
+    p1 = document.getElementById("p1").value;
+    p2 = document.getElementById("p2").value;
+    if ( np == e){
+      if (p1 == ""){
+        $(".error_message1").text("パスワードを入力してください");
+        $(".error_message").text("");
+      }
+
+      if (p2 == ""){
+        $(".error_message2").text("パスワードを入力してください");
+        $(".error_message").text("");
+      }else if(p1 != p2){
+        $(".error_message2").text("パスワードが違います");
+        $(".error_message1").text("");
+        $(".error_message").text("");
+      }else{
+      }
     }else{
-      alert("パスワードが違います");
+      $(".error_message").text("パスワードが違います");
+      $(".error_message1").text("");
+      $(".error_message2").text("");
     }
   }
 

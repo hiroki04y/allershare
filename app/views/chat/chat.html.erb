@@ -101,15 +101,18 @@
     }
 
 
-    // 高さ調節script------------------------------------------------------------
-    document.getElementById('textarea').focus();
+    // 高さ調節script-----------------------------------------------------------
     var chat = document.getElementsByClassName('chat-container');
     chat[0].scrollTop = chat[0].scrollHeight;
+    var chatHeight = chat[0].offsetHeight;
+    var sendHeight = $("#textarea").outerHeight();
     document.querySelectorAll("#textarea").forEach(function(){
         this.addEventListener('keyup',function(e){
+            console.log(chat[0].offsetHeight);
             e.srcElement.style.height = 0
-            e.srcElement.style.height = e.srcElement.scrollHeight+"px"
-            chat[0].style.height = 475 - e.srcElement.scrollHeight+"px"
+            e.srcElement.style.height = e.srcElement.scrollHeight + 3 +"px"
+            console.log(e.srcElement.style.height);
+            chat[0].style.height = chatHeight + sendHeight - e.srcElement.scrollHeight+"px"
             scroll(1);
         })
     })
@@ -268,6 +271,7 @@
 
     // 左側の選択グループをクリックでグループのルームに飛ぶ----------------------------------------
     function roomchange(name,id,usr){
+        document.getElementById('textarea').focus();
         $('.send_group').html(name);
         $(".chat-list").css('background-color','white');
         $(".-" + id).css('background-color','#fffff0');
@@ -308,6 +312,7 @@
     //chat内容の更新、登録----------------------------------------------------------------
     function addmessage(usr){
         var cont = $('.chat-area').val();
+        document.getElementById('textarea').focus();
         if(cont != "" && room_num != 0){
             $.ajax({
                 type: 'get', // リクエストのタイプ

@@ -201,11 +201,12 @@
 }
 
 .user h5{
-  width:400px;
+  width:100px;
   position:absolute;
-  top:35%;
-  left:28.5%;
+  top:37%;
+  left:29%;
   text-align:left;  
+  font-size:13px;
 }
 .user_borderbig{
   width:90%;
@@ -229,12 +230,13 @@
 
 .user textarea {
   position:absolute;
-  top:15px;
+  top:9.5px;
   left:28%;
   width: 62%;
-  height: 90px;
+  height: 102px;
   object-fit: cover;
   resize: none;
+  line-break: anywhere;
 }
 
 
