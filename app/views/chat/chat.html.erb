@@ -86,6 +86,13 @@
     // cookie取得
     var cookie = $('.cookie').html();
 
+    var windowSize = window.innerHeight;
+    //console.log(windowSize);
+
+    var sendHeight = $("#textarea").outerHeight();
+    $(".chat-container").height(windowSize - sendHeight - 133 + "px");
+    $(".chat-container").css('min-height',windowSize - 280 + "px");
+
     // 処理をしたときに一番下までスクロールする-----------------------------------
     function scroll(num){
         //送信のscriptの場合
@@ -105,14 +112,13 @@
     var chat = document.getElementsByClassName('chat-container');
     chat[0].scrollTop = chat[0].scrollHeight;
     var chatHeight = chat[0].offsetHeight;
-    var sendHeight = $("#textarea").outerHeight();
     document.querySelectorAll("#textarea").forEach(function(){
         this.addEventListener('keyup',function(e){
-            console.log(chat[0].offsetHeight);
+            //console.log(chat[0].offsetHeight);
             e.srcElement.style.height = 0
             e.srcElement.style.height = e.srcElement.scrollHeight + 3 +"px"
-            console.log(e.srcElement.style.height);
-            chat[0].style.height = chatHeight + sendHeight - e.srcElement.scrollHeight+"px"
+            //console.log(e.srcElement.style.height);
+            chat[0].style.height = windowSize - 133 - e.srcElement.scrollHeight + "px"
             scroll(1);
         })
     })
