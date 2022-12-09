@@ -25,13 +25,13 @@
           <input type="submit" value="変更" onclick="checkpassword('<%= @user.password %>')">
         <% end %>
 
-      
+
       </div>
 
       <%# ユーザ編集画面----------------------------------------------------------------------------------- %>
       <div class="user">
         <div class="user_left">
-          <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー</p>
+          <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー管理</p>
         </div>
 
         <%# 保存ボタンでユーザ情報の書き換え %>
@@ -63,7 +63,34 @@
           </div>
 
           <%# アレルギー情報 %>
-          <div class="user_borderbig">
+          <div class="user_border">
+            <div class="user_radio">
+              <input type="radio" name="wheight" value="軽度" checked> 軽度
+              <input type="radio" name="wheight" value="中度"> 中度
+              <input type="radio" name="wheight" value="中度"> 重度
+            </div>
+          </div>
+
+          <div class="aller_border">
+          <p>所持しているアレルギー</p>
+            <div class="allergy allergy_left">
+              <div class="aller_button" id="aller_button1">
+              </div>
+              <div class="aller_button_big" id="aller_button2">
+
+
+              </div>
+              <div class="aller_button_big" id="aller_button3"></div>
+              <div class="aller_button_big" id="aller_button4"></div>
+              <div class="aller_button" id="aller_button5"></div>
+              <div class="aller_button" id="aller_button6"></div>
+              <p>小麦・牛乳・卵<br><br>豆・穀・種実類<br><br><br>野菜・果物<br><br><br>肉類・魚類<br><br><br>甲殻類<br><br>その他</p>
+            </div>
+
+            <div class="allergy allergy_right">
+              <p><b><メモ></b></p>
+              <textarea name="memo" class="memo" placeholder="140字以内"></textarea>
+            </div>
           </div>
 
           <%# 各種ボタン %>
@@ -71,7 +98,8 @@
             <input type="submit" class="user_save" value="保存する">
           </div>
 
-        <% end %>      
+
+        <% end %>
       </div>
 
       <%# フッター %>
@@ -91,7 +119,7 @@
               <%= file_field_tag :image, style:"display:none;" %>
             <% end %>
           </div>
-          <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div> 
+          <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div>
           <input type="submit" class="new-imagebutton" value="保存">
         <% end %>
       </div>
@@ -123,6 +151,46 @@
 <%# スクリプト---------------------------------------------------------------------------------- %>
 <script>
   var blob;
+
+  // タグスクリプト------------------------------------------------------------------
+  var foods = ['小麦','ミルク','卵白','オボムコイド',
+               'アーモンド','カシューナッツ','くるみ','米','ごま','そば','ピーナッツ',
+               'オレンジ','キウイ','トマト','バナナ','もも','りんご',
+               '牛肉','鶏肉','豚肉','あわび','いか','いくら','さけ','さば','まぐろ',
+               'えび','かに',
+               'ゼラチン','まつたけ','やまいも'];
+  var num = [4,7,6,9,2,3]
+
+  var f = 0;
+  for (var v = 0; v < num.length; v++) {
+      var add = ('#aller_button' + (v + 1));
+      for (var i = 0; i < num[v]; i++){
+        $(add).append(
+          `<input type="button" value="${foods[f]}" id="button${f++}" onclick="button_select(this.id,this.value)">`
+        )
+        console.log("tag1 = Tag.create(tagname:\""+foods[f]+"\")")
+      }
+  }
+
+  //アレルギー管理用
+  var text = [];
+  function button_select(button_id,value){
+    // ボタンを選んだ時の色を変更
+    var select_button = "#" + button_id;
+    if($(select_button).css("background-color") == "rgb(206, 249, 188)"){
+      $(select_button).css('background-color','white');
+      var idx = text.indexOf(value);
+      if(idx >= 0){
+        text.splice(idx, 1); 
+      }
+    }else{
+      $(select_button).css('background-color','#cef9bc');
+      text.push(value)
+    }
+    console.log(text);
+  }
+
+  //-------------------------------------------------------------------------------
 
   //各種モーダルウィンドウの変更
   $(function(){
@@ -159,14 +227,14 @@
   });
 
   //アイコン画像の編集
-  const createImageHTML = (blob) => {  
+  const createImageHTML = (blob) => {
     $("#new-image img").remove();
-    const imageElement = document.getElementById('new-image'); 
-    const blobImage = document.createElement('img'); 
-    blobImage.setAttribute('class', 'new-img') 
-    blobImage.setAttribute('src', blob); 
+    const imageElement = document.getElementById('new-image');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('class', 'new-img')
+    blobImage.setAttribute('src', blob);
     imageElement.appendChild(blobImage);
-  }; 
+  };
 
   document.getElementById('image').addEventListener('change', (e) => {
     const file = e.target.files[0];
