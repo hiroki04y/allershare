@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get '/blog' => 'blog#blog'
   get '/blog_view' => 'blog_view#blog_view'
+  get 'blog_view/:id' => 'blog_view#blog_show'
 
   #ユーザ関連
   resources :users, only:[:edit, :update] do

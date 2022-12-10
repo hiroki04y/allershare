@@ -33,9 +33,9 @@
 
     <div class="v4">
 
-      <% @titles.each do |title| %>
+      <% @titles.each do |blog| %>
         <div class="blog_view-display">
-            <%= title %><br>
+            <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
             <a href= "/blog">表示</a>
         </div>
       <% end %>

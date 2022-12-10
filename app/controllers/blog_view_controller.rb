@@ -1,12 +1,8 @@
 class BlogViewController < ApplicationController
     def blog_view
-        @titles = [
-            "乳製品の代替食品",
-            "乳製品の表示について",
-            "もしものことが起きたら",
-            "初期症状と対応",
-            "アレルギー事故を減らす",
-            "エピペンについて"
-        ]
+        @titles = Blog.all
+    end
+    def blog_show
+        @blog = Blog.find_by(id: params[:id])
     end
 end
