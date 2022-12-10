@@ -119,7 +119,7 @@ class UsersController < ApplicationController
     end
 
     def tagsnew
-        
+        @tag = Usertag.create(user_id: params[:id], tag_id: params[:tag])
     end
     
 end

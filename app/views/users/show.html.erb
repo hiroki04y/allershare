@@ -1,7 +1,7 @@
 <% if Integer(@current_user.id) == @user.id %>
 
   <div class="main user-show">
-    <div class="mycontainer">
+    <div class="mycontainer" id="<%= @user.id %>">
       <div class="user_index"><b>ユーザ情報</b></div>
       <%# パスワード変更画面------------------------------------------------------------------- %>
       <div class="password_change">
@@ -102,6 +102,8 @@
         <% end %>
       </div>
 
+      <%= button_to "test", {controller: 'users', action: 'tagsnew'}, {params: {id: "27", tag: "1"}} %>
+
       <%# フッター %>
       <div class="t7">
         <img src="/header.jpg" class="under-logo" width=220 height=60>
@@ -151,6 +153,8 @@
 <%# スクリプト---------------------------------------------------------------------------------- %>
 <script>
   var blob;
+  var now_login_user = $(".login_user").attr('id');
+  console.log(now_login_user)
 
   // タグスクリプト------------------------------------------------------------------
   var foods = ['小麦','ミルク','卵白','オボムコイド',
@@ -166,15 +170,14 @@
       var add = ('#aller_button' + (v + 1));
       for (var i = 0; i < num[v]; i++){
         $(add).append(
-          `<input type="button" value="${foods[f]}" id="button${f++}" onclick="button_select(this.id,this.value)">`
+          `<input type="button" value="${foods[f]}" id="button${f}" onclick="button_select(this.id,this.value,${f++})">`
         )
-        console.log("tag1 = Tag.create(tagname:\""+foods[f]+"\")")
       }
   }
 
   //アレルギー管理用
   var text = [];
-  function button_select(button_id,value){
+  function button_select(button_id,value,id){
     // ボタンを選んだ時の色を変更
     var select_button = "#" + button_id;
     if($(select_button).css("background-color") == "rgb(206, 249, 188)"){
@@ -186,6 +189,19 @@
     }else{
       $(select_button).css('background-color','#cef9bc');
       text.push(value)
+      id++; //データベース登録用にidの調節
+      $.ajax({
+        type: 'GET', // リクエストのタイプ
+        url: 'tagsnew', // リクエストを送信するURL
+        data:  { id: now_login_user , tag: id}, // サーバーに送信するデータ
+        dataType: 'json' // サーバーから返却される型
+      })
+      
+
+      .done(function(data){ // dataにはレスポンスされたデータが入る
+        console.log("でーたがかえってきたよ~")
+      })
+      
     }
     console.log(text);
   }

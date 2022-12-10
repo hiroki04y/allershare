@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'users/:id/destroy' => "users#destroy"
   post 'users/:id/destroy' => "users#destroy"
   get 'follow' => "users#follow"
-  get 'users/tagsnew' => "users#tagsnew"
+  post 'users/tagsnew' => "users#tagsnew"
 
   # チャット
   get '/chat' => "chat#chat"

@@ -62,7 +62,7 @@
               </li>
             <% else %>
               <li>
-                <a href="/users/<%= @current_user.id %>"><img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40></a>
+                <a href="/users/<%= @current_user.id %>" id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40></a>
               </li>
             <% end %>
           <% else %>
