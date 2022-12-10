@@ -1,0 +1,61 @@
+.main-post-show{
+    position: relative;
+}
+
+.main-frame{
+    position: relative;
+    resize: none;
+    text-align: center;
+    top: 50px;
+    left: 5%;
+    width: 70%;
+    min-width: 620px;
+    height: 1000px;
+    padding: 10px;
+    margin-bottom: 100px;
+    border: 1px solid #a4e38b;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.blog-title{
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    top: 50px;
+}
+
+.blog-content{
+    position: relative;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    top: 70px;
+}
+
+.plofile{
+    position: fixed;
+    resize: none;
+    top: 114px;
+    left: 78%;
+    width: 19%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fed1e6;
+}
+
+.blog-plofile{
+    position: fixed;
+    resize: none;
+    top: 165px;
+    left: 78%;
+    width: 19%;
+    height: 360px;
+    padding: 10px;
+    margin-bottom: 100px;
+    border: 1px solid #a4e38b;
+    border-radius: 5px;
+    background-color: #ffffff;
+}

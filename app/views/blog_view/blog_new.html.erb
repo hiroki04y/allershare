@@ -1,0 +1,15 @@
+<div class="main-blog-new">
+    <%= form_tag("/blog_view/blog_create") do %>
+    <div class="blog-form">
+        <div class = "blog-form-title">
+            <textarea name = "title"></textarea>
+        </div>
+        <div class = "blog-form-content">
+            <textarea name = "content"></textarea>
+        </div>
+        <div class = "blog-post-button">
+            <input type="submit" value="投稿">
+        </div>
+    </div>
+    <% end %>
+</div>

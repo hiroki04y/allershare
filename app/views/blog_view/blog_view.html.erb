@@ -36,6 +36,7 @@
       <% @titles.each do |blog| %>
         <div class="blog_view-display">
             <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
+            <%= blog.content %><br>
             <a href= "/blog">表示</a>
         </div>
       <% end %>

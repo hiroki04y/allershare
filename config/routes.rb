@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   get '/signup' => "users#signup"
   get '/test' => 'test#test'
   
-  
+  #ブログ関連
   get '/blog' => 'blog#blog'
   get '/blog_view' => 'blog_view#blog_view'
+  get 'blog_view/blog_new' => 'blog_view#blog_new'
   get 'blog_view/:id' => 'blog_view#blog_show'
+  post 'blog_view/blog_create' => 'blog_view#blog_create'
 
   #ユーザ関連
   resources :users, only:[:edit, :update] do
