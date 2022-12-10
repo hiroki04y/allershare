@@ -205,7 +205,7 @@
   left:0px;
 }
 
-.allergy input[type="button"]{
+.allergy input[type="submit"]{
   height:25px;
   margin-top:3px;
   padding:2px 8px 0 7px;
@@ -599,4 +599,14 @@
   border-radius:10px;
   background-color:#a4e38b;
   color:white;
+}
+
+
+
+
+/* ブラックボックス */
+.blackhole{
+  visibility:hidden;
+  margin-top:0px;
+  margin-bottom:-30px;
 }

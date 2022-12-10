@@ -2,6 +2,7 @@
 
   <div class="main user-show">
     <div class="mycontainer" id="<%= @user.id %>">
+      <div class="blackhole"><%= @tag %></div>
       <div class="user_index"><b>ユーザ情報</b></div>
       <%# パスワード変更画面------------------------------------------------------------------- %>
       <div class="password_change">
@@ -28,7 +29,7 @@
 
       </div>
 
-      <%# ユーザ編集画面----------------------------------------------------------------------------------- %>
+      <%# ユーザ編集画面---------------------------------------------------------------------------------- %>
       <div class="user">
         <div class="user_left">
           <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー管理</p>
@@ -36,6 +37,8 @@
 
         <%# 保存ボタンでユーザ情報の書き換え %>
         <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
+        <input type="hidden" name="id" value="<%= @user.id %>" autocomplete="off" />
+        <input type="hidden" name="tag" value="1" autocomplete="off" class="user_tag"/>
           <%# ユーザ名 %>
           <div class="user_border">
             <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
@@ -89,20 +92,20 @@
 
             <div class="allergy allergy_right">
               <p><b><メモ></b></p>
-              <textarea name="memo" class="memo" placeholder="140字以内"></textarea>
+              <textarea name="memo" class="memo" placeholder="140字以内">
+              </textarea>
             </div>
           </div>
+          
 
           <%# 各種ボタン %>
           <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#" id="passchange">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
-            <input type="submit" class="user_save" value="保存する">
+            <input type="submit" class="user_save" value="保存する"  name="savebutton">
           </div>
 
 
         <% end %>
       </div>
-
-      <%= button_to "test", {controller: 'users', action: 'tagsnew'}, {params: {id: "27", tag: "1"}} %>
 
       <%# フッター %>
       <div class="t7">
@@ -154,7 +157,17 @@
 <script>
   var blob;
   var now_login_user = $(".login_user").attr('id');
-  console.log(now_login_user)
+  //console.log(now_login_user)
+
+  //タグの内容を読み取る
+  var texttag = $(".blackhole").html();
+  //alert(texttag);
+  var tagname = texttag.replace(/"|]/g, '')
+  tagname = tagname.split(",")
+  for(var v = 0; v < tagname.length; v++){
+    tagname[v] = tagname[v].slice(1)
+  }
+  //tagnameは配列で所持しているアレルギーを保存している
 
   // タグスクリプト------------------------------------------------------------------
   var foods = ['小麦','ミルク','卵白','オボムコイド',
@@ -167,17 +180,27 @@
 
   var f = 0;
   for (var v = 0; v < num.length; v++) {
-      var add = ('#aller_button' + (v + 1));
-      for (var i = 0; i < num[v]; i++){
-        $(add).append(
-          `<input type="button" value="${foods[f]}" id="button${f}" onclick="button_select(this.id,this.value,${f++})">`
-        )
-      }
+    var add = ('#aller_button' + (v + 1));
+    for (var i = 0; i < num[v]; i++){
+      $(add).append(
+        `<input type="submit" value="${foods[f]}" id="button${f}" name="commit" onclick="button_select(this.id,this.value,${++f})">`
+      )
+    }
   }
+
+  //選択済みのタグは色を付ける
+  for(var v = 0; v < tagname.length; v++){
+    var selected = "#button" + foods.indexOf(tagname[v])
+    console.log(selected)
+    $(selected).css('background-color','#cef9bc')
+  }
+
+
 
   //アレルギー管理用
   var text = [];
   function button_select(button_id,value,id){
+    $(".user_tag").val(id);
     // ボタンを選んだ時の色を変更
     var select_button = "#" + button_id;
     if($(select_button).css("background-color") == "rgb(206, 249, 188)"){
@@ -188,20 +211,7 @@
       }
     }else{
       $(select_button).css('background-color','#cef9bc');
-      text.push(value)
-      id++; //データベース登録用にidの調節
-      $.ajax({
-        type: 'GET', // リクエストのタイプ
-        url: 'tagsnew', // リクエストを送信するURL
-        data:  { id: now_login_user , tag: id}, // サーバーに送信するデータ
-        dataType: 'json' // サーバーから返却される型
-      })
-      
-
-      .done(function(data){ // dataにはレスポンスされたデータが入る
-        console.log("でーたがかえってきたよ~")
-      })
-      
+      text.push(value)     
     }
     console.log(text);
   }

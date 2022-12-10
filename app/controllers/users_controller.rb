@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
+        @tag = Usertag.joins(:tag).select('tagname').where('user_id = ?', params[:id]).pluck(:tagname)
     end
 
     def login
@@ -56,15 +57,25 @@ class UsersController < ApplicationController
     end
 
     def change
-        @user = User.find_by(id: params[:id])
-        @user.name = params[:name]
-        @user.email = params[:email]
+        if params[:savebutton]
+            @user = User.find_by(id: params[:id])
+            @user.name = params[:name]
+            @user.email = params[:email]
 
-        if @user.save
-            flash[:notice] = "アカウント情報を編集しました"
-            redirect_to("/users/#{@user.id}")
+            if @user.save
+                flash[:notice] = "アカウント情報を編集しました"
+                redirect_to("/users/#{@user.id}")
+            else
+                redirect_to("/users/#{@user.id}")
+            end
         else
-            redirect_to("/users/#{@user.id}")
+            @find_tag = Usertag.find_by(user_id: params[:id], tag_id: params[:tag])
+            if @find_tag == nil
+                @tag = Usertag.create(user_id: params[:id], tag_id: params[:tag])
+            else
+                @tag = Usertag.find_by(user_id: params[:id], tag_id: params[:tag])
+                @tag.destroy
+            end
         end
     end
 
@@ -116,10 +127,6 @@ class UsersController < ApplicationController
     def followers
         user = User.find(params[:id])
         @users = user.follower_user.page(params[:page]).per(3).reverse_order
-    end
-
-    def tagsnew
-        @tag = Usertag.create(user_id: params[:id], tag_id: params[:tag])
     end
     
 end
