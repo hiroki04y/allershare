@@ -1,6 +1,7 @@
 .blog_view-top{
     position: relative;
     background-color: #fff7fc;
+    top: 65px;
 }
 
 .v1{
@@ -51,6 +52,7 @@
     display: inline-block;
     text-align: center;
     left: 15px;
+    top: 5px;
     width: 250px;
     height: 250px;
     min-width: 250px;
