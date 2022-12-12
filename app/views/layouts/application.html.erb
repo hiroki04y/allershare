@@ -48,29 +48,35 @@
  -->
       <div class="header-logo">
         <%= link_to "/" do %>
-          <img src="/home.png" width=30 height=35>
+          <img src="/header.jpg" width=190 height=50>
         <% end %>
-        <a href="/users/index">ユーザ一覧</a>
-        <a href="/chat">チャット</a>
       </div>
-      <a href="/"><img src="/header.jpg" class="header-home" width=220 height=60></a>
-      <ul class="header-menus">
+      <div class="header-menus">
+        <%= link_to "/" do %>
+          <div class="header-select">
+            <div class="header-text">使い方</div>
+          </div>
+        <% end %>
+        <%= link_to "/" do %>
+          <div class="header-select">
+            <div class="header-text">ブログを探す</div>
+          </div>
+        <% end %>
+        <%= link_to "/" do %>
+          <div class="header-select">
+            <div class="header-text">チャット</div>
+          </div>
+        <% end %>
           <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
-              <li>
                 <a href="/users/<%= @current_user.id %>"><img src="/user_images/default_image.jpg" width=40 height=40></a>
-              </li>
             <% else %>
-              <li>
                 <a href="/users/<%= @current_user.id %>" id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40></a>
-              </li>
             <% end %>
           <% else %>
-            <li>
               <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
-            </li>
           <% end %>
-      </ul>
+      </div>
     </header>
     
 
