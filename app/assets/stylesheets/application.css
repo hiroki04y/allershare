@@ -3,10 +3,11 @@
   /* 全ての要素にpadingやborderも100%に含める */
   box-sizing: border-box; 
   /* outline:solid #ff0077; */
+  font-family:'メイリオ', 'Meiryo', sans-serif;
 }
 
 html {
-  font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
+  font: 100%/1.5 'メイリオ', 'Meiryo', sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
