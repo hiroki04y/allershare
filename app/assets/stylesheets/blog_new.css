@@ -28,6 +28,19 @@
     margin-bottom: 10px;
 }
 
+.blog-form-image{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.blog-noimage{
+    position: relative;
+    width: 20%;
+    height: 100%;
+}
+
 .blog-form-title textarea{
     position: relative;
     width: 100%;

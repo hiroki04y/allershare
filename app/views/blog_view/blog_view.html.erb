@@ -33,9 +33,10 @@
 
     <div class="v4">
 
-      <% @titles.each do |blog| %>
+      <% @blogs.each do |blog| %>
         <div class="blog_view-display">
             <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
+                <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
             <%= blog.content %><br>
             <a href= "/blog">表示</a>
         </div>

@@ -1,6 +1,6 @@
 class BlogViewController < ApplicationController
     def blog_view
-        @titles = Blog.all
+        @blogs = Blog.all
     end
     def blog_show
         @blog = Blog.find_by(id: params[:id])
@@ -8,7 +8,7 @@ class BlogViewController < ApplicationController
     def blog_new
     end
     def blog_create
-        @blog = Blog.create(title: params[:title], content: params[:content])
+        @blog = Blog.create(title: params[:title], content: params[:content], image: "noimage.jpg")
         redirect_to("/blog_view")
     end
 end
