@@ -57,68 +57,59 @@ body {
 header {
   height: 65px;
   position: fixed;
-  background-color: #fed1e6;
+  background-color: #ffdded;
   z-index: 8;
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05); /*これを付け足し*/
 }
 
 .header-logo {
-  float: left;
-  margin-top:3px;
-  padding-left: 15px;
-  line-height: 60px;
-  display:flex;
-}
-
-.header-logo p{
-  padding-left: 10px;
-}
-
-.header-logo a{
-  line-height: 56px;
-  margin-right:13px;
+  position:relative;
+  margin-top:-3px;
+  padding-left: 5%;
+  display:inline-block;
 }
 
 .header-menus {
   float: right;
-  padding-right: 30px;
-}
-
-.header-home {
-  position: absolute;
-  top:-5px;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-}
-
-.header-menus li {
-  float: left;
-  line-height: 64px;
-  padding-left: 15px;
+  padding-right: 5%;
+  margin-top:0px;
+  height:60px;
+  background-color:rgb(21, 255, 0);
+  text-align:center;
 }
 
 .header-menus a{
-  float: left;
-  font-size: 15px;
-  color: white;
-}
-.header-menus img{
-  border-radius: 50%;
-  box-shadow: 0 2px 18px #c1ced7;
-  object-fit: cover;
-  margin-top:-4px;
+  position:relative;
+  display:inline-block;
 }
 
-.header-menus input[type="submit"] {
-  padding: 0 20px;
-  float: left;
-  line-height: 64px;
-  color: white;
-  margin: 0;
-  font-size: 13px;
+.header-select { 
+  width:100px;
+  height:20px;
+  /* background-color:aqua; */
+  text-align:center;
+  border-left:1px solid#878787;
+  margin-top:19px;
 }
+
+.header-text {
+  width:70%;
+  height:40px;
+  background-color:aqua;
+}
+
+.header-menus img{
+  position:relative;
+  border-radius: 50%;
+  box-shadow: 0 2px 20px #fff6f6;
+  border:1px solid #ffcbe3;
+  object-fit: cover;
+  margin-top:-5px;
+}
+
+
+
 
 
 /* サイドバー================================ */
