@@ -54,19 +54,20 @@
       <div class="header-menus">
         <%= link_to "/" do %>
           <div class="header-select">
-            <div class="header-text">使い方</div>
+            <div class="header-text explanation"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>使い方</div>
           </div>
         <% end %>
         <%= link_to "/" do %>
           <div class="header-select">
-            <div class="header-text">ブログを</div>
+            <div class="header-text header-blog"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを探す</div>
           </div>
         <% end %>
         <%= link_to "/" do %>
           <div class="header-select">
-            <div class="header-text">チャット</div>
+            <div class="header-text header-chat"><ion-icon name="logo-wechat" class="header-icon"></ion-icon>チャット</div>
           </div>
         <% end %>
+        <a href="#"><div class="header-space"></div></a>
           <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
                 <a href="/users/<%= @current_user.id %>"><img src="/user_images/default_image.jpg" width=40 height=40></a>
