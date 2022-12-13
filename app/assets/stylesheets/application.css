@@ -74,9 +74,9 @@ header {
 .header-menus {
   float: right;
   padding-right: 5%;
-  margin-top:0px;
+  margin-top:2px;
   height:60px;
-  background-color:rgb(21, 255, 0);
+  /* background-color:rgb(21, 255, 0); */
   text-align:center;
 }
 
@@ -86,7 +86,7 @@ header {
 }
 
 .header-select { 
-  width:100px;
+  width:150px;
   height:20px;
   /* background-color:aqua; */
   text-align:center;
@@ -94,11 +94,49 @@ header {
   margin-top:19px;
 }
 
-.header-text {
-  width:70%;
-  height:40px;
-  background-color:aqua;
+.header-space{
+  width:10px;
+  height:20px;
+  /* background-color:aqua; */
+  text-align:center;
+  border-left:1px solid#878787;
+  margin-top:16px;
 }
+
+.header-text {
+  position:absolute;
+  top:13px;
+  left:52%;
+  transform: translateX(-50%);
+  height:30px;
+  padding-top:3px;
+  font-size:14px;
+  font-weight:600;
+  /* background-color:aqua; */
+}
+
+.explanation{
+  width:85px;
+}
+
+.header-blog{
+  width:130px;
+}
+
+.header-chat{
+  width:110px;
+}
+
+.header-icon{
+  position:relative;
+  display:inline-block;
+  top:4px;
+  width:20px;
+  height:20px;
+  margin-right:2px;
+}
+
+
 
 .header-menus img{
   position:relative;
@@ -106,7 +144,8 @@ header {
   box-shadow: 0 2px 20px #fff6f6;
   border:1px solid #ffcbe3;
   object-fit: cover;
-  margin-top:-5px;
+  margin-top:-10px;
+  margin-left:10px;
 }
 
 
