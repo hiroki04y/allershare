@@ -1,7 +1,200 @@
+.f60{
+    font-weight:600;
+}
+
+.f90{
+    font-weight:900;
+}
+
+.pink{
+    color:#ff4784;
+}
+
 .int_top{
     width:100%;
-    height:400px;
+    height:auto;
     position:relative;
-    background-color:red;
-    top:0px;
 }
+
+.bg{
+    background-color:rgb(215, 214, 214);
+}
+
+/* ヘッダー写真ーーーーーーーーーーーーーーーーーーーーーーーーー */
+.int_top p{
+    font-size:2.2vw;
+    color:white;
+    font-weight:800;
+    position:absolute;
+    top:77%;
+    width:100%;
+    text-align:center;
+}
+
+.int_main{
+    width:100%;
+    height:200px;
+    position:relative;
+    top:20px;
+    left:0px;
+    text-align:center;
+}
+
+
+.int_main h3{
+    padding-top:47px;
+    font-size:35px;
+}
+.int_main p{
+    font-size:15px;
+    margin-top:20px;
+}
+
+/* 三つの特徴ーーーーーーーーーーーーーーー */
+
+.field{
+    width:100%;
+    height:250px;
+    position:relative;
+    margin-top:40px;
+    left:0px;
+    display:flex;   /*親要素に指定*/
+}
+
+.field p{
+    margin:20px 0 0 0;
+}
+
+.field_left{
+    width:37%;
+    height:100%;
+    margin-left:11%;
+}
+
+.field_right{
+    width:37%;
+    height:100%;
+    margin-left:4%;
+}
+
+.field_title{
+    padding-top:20px;
+    font-size:2.3vw;
+}
+
+/* アカウント登録ーーーーーーーーーーーーー */
+.ico_create{
+    margin-top:100px;
+    width:100%;
+    height:250px;
+    background-color:white;
+    text-align:center;
+}
+
+.ico_create p{
+    font-size:2vw;
+    font-weight:600;
+    padding-top:70px;
+    margin-bottom:10px;
+}
+
+
+.ico_create a{
+    text-decoration: underline;
+}
+
+/* ブログ一覧---------------------------- */
+.ico_blog{
+    width:100%;
+    height:300px;
+    margin-top:100px;
+    text-align:center;
+}
+
+.ico_blog p{
+    font-size:30px;
+    text-decoration: underline;
+}
+
+.ico_topics{
+    margin-top:10px;
+    width:100%;
+    height:auto;
+    display:flex;
+    justify-content: center;
+}
+
+.ico_topic{
+    width:290px;
+    height:200px;
+    background-color:white;
+    margin-left:15px;
+    border-radius:10px;
+}
+
+.ico_a{
+    text-align:right;
+    padding:10px 20px 0 0;
+}
+
+/* お問い合わせ------------------------------ */
+.ico_infomation{
+    width:100%;
+    height:300px;
+    background-color:white;
+    margin-top:100px;
+}
+
+.ico_infomation h2{
+    padding-top:50px;
+}
+
+
+/* 色変更ボタン */
+.change_blue{
+    background-color:rgb(102, 217, 255);
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    width:50px;
+    height:20px;
+    cursor:pointer;
+}
+
+.change_pink{
+    background-color:#ff4784;
+    position:fixed;
+    bottom:0px;
+    left:50px;
+    width:50px;
+    height:20px;
+    cursor:pointer;
+}
+
+.change_usupink{
+    background-color:#ffbbda;
+    position:fixed;
+    bottom:0px;
+    left:100px;
+    width:50px;
+    height:20px;
+    cursor:pointer;
+    color:#ff93c3
+}
+
+.header1{
+    position:fixed;
+    top:400px;
+    width:50px;
+    height:150px;
+    background-color:white;
+}
+
+.hed1{
+    position:relative;
+    width:100%;
+    height:25px;
+    border-bottom:1px solid #767676;
+    cursor:pointer;
+}
+
