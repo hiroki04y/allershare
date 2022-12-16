@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/' => "home#top"
+  get 'introduction' => "home#introduction"
   get '/signup' => "users#signup"
   get '/test' => 'test#test'
   
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   post 'users/:id/destroy' => "users#destroy"
   get 'follow' => "users#follow"
   post 'users/tagsnew' => "users#tagsnew"
+
 
   # チャット
   get '/chat' => "chat#chat"
