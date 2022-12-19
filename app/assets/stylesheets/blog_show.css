@@ -59,3 +59,8 @@
     border-radius: 5px;
     background-color: #ffffff;
 }
+
+.blog-edit{
+    position: relative;
+    top: 100px;
+}

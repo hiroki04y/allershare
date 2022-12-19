@@ -8,7 +8,9 @@ class BlogViewController < ApplicationController
     def blog_new
     end
     def blog_create
-        @blog = Blog.create(title: params[:title], content: params[:content], image: "noimage.jpg")
+        @blog = Blog.create(title: params[:title], content: params[:content], image: "blog_default.jpg")
         redirect_to("/blog_view")
+    end
+    def edit
     end
 end

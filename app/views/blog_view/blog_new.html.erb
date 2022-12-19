@@ -2,13 +2,25 @@
     <%= form_tag("/blog_view/blog_create") do %>
     <div class="blog-form">
         <div class = "blog-form-title">
+            <div class="ti">
+                <a>タイトル</a>
+            </div>
             <textarea name = "title"></textarea>
         </div>
         <div class = "blog-form-image">
-            <img src="/blog_images/noimage.jpg" class="blog-noimage">
+            <img src="/blog_images/blog_default.png" class="blog-noimage">
+            <a class="image-button" href="">画像編集</a>
         </div>
         <div class = "blog-form-content">
+            <div class="co">
+                <a>本文</a>
+            </div>
             <textarea name = "content"></textarea>
+        </div>
+        <div class = "blog-form-tag">
+            <div class="ta">
+                <a>タグを選択</a>
+            </div>
         </div>
         <div class = "blog-post-button">
             <input type="submit" value="投稿">

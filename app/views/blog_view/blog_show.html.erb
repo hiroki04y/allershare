@@ -8,6 +8,9 @@
     <div class="blog-content">
       <%= @blog.content%>
     </div>
+    <div class="blog-edit">
+        <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
+    </div>
     <div class="plofile">
       プロフィール
     </div>
