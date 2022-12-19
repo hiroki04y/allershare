@@ -128,6 +128,13 @@
   visibility:visible;
 }
 
+.base3 p{
+  font-size:30px;
+  position:absolute;
+  top:40%;
+  left:20%;
+}
+
 .partner{
     height:36px;
     width:100%;

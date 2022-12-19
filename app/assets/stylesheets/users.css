@@ -380,6 +380,55 @@
   text-align:left;
 }
 
+/* otherユーザ―画面 */
+.other_user{
+  width:80%;
+  height:500px;
+  position:relative;
+  top:100px;
+  left:50%;
+  transform:translateX(-50%);
+  background-color:white;
+}
+
+.other_top{
+  width:100%;
+  height:200px;
+  position:relative;
+  top:0px;
+  background-color: #e5eef7;
+  background-image: linear-gradient(90deg, #e5eef7 0%, #55d7fb 50%, #e5eef7 100%);
+  box-shadow: 0 5px 20px #9da7af;
+}
+
+.other-img{
+  width:120px;
+  height:120px;
+  object-fit: cover;
+  border-radius:50%;
+  position:relative;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.other_top p{
+  font-size:30px;
+  position:relative;
+  text-align:center;
+  top:20px;
+}
+
+.other_self{
+  width:90%;
+  height:200px;
+  position:relative;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  border:1px solid #272727;
+  box-shadow:-10px 10px 25px #9da7af;
+}
 
 /* users/index ================================ */
 .users-heading {

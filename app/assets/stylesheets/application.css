@@ -147,7 +147,7 @@ header {
 .header-menus img{
   position:relative;
   border-radius: 50%;
-  box-shadow: 0 3px 10px #b9b9b9;
+  box-shadow: 0 1px 13px #b9b9b9;
   /* border:1px solid #ffcbe3; */
   object-fit: cover;
   margin-top:-10px;
