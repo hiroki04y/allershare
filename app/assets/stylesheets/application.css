@@ -94,7 +94,7 @@ header {
   height:20px;
   /* background-color:aqua; */
   text-align:center;
-  border-left:1px solid#878787;
+  border-left:1px solid#ffffff;
   margin-top:19px;
 }
 
@@ -103,7 +103,7 @@ header {
   height:20px;
   /* background-color:aqua; */
   text-align:center;
-  border-left:1px solid#878787;
+  border-left:1px solid#ffffff;
   margin-top:16px;
 }
 
@@ -147,8 +147,8 @@ header {
 .header-menus img{
   position:relative;
   border-radius: 50%;
-  box-shadow: 0 2px 20px #fff6f6;
-  border:1px solid #ffcbe3;
+  box-shadow: 0 1px 13px #b9b9b9;
+  /* border:1px solid #ffcbe3; */
   object-fit: cover;
   margin-top:-10px;
   margin-left:10px;

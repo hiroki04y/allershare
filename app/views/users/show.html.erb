@@ -142,6 +142,14 @@
     </div>
   </div>
 <% else %>
+  <div class="other_user">
+    <div class="other_top">
+      <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
+      <p><%= @user.name%></p>
+      <div class="other_self"></div>
+    </div>
+  
+  </div>
     <!-- ユーザ名 -->
     <h2><%= @user.name%></h2>
     <% if @current_user.following?(@user) %>

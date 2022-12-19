@@ -10,44 +10,24 @@
     color:#ff4784;
 }
 
-.int_top{
-    width:100%;
-    height:auto;
-    position:relative;
-}
-
 .bg{
     background-color:rgb(215, 214, 214);
 }
 
 /* ヘッダー写真ーーーーーーーーーーーーーーーーーーーーーーーーー */
-.int_top p{
-    font-size:2.2vw;
-    color:white;
-    font-weight:800;
-    position:absolute;
-    top:77%;
+.use_top{
     width:100%;
-    text-align:center;
+    height:auto;
+    position:relative;
 }
 
-.int_main{
+.use_main{
     width:100%;
-    height:200px;
+    height:150px;
     position:relative;
-    top:20px;
+    top:40px;
     left:0px;
     text-align:center;
-}
-
-
-.int_main h3{
-    padding-top:47px;
-    font-size:35px;
-}
-.int_main p{
-    font-size:15px;
-    margin-top:20px;
 }
 
 /* 三つの特徴ーーーーーーーーーーーーーーー */
@@ -82,8 +62,35 @@
     font-size:2.3vw;
 }
 
+.field_img1{
+    width:310px;
+    height:auto;
+    position:relative;
+    top:7%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.field_img2{
+    width:300px;
+    height:auto;
+    position:relative;
+    top:8%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.field_img3{
+    width:180px;
+    height:auto;
+    position:relative;
+    top:1%;
+    left:48%;
+    transform: translateX(-50%);
+}
+
 /* アカウント登録ーーーーーーーーーーーーー */
-.ico_create{
+.use_create{
     margin-top:100px;
     width:100%;
     height:250px;
@@ -91,7 +98,7 @@
     text-align:center;
 }
 
-.ico_create p{
+.use_create p{
     font-size:2vw;
     font-weight:600;
     padding-top:70px;
@@ -99,24 +106,24 @@
 }
 
 
-.ico_create a{
+.use_create a{
     text-decoration: underline;
 }
 
 /* ブログ一覧---------------------------- */
-.ico_blog{
+.use_blog{
     width:100%;
     height:300px;
     margin-top:100px;
     text-align:center;
 }
 
-.ico_blog p{
+.use_blog p{
     font-size:30px;
     text-decoration: underline;
 }
 
-.ico_topics{
+.use_topics{
     margin-top:10px;
     width:100%;
     height:auto;
@@ -124,7 +131,7 @@
     justify-content: center;
 }
 
-.ico_topic{
+.use_topic{
     width:290px;
     height:200px;
     background-color:white;
@@ -132,20 +139,20 @@
     border-radius:10px;
 }
 
-.ico_a{
+.use_a{
     text-align:right;
     padding:10px 20px 0 0;
 }
 
 /* お問い合わせ------------------------------ */
-.ico_infomation{
+.use_infomation{
     width:100%;
     height:300px;
     background-color:white;
     margin-top:100px;
 }
 
-.ico_infomation h2{
+.use_infomation h2{
     padding-top:50px;
 }
 
