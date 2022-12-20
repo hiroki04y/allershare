@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'blog_view/blog_create' => 'blog_view#blog_create'
   get 'blog_view/:id/blog_edit' => 'blog_view#blog_edit'
   post 'blog_view/:id/blog_update' => 'blog_view#blog_update'
+  get 'blog_view/:id/blog_destroy' => 'blog_view#blog_destroy'
 
   #ユーザ関連
   resources :users, only:[:edit, :update] do

@@ -21,4 +21,9 @@ class BlogViewController < ApplicationController
         @blog.save
         redirect_to("/blog_view")
     end
+    def blog_destroy
+        @blog = Blog.find_by(id: params[:id])
+        @blog.destroy    
+        redirect_to("/blog_view")
+    end
 end
