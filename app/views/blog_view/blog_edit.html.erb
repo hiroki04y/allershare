@@ -1,5 +1,31 @@
-<div class="main posts-new">
-  <div class="container">
-    <h1 class="form-heading">編集する</h1>
-  </div>
+<div class="main-edit-new">
+    <%= form_tag("/blog_view/#{@blog.id}/blog_update") do %>-->
+    <div class="edit-form">
+        <div class = "edit-form-title">
+            <div class="ti">
+                <a>タイトル</a>
+            </div>
+            <textarea name = "title"><%= @blog.title %></textarea>
+        </div>
+        <div class = "edit-form-image">
+            <img src="/blog_images/blog_default.png" class="edit-noimage">
+            <a class="image-button" href="">画像編集</a>
+        </div>
+        <div class = "edit-form-content">
+            <div class="co">
+                <a>本文</a>
+            </div>
+            <textarea name = "content"><%= @blog.content %></textarea>
+        </div>
+        <div class = "edit-form-tag">
+            <div class="ta">
+                <a>タグを選択</a>
+            </div>
+            <div class = "edit-tag-select">
+                
+            </div>
+        </div>
+        <input type="submit" class = "edit-post-button" value="投稿">
+    </div>
+    <% end %>
 </div>
