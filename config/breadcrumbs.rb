@@ -2,6 +2,11 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :use do
+  link "使い方", use_path
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
