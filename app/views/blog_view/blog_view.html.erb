@@ -38,12 +38,12 @@
             <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
                 <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
             <%= blog.content %><br>
-            <a href= "/blog">表示</a>
         </div>
       <% end %>
 
     </div>
 
+    <% if @current_user == nil %>
     <div class="v6">
         <div class="under">
             <div class="bottom-top">
@@ -77,6 +77,7 @@
         </div>
         </div>
     </div>
+    <% end %>
 
     <div class="v7">
         <img src="/header.jpg" class="under-logo" width=220 height=60>
