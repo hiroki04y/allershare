@@ -11,6 +11,9 @@
     <div class="blog-edit">
         <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
     </div>
+    <div class="blog-destroy">
+      <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
+    </div>
     <div class="plofile">
       プロフィール
     </div>
