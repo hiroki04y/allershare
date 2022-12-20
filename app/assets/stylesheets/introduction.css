@@ -15,10 +15,18 @@
 }
 
 /* ヘッダー写真ーーーーーーーーーーーーーーーーーーーーーーーーー */
-.use_top{
+.use_margin{
     width:100%;
+    height:30px;
+    position:relative;
+}
+
+.use_top{
+    width:90%;
     height:auto;
     position:relative;
+    left:50%;
+    transform:translateX(-50%);
 }
 
 .use_main{
