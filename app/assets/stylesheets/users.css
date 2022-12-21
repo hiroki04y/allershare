@@ -383,13 +383,14 @@
 
 /* otherユーザ―画面 */
 .other_user{
-  width:80%;
-  height:500px;
+  width:70%;
+  height:auto;
   position:relative;
-  top:100px;
+  top:150px;
   left:50%;
   transform:translateX(-50%);
   background-color:white;
+  padding-bottom:50px;
 }
 
 .other_top{
@@ -398,8 +399,8 @@
   position:relative;
   top:0px;
   background-color: #e5eef7;
-  background-image: linear-gradient(90deg, #e5eef7 0%, #55d7fb 50%, #e5eef7 100%);
-  box-shadow: 0 5px 20px #9da7af;
+  background-image: linear-gradient(90deg, #e5eef7 0%, #6adbfa 50%, #e5eef7 100%);
+  box-shadow: 0px 0px 15px -4px #9e9e9e;
 }
 
 .other-img{
@@ -414,22 +415,123 @@
 }
 
 .other_top p{
-  font-size:30px;
+  font-size:28px;
   position:relative;
   text-align:center;
-  top:20px;
+  margin-top:20px;
+  margin-bottom:50px;
+  text-align:center;
 }
 
 .other_self{
   width:90%;
-  height:200px;
+  height:150px;
+  margin-top:30px;
   position:relative;
-  top:50px;
   left:50%;
   transform:translateX(-50%);
-  border:1px solid #272727;
-  box-shadow:-10px 10px 25px #9da7af;
+  /* border:1px solid #272727; */
+  box-shadow: 0px 0px 15px -4px #9e9e9e;
+  border-radius: 5px;
 }
+
+.other_self_icon{
+  width:17%;
+  height:90%;
+  position:relative;
+  top:5%;
+  left:0px;
+  border-right:1.5px solid #bbbbbb;
+  /* background-color:#6ea857; */
+  float:left;
+}
+
+.other_self_icon img{
+  width:45%;
+  height:45%;
+  margin:25% 0 0 25%;
+  object-fit:cover;
+  opacity: 0.4;
+}
+
+.other_self p{
+  padding-right:50px;
+  font-size:17px;
+  padding-top:10px;
+  text-align:center;
+}
+
+.other_profile{
+  width:80%;
+  height:70%;
+  background-color:aqua;
+  position:absolute;
+  top:40px;
+  left:20%;
+}
+
+.other_allergy{
+  width:80%;
+  height:70%;
+  background-color:aqua;
+  position:absolute;
+  top:40px;
+  left:20%;
+}
+
+.other_blogs{
+  position:relative;
+  margin-top:50px;
+  width:100%;
+  height:auto;
+}
+
+.other_blogs_header{
+  position:relative;
+  width:70%;
+  height:30px;
+  background-color:#3a3a3a;
+  border-top-left-radius:20px;
+  border-top-right-radius: 20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1;
+}
+.other_blogs_header p{
+  padding-top:5px;
+  font-size:15px;
+  color:white;
+  text-align:center;
+}
+
+.other_blogfield{
+  position:relative;
+  top:0px;
+  left:5%;
+  width:90%;
+  border-radius:10px;
+  box-shadow: 0px 11px 15px -2px #9e9e9e;
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding:40px 30px 0px 30px ;
+}
+
+.other_blog{
+  width:220px;
+  min-width:220px;
+  height:150px;
+  background-color:white;
+  margin-left:10px;
+  margin-right:10px;
+  margin-bottom:20px;
+  border-radius:10px;
+  box-shadow: 0px 0px 35px -5px #cccccc;
+  position:relative;
+  display:inline-block;
+}
+
+
 
 /* users/index ================================ */
 .users-heading {

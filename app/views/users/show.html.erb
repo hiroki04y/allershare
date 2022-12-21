@@ -142,14 +142,38 @@
       </div>
     </div>
   </div>
-<% else %>
+<% else %> <!--  他のユーザの画面-------------------------------------------------------------------->
   <div class="other_user">
     <div class="other_top">
       <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
-      <p><%= @user.name%></p>
-      <div class="other_self"></div>
+      <p class="other_name"><%= @user.name%></p>
     </div>
-  
+      <div class="other_self">
+        <div class="other_self_icon">
+          <img src="/personal-icon1.png">
+        </div>
+        <p class="f60">自己紹介</p>
+        <div class="other_profile"></div>
+      </div>
+      <div class="other_self">
+        <div class="other_self_icon">
+          <img src="/personal-icon2.png">
+        </div>
+        <p class="f60">子供が所持しているアレルギー</p>
+        <div class="other_allergy"></div>
+      </div>
+
+      <div class="other_blogs">
+        <div class="other_blogs_header"><p><%= @user.name%>さんのブログ一覧</p></div>
+        <div class="other_blogfield">
+          <div class="other_blog"></div>
+          <div class="other_blog"></div>
+          <div class="other_blog"></div>
+          <div class="other_blog"></div>
+          <div class="other_blog"></div>
+          <div class="other_blog"></div>
+        </div>
+      </div>
   </div>
     <!-- ユーザ名 -->
     <h2><%= @user.name%></h2>
