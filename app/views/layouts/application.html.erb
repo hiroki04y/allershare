@@ -55,7 +55,7 @@
       <div class="header-menus">
         <%= link_to "/use" do %>
           <div class="header-select">
-            <div class="header-text explanation"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>使い方</div>
+            <div class="header-text explanation"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>アレルシェアについて</div>
           </div>
         <% end %>
         <%= link_to "/blog_view" do %>
@@ -93,7 +93,7 @@
     <script>
 
     </script>
-    
+    <%= breadcrumbs separator: " &rsaquo; " %>
     <%= yield %>
     <!-- icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
