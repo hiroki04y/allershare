@@ -381,9 +381,10 @@
 }
 
 
-/* otherユーザ―画面 */
+/* otherユーザ―画面--------------------------------------- */
+/* 名前等紹介部分----------------------------------------- */
 .other_user{
-  width:70%;
+  width:870px;
   height:auto;
   position:relative;
   top:150px;
@@ -412,6 +413,7 @@
   top:20px;
   left:50%;
   transform:translateX(-50%);
+  border:1px solid #2dbac9;
 }
 
 .other_top p{
@@ -423,6 +425,60 @@
   text-align:center;
 }
 
+/* フォロー----------------------------------------- */
+.other_follow{
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  top: 60%;
+  left: 4%;
+}
+
+.other_follow img{
+  width:26%;
+  height:30%;
+  position:relative;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+
+.other_follow p{
+  width:100%;
+  position:relative;
+  top:5px;
+  text-align:center;
+  font-size:10px;
+}
+
+/* 編集----------------------------------------- */
+.other_edit{
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top:0px;
+  left:87%;
+}
+
+.other_edit img{
+  width:40%;
+  height:40%;
+  position:relative;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.other_edit p{
+  width:100%;
+  position:relative;
+  top:5px;
+  text-align:center;
+  font-size:10px;
+}
+
+/* 自己紹介、アレルギー情報----------------------------------------- */
 .other_self{
   width:90%;
   height:150px;
@@ -449,7 +505,7 @@
 .other_self_icon img{
   width:45%;
   height:45%;
-  margin:25% 0 0 25%;
+  margin:26% 0 0 25%;
   object-fit:cover;
   opacity: 0.4;
 }
@@ -464,21 +520,41 @@
 .other_profile{
   width:80%;
   height:70%;
-  background-color:aqua;
   position:absolute;
   top:40px;
   left:20%;
+}
+
+.other_profile p{
+  padding:10px 0 0 50px;
+  text-align:left;
 }
 
 .other_allergy{
   width:80%;
   height:70%;
-  background-color:aqua;
   position:absolute;
   top:40px;
   left:20%;
 }
 
+.other_allergy_tag{
+  position: relative;
+  float: left;
+  width: 23%;
+  height: 41px;
+  margin-top: 3px;
+  padding: 10px 8px 0 7px;
+  margin-left: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #b2b2b2;
+  background-color: white;
+  text-align: center;
+}
+
+
+/* ユーザのブログ----------------------------------------- */
 .other_blogs{
   position:relative;
   margin-top:50px;

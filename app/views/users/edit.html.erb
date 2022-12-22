@@ -1,22 +1,285 @@
-<div class="main">
-    <div class="container">
-        <div class="form">
-            <div class="form-body">
-              <% @user.errors.full_messages.each do |message| %>
-                 <div class="form-error">
-                    <%= @error_message %>
-                 </div>
-              <% end %>
-              <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>   
-                <h2>編集</h2>
-                <input name="name" placeholder="ユーザ名" value="<%= @user.name %>">
-                <input name="email" placeholder="メールアドレス" value="<%= @user.email %>">
-                <input name="image" type="file">
-                <input type="password" name="password" placeholder="パスワード" value="<%= @user.password %>">
-                <p>半角英数字8文字以上で入力してください。<p>
-                <input type="submit" value="編集">
-              <% end %>
-            </div>
+<div class="breadcrumbs"><%= link_to "TOP", root_path %> &rsaquo; <%= link_to "#{@user.name}さんの詳細" , "/users/#{@user.id}" %>  &rsaquo; <span class="current">編集画面</span></div>
+<div class="main user-show">
+  <div class="mycontainer" id="<%= @user.id %>">
+    <div class="blackhole"><%= @tag %></div>
+    <div class="user_index"><b>ユーザ情報</b></div>
+    <%# パスワード変更画面------------------------------------------------------------------- %>
+    <div class="password_change">
+      <div class="back"><b><</b></div>
+      <%= form_tag("/users/#{@user.id}/passchange") do %>
+        <div class="now_password">
+          <p>現在のパスワード*</p>
+          <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
+          <p class="error_message"></p>
         </div>
+        <div class="now_password">
+          <p>新しいパスワード*</p>
+          <input id="p1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
+          <p class="error_message1"></p>
+        </div>
+        <div class="now_password">
+          <p>新しいパスワードを確認*</p>
+          <input id="p2"name="pass2" placeholder="再度入力してください" type="password">
+          <p class="error_message2"></p>
+        </div>
+        <input type="submit" value="変更" onclick="checkpassword('<%= @user.password %>')">
+      <% end %>
+
+
+    </div>
+
+    <%# ユーザ編集画面---------------------------------------------------------------------------------- %>
+    <div class="user">
+      <div class="user_left">
+        <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー管理</p>
+      </div>
+
+      <%# 保存ボタンでユーザ情報の書き換え %>
+      <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
+      <input type="hidden" name="id" value="<%= @user.id %>" autocomplete="off" />
+      <input type="hidden" name="tag" value="1" autocomplete="off" class="user_tag"/>
+        <%# ユーザ名 %>
+        <div class="user_border">
+          <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
+        </div>
+
+        <%# アイコン %>
+        <div class="user_borderbig">
+          <img name="image" src="<%="/user_images/#{@user.image_name}"%>">
+          <input type="button" id="iconimage" class="show_submit" value="アイコン編集">
+        </div>
+
+        <%# 自己紹介 %>
+        <div class="user_borderbig">
+          <textarea name="introduction" maxlength="140" placeholder="140字以内" rows="4" ><%= @user.introduction %></textarea>
+        </div>
+
+        <%# メールアドレス %>
+        <div class="user_border">
+          <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
+        </div>
+
+        <%# パスワード %>
+        <div class="user_border">
+          <h5>登録済み</h5>
+        </div>
+
+        <%# アレルギー情報 %>
+        <div class="user_border">
+          <div class="user_radio">
+            <input type="radio" name="wheight" value="軽度" checked> 軽度
+            <input type="radio" name="wheight" value="中度"> 中度
+            <input type="radio" name="wheight" value="中度"> 重度
+          </div>
+        </div>
+
+        <div class="aller_border">
+        <p>所持しているアレルギー</p>
+          <div class="allergy allergy_left">
+            <div class="aller_button" id="aller_button1">
+            </div>
+            <div class="aller_button_big" id="aller_button2">
+
+
+            </div>
+            <div class="aller_button_big" id="aller_button3"></div>
+            <div class="aller_button_big" id="aller_button4"></div>
+            <div class="aller_button" id="aller_button5"></div>
+            <div class="aller_button" id="aller_button6"></div>
+            <p>小麦・牛乳・卵<br><br>豆・穀・種実類<br><br><br>野菜・果物<br><br><br>肉類・魚類<br><br><br>甲殻類<br><br>その他</p>
+          </div>
+
+          <div class="allergy allergy_right">
+            <p><b><メモ></b></p>
+            <textarea name="memo" class="memo" placeholder="140字以内">
+            </textarea>
+          </div>
+        </div>
+        
+
+        <%# 各種ボタン %>
+        <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#" id="passchange">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
+          <input type="submit" class="user_save" value="保存する"  name="savebutton">
+        </div>
+
+
+      <% end %>
+    </div>
+
+    <%# フッター %>
+    <div class="t7">
+      <img src="/rogo2.png" class="under-logo" width=220 height=60>
+      <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
+    </div>
+
+    <%# プロフィール画像変更画面------------------------------------------------------------------------- %>
+    <div class="image_cover">
+    <div class="popup"></div>
+    <div class="imageselect">
+      <%= form_tag("/users/#{@user.id}/imagechange",{multipart: true}) do |f| %>
+        <div class="form-group">
+          <%= label_tag :image, class: "newselect" do %>
+            <b>画像を選択</b>
+            <%= file_field_tag :image, style:"display:none;" %>
+          <% end %>
+        </div>
+        <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div>
+        <input type="submit" class="new-imagebutton" value="保存">
+      <% end %>
+    </div>
+    </div>
+
+    <%# アカウント削除画面表示--------------------------------------------------------------- %>
+    <div class="delete_cover">
+    <div class="popup"></div>
+    <div class="imageselect">
+    <h3>本当に削除しますか？</h3>
+    <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
+    <input type="button" class="chancelbutton" value="キャンセル">
+    <a href="/users/#{@user.id}/destroy"><input type="button" class="deletebutton" value="削除"></a>
+    </div>
     </div>
 </div>
+
+<%# スクリプト---------------------------------------------------------------------------------- %>
+<script>
+  var blob;
+  var now_login_user = $(".login_user").attr('id');
+  //console.log(now_login_user)
+
+  //タグの内容を読み取る
+  var texttag = $(".blackhole").html();
+  //alert(texttag);
+  var tagname = texttag.replace(/"|]/g, '')
+  tagname = tagname.split(",")
+  for(var v = 0; v < tagname.length; v++){
+    tagname[v] = tagname[v].slice(1)
+  }
+  //tagnameは配列で所持しているアレルギーを保存している
+
+  // タグスクリプト------------------------------------------------------------------
+  var foods = ['小麦','ミルク','卵白','オボムコイド',
+               'アーモンド','カシューナッツ','くるみ','米','ごま','そば','ピーナッツ',
+               'オレンジ','キウイ','トマト','バナナ','もも','りんご',
+               '牛肉','鶏肉','豚肉','あわび','いか','いくら','さけ','さば','まぐろ',
+               'えび','かに',
+               'ゼラチン','まつたけ','やまいも'];
+  var num = [4,7,6,9,2,3]
+
+  var f = 0;
+  for (var v = 0; v < num.length; v++) {
+    var add = ('#aller_button' + (v + 1));
+    for (var i = 0; i < num[v]; i++){
+      $(add).append(
+        `<input type="submit" value="${foods[f]}" id="button${f}" name="commit" onclick="button_select(this.id,this.value,${++f})">`
+      )
+    }
+  }
+
+  //選択済みのタグは色を付ける
+  for(var v = 0; v < tagname.length; v++){
+    var selected = "#button" + foods.indexOf(tagname[v])
+    console.log(selected)
+    $(selected).css('background-color','#cef9bc')
+  }
+
+
+
+  //アレルギー管理用
+  var text = [];
+  function button_select(button_id,value,id){
+    $(".user_tag").val(id);
+    // ボタンを選んだ時の色を変更
+    var select_button = "#" + button_id;
+    if($(select_button).css("background-color") == "rgb(206, 249, 188)"){
+      $(select_button).css('background-color','white');
+      var idx = text.indexOf(value);
+      if(idx >= 0){
+        text.splice(idx, 1); 
+      }
+    }else{
+      $(select_button).css('background-color','#cef9bc');
+      text.push(value)     
+    }
+    console.log(text);
+  }
+
+  //-------------------------------------------------------------------------------
+
+  //各種モーダルウィンドウの変更
+  $(function(){
+    $('.show_submit').click(function(){
+      $('.image_cover').fadeIn(300);
+    });
+    $('.popup').click(function(){
+      $('.image_cover').fadeOut(300);
+    })
+    $('.new-imagebutton').click(function(){
+      $('.image_cover').fadeOut(300);
+      $(".user_borderbig img").attr('src', blob)
+    })
+
+    $('#red').click(function(){
+      $('.delete_cover').fadeIn(300);
+    });
+    $('.chancelbutton').click(function(){
+      $('.delete_cover').fadeOut(300);
+    });
+    $('.popup').click(function(){
+      $('.delete_cover').fadeOut(300);
+    })
+
+    $('#passchange').click(function(){
+      $('.password_change').fadeIn(300);
+      $('.user_index b').html("パスワード変更");
+    });
+
+    $('.back').click(function(){
+      $('.password_change').fadeOut(200);
+      $('.user_index b').html("ユーザ情報");
+    });
+  });
+
+  //アイコン画像の編集
+  const createImageHTML = (blob) => {
+    $("#new-image img").remove();
+    const imageElement = document.getElementById('new-image');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('class', 'new-img')
+    blobImage.setAttribute('src', blob);
+    imageElement.appendChild(blobImage);
+  };
+
+  document.getElementById('image').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    blob = window.URL.createObjectURL(file);
+    createImageHTML(blob);
+  });
+
+  function checkpassword(e){
+    np = document.getElementById("nowpass").value;
+    p1 = document.getElementById("p1").value;
+    p2 = document.getElementById("p2").value;
+    if ( np == e){
+      if (p1 == ""){
+        $(".error_message1").text("パスワードを入力してください");
+        $(".error_message").text("");
+      }
+
+      if (p2 == ""){
+        $(".error_message2").text("パスワードを入力してください");
+        $(".error_message").text("");
+      }else if(p1 != p2){
+        $(".error_message2").text("パスワードが違います");
+        $(".error_message1").text("");
+        $(".error_message").text("");
+      }else{
+      }
+    }else{
+      $(".error_message").text("パスワードが違います");
+      $(".error_message1").text("");
+      $(".error_message2").text("");
+    }
+  }
+
+</script>

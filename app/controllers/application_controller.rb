@@ -12,5 +12,6 @@ class ApplicationController < ActionController::Base
             flash[:notice] = "すでにログインしています"
             redirect_to("/users/#{@current_user.id}/")
         end
-      end
+    end
+    
 end

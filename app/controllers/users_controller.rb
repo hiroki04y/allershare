@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
     # ログインしている場合の処理
     before_action :forbid_login_user, {only:[:signup,:create,:login_form,:login]}
+    before_action :ensure_current_user, {only: [:edit]}
+    def ensure_current_user
+        if @current_user.id != params[:id].to_i
+            redirect_to("/users/#{params[:id]}")
+        end
+    end
 
 
     def signup
@@ -61,6 +67,7 @@ class UsersController < ApplicationController
             @user = User.find_by(id: params[:id])
             @user.name = params[:name]
             @user.email = params[:email]
+            @user.introduction = params[:introduction]
 
             if @user.save
                 flash[:notice] = "アカウント情報を編集しました"
@@ -103,6 +110,7 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find_by(id: params[:id])
+        @tag = Usertag.joins(:tag).select('tagname').where('user_id = ?', params[:id]).pluck(:tagname)
     end
 
     def destroy

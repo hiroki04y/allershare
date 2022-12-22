@@ -88,7 +88,26 @@
       </div>
     <% end %>
 
-    <div class="blackcover"></div>
+    <div class="user_popup">
+      <div class="user_popup_name">
+        <img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40>
+        <p><%= @current_user.name %></p>
+      </div>
+      <div class="user_popup_select">
+        <img src="/personal-icon1.png">
+        <p>Myプロフィール</p>
+      </div>
+      <div class="user_popup_select">
+        <img src="/edit-icon.png">
+        <p>プロフィール編集</p>
+      </div>
+      <div class="user_popup_select">
+        <img src="/door.png">
+        <p>ログアウト</p>
+      </div>
+    </div>
+
+
 
     <script>
 
