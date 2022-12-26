@@ -121,3 +121,7 @@
     width: 100%;
     top: 5px;
 }
+
+.blog-form-error{
+    color: brown;
+}
