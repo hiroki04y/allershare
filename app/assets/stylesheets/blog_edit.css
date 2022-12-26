@@ -122,3 +122,7 @@
     width: 100%;
     top: 5px;
 }
+
+.edit-form-error{
+    color: brown;
+}
