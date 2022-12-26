@@ -1,5 +1,5 @@
 <div class="main-edit-new">
-    <%= form_tag("/blog_view/#{@blog.id}/blog_update") do %>-->
+    <%= form_tag("/blog_view/#{@blog.id}/blog_update",{multipart:true}) do %>-->
     <div class="edit-form">
     <% @blog.errors.full_messages.each do |message| %>
         <div class="edit-form-error">
@@ -13,8 +13,8 @@
             <textarea name = "title"><%= @blog.title %></textarea>
         </div>
         <div class = "edit-form-image">
-            <img src="/blog_images/blog_default.png" class="edit-noimage">
-            <a class="image-button" href="">画像編集</a>
+            <img src="<%="/blog_images/#{@blog.image}"%>"class="edit-noimage">
+            <input name="image" a class="image-button" type="file">
         </div>
         <div class = "edit-form-content">
             <div class="co">

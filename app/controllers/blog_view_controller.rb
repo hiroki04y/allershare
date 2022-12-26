@@ -32,6 +32,13 @@ class BlogViewController < ApplicationController
         @blog.title = params[:title]
         @blog.content = params[:content]
         @blog.image = params[:image]
+        if params[:image]
+            @blog.image = "#{@blog.id}.jpg"
+            image = params[:image]
+            File.binwrite("public/blog_images/#{@blog.image}", image.read)
+        else
+            @blog.image = "blog_default.png"
+        end
         if @blog.save
             flash[:notice] = "投稿を編集しました"
             redirect_to("/blog_view")
