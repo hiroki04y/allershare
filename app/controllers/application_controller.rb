@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
     # ログインしている共通のユーザを宣言
     def set_current_user
-        @current_user = User.find_by(id: cookies[:user_id])
+        @current_user = User.find_by(id: cookies.encrypted[:user_id])
     end
 
     # ログインしている場合の処理

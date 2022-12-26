@@ -1,4 +1,5 @@
 <% breadcrumb :user_view, @user %>
+<div class="use_background">
   <div class="other_user">
     <div class="other_top">
       <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
@@ -59,3 +60,11 @@
         </div>
       </div>
   </div>
+  <div class="other_bottom"></div>
+</div>
+<script>
+window.onload = function(){
+  $(".use_background").css("background-size","cover")
+  $("body").css("background-image","none")
+}
+</script>

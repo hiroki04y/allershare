@@ -1,21 +1,19 @@
 <div class="main">
-    <div class="container">
-            <div class="form">
-                <div class="form-body">
-                    <% if @error_message %>
-                        <div class="form-error">
-                            <%= @error_message %>
-                        </div>
-                    <% end %>
-                    <%= form_tag("/login") do %>  
-                        <h2>ログイン</h2>
-                        <input name="email" placeholder="メールアドレス" value="<%= @email %>">
-                        <input type="password" name="password" placeholder="パスワード" value="<%= @password %>">
-                        <p>半角英数字8文字以上で入力してください。<p>
-                        <input type="submit" value="ログイン">
-                    <% end %>
-                </div>
-            </div>
+  <div class="container">
+    <h2>ログイン</h2>
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
+    <%= form_tag("/login") do %>  
+    <div class="form">
+      <input name="email" class="form-input" placeholder="メールアドレス" value="<%= @email %>">
+      <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
+      <p>半角英数字8文字以上で入力してください。<p>
     </div>
-    <p>アカウントをお持ちでない方は<a href="/signup">こちら</a>からアカウント作成を行ってください。</p>
+    <input type="submit" value="ログイン">
+    <% end %>
+  </div>
+  <p class="acount-new">アカウントをお持ちでない方は<a href="/signup">こちら</a>からアカウント作成を行ってください。</p>
 </div>

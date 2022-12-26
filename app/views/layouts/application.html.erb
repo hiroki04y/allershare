@@ -32,21 +32,22 @@
 
   <body>
     <header class="changetest">
+
       <!--                                                                                                                                                                                                                
                                                                                                     
-    %@@@@@@@@@@@@-  .@@@:            :@@% %@@-       #@@%*+                         -@@@@@@@@@@@@@    
-    %@@@@@@@@@@@@=  .@@@:            :@@% %@@-       +*#%@*   .*+-                  =@@@@@@@@@@@@@    
-       .--:  -@@@.  .@@@:     .:     :@@% %@@-      -*+=-:.   +@@=    %@@@@@@@@+        :--. .#@@*    
-       -@@*.*@@@:   .@@@:     #@@-   :@@# %@@- =+=. *@@@@%   .@@@.    ===#@@+==-        #@@:-%@@*     
-       =@@+.#@#.    .@@@:    *@@#    -@@* %@@- #@@.   .-=-  :%@@-        +@@:           %@@.=@@=      
-       %@@-  :      .@@@:  -#@@#.    *@@= %@@-=@@#        :*@@@=         +@@:          -@@%  ..       
-     -%@@#          .@@@*#@@@@+    -#@@%. %@@%@@%.  .++*#@@@@#:      .===#@@+===     .+@@@-           
-     *@@+           .@@@@@@#=.     -@@#.  %@@@%+.    @@@@%#=:        -@@@@@@@@@@     :%@%-            
-      -.             ---:.          ::    :-:.       --:.                             .:           
+      %@@@@@@@@@@@@-  .@@@:            :@@% %@@-       #@@%*+                         -@@@@@@@@@@@@@    
+      %@@@@@@@@@@@@=  .@@@:            :@@% %@@-       +*#%@*   .*+-                  =@@@@@@@@@@@@@    
+         .--:  -@@@.  .@@@:     .:     :@@% %@@-      -*+=-:.   +@@=    %@@@@@@@@+        :--. .#@@*    
+         -@@*.*@@@:   .@@@:     #@@-   :@@# %@@- =+=. *@@@@%   .@@@.    ===#@@+==-        #@@:-%@@*     
+         =@@+.#@#.    .@@@:    *@@#    -@@* %@@- #@@.   .-=-  :%@@-        +@@:           %@@.=@@=      
+         %@@-  :      .@@@:  -#@@#.    *@@= %@@-=@@#        :*@@@=         +@@:          -@@%  ..       
+       -%@@#          .@@@*#@@@@+    -#@@%. %@@%@@%.  .++*#@@@@#:      .===#@@+===     .+@@@-           
+       *@@+           .@@@@@@#=.     -@@#.  %@@@%+.    @@@@%#=:        -@@@@@@@@@@     :%@%-              
 
 
    　　　　　　　　　　　　アレルギーを持つ子供の育児サポートサイト                                                                    
  -->
+
       <div class="header-logo">
         <%= link_to "/" do %>
           <img src="/rogo2.png" width=190 height=50>
@@ -55,25 +56,30 @@
       <div class="header-menus">
         <%= link_to "/use" do %>
           <div class="header-select">
-            <div class="header-text explanation"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>アレルシェアについて</div>
+          <div class="header-text"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>アレルシェアとは</div>
           </div>
         <% end %>
         <%= link_to "/blog_view" do %>
           <div class="header-select">
-            <div class="header-text header-blog"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを探す</div>
+          <div class="header-text"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを探す</div>
           </div>
         <% end %>
         <%= link_to "/chat" do %>
-          <div class="header-select">
-            <div class="header-text header-chat"><ion-icon name="logo-wechat" class="header-icon"></ion-icon>チャット</div>
+        <div class="header-select">
+          <div class="header-text"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを作る</div>
+          </div>
+        <% end %>
+         <%= link_to "/chat" do %>
+         <div class="header-select">
+          <div class="header-text"><ion-icon name="logo-wechat" class="header-icon"></ion-icon>チャット</div>
           </div>
         <% end %>
         <a href="#"><div class="header-space"></div></a>
           <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
-                <a href="/users/<%= @current_user.id %>"><img src="/user_images/default_image.jpg" width=40 height=40></a>
+                <a href="#"><img class="login_default" src="/user_images/default_image.jpg" onclick="popup()" width=40 height=40></a>
             <% else %>
-                <a href="/users/<%= @current_user.id %>" id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40></a>
+                <a href="#" id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" onclick="popup()" width=40 height=40></a>
             <% end %>
           <% else %>
               <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
@@ -88,28 +94,55 @@
       </div>
     <% end %>
 
+    <div class="exepting" onclick="popdown()"></div>
+    <% if @current_user %>
     <div class="user_popup">
       <div class="user_popup_name">
         <img src="/user_images/<%= @current_user.id %>.jpg" width=40 height=40>
         <p><%= @current_user.name %></p>
       </div>
+      <link to>
+      <%= link_to("/users/#{@current_user.id}") do %>
       <div class="user_popup_select">
         <img src="/personal-icon1.png">
         <p>Myプロフィール</p>
       </div>
+      <% end %>
+      <%= link_to("/users/#{@current_user.id}/edit") do %>
       <div class="user_popup_select">
         <img src="/edit-icon.png">
         <p>プロフィール編集</p>
       </div>
+      <% end %>
+      <%= link_to("/logout") do %>
       <div class="user_popup_select">
         <img src="/door.png">
         <p>ログアウト</p>
       </div>
+      <% end %>
     </div>
-
-
+    <% end %>
 
     <script>
+    var pop = 0;
+    $(document).on('click',function(e) {
+      if(!$(e.target).closest('.user_popup').length && !$(e.target).closest('.login_default').length && !$(e.target).closest('.login_user').length)  {
+        $('.user_popup').fadeOut(50);
+        pop = 0;
+      } else {
+        }
+    });
+
+    var now_login_user = $(".login_user").attr('id');
+    function popup(){
+      if (pop == 0){
+        $('.user_popup').fadeIn(50);
+        pop = 1;
+      }else{
+        $('.user_popup').fadeOut(50);
+        pop = 0;
+      }
+    }
 
     </script>
     <%= breadcrumbs separator: " &rsaquo; " %>

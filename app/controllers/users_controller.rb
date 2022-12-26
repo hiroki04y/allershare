@@ -23,7 +23,10 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:email], password: params[:password])
         # @userが存在するかどうかを判定するif
         if @user
-            cookies.permanent[:user_id] = @user.id
+            cookies.encrypted[:user_id] = {
+                value: @user.id,
+                expires: 100.day.from_now
+              }
             flash[:notice] = "ようこそallershareへ"
             redirect_to("/users/index")
         else
@@ -51,7 +54,10 @@ class UsersController < ApplicationController
     def create
         @user = User.new(name: params[:name], email: params[:email], password: params[:password], image_name:"default_image.jpg")
         if @user.save
-          cookies.permanent[:user_id] = @user.id
+          cookies.encrypted[:user_id] = {
+            value: @user.id,
+            expires: 100.day.from_now
+          }
           flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
