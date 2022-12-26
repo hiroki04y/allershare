@@ -86,18 +86,26 @@
           <% end %>
       </div>-->
       <div class="test-header-menus">
-        <a><div class="test-header-select">
+        <%= link_to "/use" do %>
+        <div class="test-header-select">
           <div class="test-header-text"><ion-icon name="bulb-outline" class="test-header-icon"></ion-icon><p>アレルシェアとは</p></div>
-        </div></a>
-        <a><div class="test-header-select">
+        </div>
+        <% end %>
+        <%= link_to "/blog_view" do %>
+        <div class="test-header-select">
           <div class="test-header-text"><ion-icon name="reader-outline" class="test-header-icon"></ion-icon><p>ブログを探す</p></div>
-        </div></a>
-        <a><div class="test-header-select">
+        </div>
+        <% end %>
+        <%= link_to "/chat" do %>
+        <div class="test-header-select">
           <div class="test-header-text"><ion-icon name="reader-outline" class="test-header-icon"></ion-icon><p>ブログを作る</p></div>
-        </div></a>
-        <a><div class="test-header-select">
+        </div>
+        <% end %>
+        <%= link_to "/chat" do %>
+        <div class="test-header-select">
           <div class="test-header-text"><ion-icon name="logo-wechat" class="test-header-icon"></ion-icon><p>チャット</p></div>
-        </div></a>
+        </div>
+        <% end %>
         <a href="#"><div class="header-space"></div></a>
         <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
