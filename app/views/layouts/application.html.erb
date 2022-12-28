@@ -4,6 +4,7 @@
     <title>Allershare</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
+    <meta name=”viewport” content=”width=device-width,initial-scale=1.0″>
 
     <meta
       name="description"
@@ -48,33 +49,35 @@
    　　　　　　　　　　　　アレルギーを持つ子供の育児サポートサイト                                                                    
  -->
 
-      <div class="header-logo">
+      
+      <div class="menu"><div class="openbtn"><span></span><span></span><span></span></div></div>
+      <div class="header_logo">
         <%= link_to "/" do %>
           <img src="/rogo2.png" width=190 height=50>
         <% end %>
       </div>
-      <!--<div class="header-menus">
+      <!--<div class="header_menus">
         <%= link_to "/use" do %>
-          <div class="header-select">
-          <div class="header-text"><ion-icon name="bulb-outline" class="header-icon"></ion-icon>アレルシェアとは</div>
+          <div class="header_select">
+          <div class="header_text"><ion-icon name="bulb-outline" class="header_icon"></ion-icon>アレルシェアとは</div>
           </div>
         <% end %>
         <%= link_to "/blog_view" do %>
-          <div class="header-select">
-          <div class="header-text"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを探す</div>
+          <div class="header_select">
+          <div class="header_text"><ion-icon name="reader-outline" class="header_icon"></ion-icon>ブログを探す</div>
           </div>
         <% end %>
         <%= link_to "/chat" do %>
-        <div class="header-select">
-          <div class="header-text"><ion-icon name="reader-outline" class="header-icon"></ion-icon>ブログを作る</div>
+        <div class="header_select">
+          <div class="header_text"><ion-icon name="reader-outline" class="header_icon"></ion-icon>ブログを作る</div>
           </div>
         <% end %>
          <%= link_to "/chat" do %>
-         <div class="header-select">
-          <div class="header-text"><ion-icon name="logo-wechat" class="header-icon"></ion-icon>チャット</div>
+         <div class="header_select">
+          <div class="header_text"><ion-icon name="logo-wechat" class="header_icon"></ion-icon>チャット</div>
           </div>
         <% end %>
-        <a href="#"><div class="header-space"></div></a>
+        <a href="#"><div class="header_space"></div></a>
           <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
                 <a href="#"><img class="login_default" src="/user_images/default_image.jpg" onclick="popup()" width=40 height=40></a>
@@ -85,37 +88,48 @@
               <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
           <% end %>
       </div>-->
-      <div class="test-header-menus">
+      <div class="test-header_menus">
         <%= link_to "/use" do %>
-        <div class="test-header-select">
-          <div class="test-header-text"><ion-icon name="bulb-outline" class="test-header-icon"></ion-icon><p>アレルシェアとは</p></div>
+        <div class="test-header_select">
+          <div class="test-header_text"><ion-icon name="bulb-outline" class="test-header_icon"></ion-icon><p>アレルシェアとは</p></div>
         </div>
         <% end %>
         <%= link_to "/blog_view" do %>
-        <div class="test-header-select">
-          <div class="test-header-text"><ion-icon name="reader-outline" class="test-header-icon"></ion-icon><p>ブログを探す</p></div>
+        <div class="test-header_select">
+          <div class="test-header_text"><ion-icon name="reader-outline" class="test-header_icon"></ion-icon><p>ブログを探す</p></div>
         </div>
         <% end %>
         <%= link_to "/chat" do %>
-        <div class="test-header-select">
-          <div class="test-header-text"><ion-icon name="reader-outline" class="test-header-icon"></ion-icon><p>ブログを作る</p></div>
+        <div class="test-header_select">
+          <div class="test-header_text"><ion-icon name="reader-outline" class="test-header_icon"></ion-icon><p>ブログを作る</p></div>
         </div>
         <% end %>
         <%= link_to "/chat" do %>
-        <div class="test-header-select">
-          <div class="test-header-text"><ion-icon name="logo-wechat" class="test-header-icon"></ion-icon><p>チャット</p></div>
+        <div class="test-header_select">
+          <div class="test-header_text"><ion-icon name="logo-wechat" class="test-header_icon"></ion-icon><p>チャット</p></div>
         </div>
         <% end %>
-        <a href="#"><div class="header-space"></div></a>
+        <a href="#"><div class="header_space"></div></a>
         <% if @current_user %>
             <% if @current_user.image_name == "default_image.jpg" %>
-                <a href="#"><img class="login_default" src="/user_images/default_image.jpg" onclick="popup()" width=40 height=40></a>
+                <a><img class="login_default" src="/user_images/default_image.jpg" onclick="popup()" width=40 height=40></a>
             <% else %>
-                <a href="#" id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" onclick="popup()" width=40 height=40></a>
+                <a id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" onclick="popup()" width=40 height=40></a>
             <% end %>
+        <% else %>
+          <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
+        <% end %>
+      </div>
+      <div class="header_user">
+      <% if @current_user %>
+          <% if @current_user.image_name == "default_image.jpg" %>
+              <a><img class="login_default" src="/user_images/default_image.jpg" onclick="popup()" width=40 height=40></a>
           <% else %>
-              <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
+              <a id="<%= @current_user.id %>" class="login_user"><img src="/user_images/<%= @current_user.id %>.jpg" onclick="popup()" width=40 height=40></a>
           <% end %>
+      <% else %>
+        <a href="/login"><img src="/user_images/default_image.jpg" width=40 height=40></a>
+      <% end %>
       </div>
     </header>
     
@@ -155,7 +169,38 @@
     </div>
     <% end %>
 
+    <%# サイドバー------------------------------------------- %>
+    <div class="sidebar">
+      <%= link_to "/use" do %>
+      <div class="sidebar_menu"><ion-icon name="bulb-outline" class="sidebar_menu_logo"></ion-icon><p>アレルシェアとは</div>
+      <% end %>
+      <%= link_to "/blog_view" do %>
+      <div class="sidebar_menu"><ion-icon name="reader-outline" class="sidebar_menu_logo"></ion-icon><p>ブログを探す</p></div>
+      <% end %>
+      <%= link_to "/blog_view" do %>
+      <div class="sidebar_menu"><ion-icon name="reader-outline" class="sidebar_menu_logo"></ion-icon><p>ブログを探す</p></div>
+      <% end %>
+      <%= link_to "/chat" do %>
+      <div class="sidebar_menu"><ion-icon name="logo-wechat" class="sidebar_menu_logo"></ion-icon><p>チャット</p></div>
+      <% end %>
+    </div>
+
+    <div class="blackcover"></div>
+
     <script>
+    $(".openbtn").click(function () {
+        $(this).toggleClass('active');
+        $(".sidebar").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+        $(".blackcover").toggleClass('opacity1');
+    });
+
+    // ブラックカバークリックでも消す
+    $(".blackcover").click(function(){
+        $(".openbtn").toggleClass('active');
+        $(".sidebar").toggleClass('panelactive');
+        $(".blackcover").toggleClass('opacity1');
+    })
+
     var pop = 0;
     $(document).on('click',function(e) {
       if(!$(e.target).closest('.user_popup').length && !$(e.target).closest('.login_default').length && !$(e.target).closest('.login_user').length)  {
@@ -175,6 +220,8 @@
         pop = 0;
       }
     }
+
+    
 
     </script>
     <%= breadcrumbs separator: " &rsaquo; " %>
