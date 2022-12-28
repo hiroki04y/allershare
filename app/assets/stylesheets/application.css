@@ -48,11 +48,17 @@ body {
 	position: fixed; /* ブラウザの定位置に固定 */
 	background: rgba(0, 0, 0, .5);
 	width: 100%;
-	height: 100%;
-	top: 0;
+	height: calc(100% - 65px);
+	top: 65px;;
 	left: 0; 
 	z-index: 9; /* 要素をコンテンツより前面に */
-  display:none;
+  transition: all 0.6s;
+  opacity:0;
+  visibility:hidden;
+}
+
+.wrap {
+	overflow: hidden;
 }
 
 /* ヘッダー ================================ */
@@ -69,14 +75,14 @@ header {
   background-color: #ff93c3;
 }
 
-.header-logo {
+.header_logo {
   position:relative;
   margin-top:7px;
-  padding-left: 3%;
+  left:30px;
   display:inline-block;
 }
 
-.header-menus {
+.header_menus {
   float: right;
   padding-right: 4%;
   margin-top:2px;
@@ -85,12 +91,12 @@ header {
   text-align:center;
 }
 
-.header-menus a{
+.header_menus a{
   position:relative;
   display:inline-block;
 }
 
-.header-select { 
+.header_select { 
   width:130px;
   height:20px;
   /* background-color:aqua; */
@@ -98,7 +104,7 @@ header {
   margin-top:19px;
 }
 
-.header-space{
+.header_space{
   width:10px;
   height:20px;
   position: relative;
@@ -108,7 +114,7 @@ header {
   border-left:1px solid#ffffff;
 }
 
-.header-text {
+.header_text {
   position:relative;
   top:-19px;
   left:0px;
@@ -126,15 +132,15 @@ header {
   width:150px;
 }
 
-.header-blog{
+.header_blog{
   width:130px;
 }
 
-.header-chat{
+.header_chat{
   width:110px;
 }
 
-.header-icon{
+.header_icon{
   position:relative;
   display:inline-block;
   top:4px;
@@ -145,7 +151,7 @@ header {
 
 
 
-.header-menus img{
+.header_menus img{
   position:relative;
   border-radius: 50%;
   box-shadow: 0 1px 13px #b9b9b9;
@@ -157,7 +163,8 @@ header {
   top: -13px;
 }
 
-.test-header-menus{
+
+.test-header_menus{
   float: right;
   padding-right: 2%;
   margin-top:2px;
@@ -166,7 +173,7 @@ header {
   /* background-color:red; */
 }
 
-.test-header-select{
+.test-header_select{
   width: 100px;
   height: 30px;
   /* background-color:aqua; */
@@ -174,24 +181,23 @@ header {
   margin-top:19px;
 }
 
-.test-header-menus a{
+.test-header_menus a{
   position:relative;
   display:inline-block;
 }
 
-.test-header-menus img{
+.test-header_menus img{
   position:relative;
   border-radius: 50%;
   box-shadow: 0 1px 13px #b9b9b9;
   /* border:1px solid #ffcbe3; */
   object-fit: cover;
-  margin-top:-25px;
+  margin-top:-27px;
   margin-left:10px;
-  position: relative;
   top: 0px;
 }
 
-.test-header-text {
+.test-header_text {
   position:absolute;
   top:0px;
   left:0px;
@@ -203,7 +209,7 @@ header {
   font-weight:1000;
   /* background-color:aqua; */
 }
-.test-header-text p{
+.test-header_text p{
   position: relative;
   top: -10px;
   left: 0px;
@@ -213,7 +219,7 @@ header {
   padding-left: 4px;
 }
 
-.test-header-icon{
+.test-header_icon{
   position:relative;
   top:5px;
   left:39%;
@@ -222,66 +228,6 @@ header {
   height:27px;
   margin-right:2px;
 }
-
-
-
-
-
-
-/* サイドバー================================ */
-
-.sidebar ul {
-  list-style: none;
-}
-
-
-.sidebar {
-  height: 100%;
-  position: fixed;
-  top:0px;
-  left:-300px;
-  width: 200px;
-  background: white;
-  border-right: 1px solid rgba(66, 66, 66, 0.47);
-  z-index: 10;
-}
-
-.sidebar header {
-  color: white;
-  padding-right: 10px;
-  line-height: 64px;
-  background-color:white;
-  user-select: none;
-}
-
-.sidebar header a{
-  position:absolute;
-  top:0px;
-  right:20px;
-}
-
-.sidebar ul a {
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 65px;
-  color: rgb(126, 126, 126);
-  font-size: 20px;
-  padding-left: 30px;
-  text-decoration: none;
-  /* cssプロパティが変化するときの速度 */
-  transition: 0.4s;
-  white-space:nowrap;
-}
-
-.sidebar ul li:hover a {
-  padding-left: 40px;
-}
-
-.sidebar ul a .icon {
-  margin-right: 5px;
-}
-
 
 
 /* フラッシュ ================================ */
@@ -428,7 +374,179 @@ header {
 9---半透明黒背景
 8---ヘッダー
 
-
-
-
 */
+
+/* ヘッダーメニューレスポンシブ--------------------------------------------------- */
+@media screen and (min-width: 801px) {
+  .header_user{
+    display:none;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .sidebar_menu{
+    display:none
+  }
+
+  .sidebar_menu_logo{
+    display:none;
+  }
+
+  .menu{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .test-header_menus{
+    display:none;
+  }
+
+  .menu{
+    width:50px;
+    height:50px;
+    position:absolute;
+    top:10px;
+    left:10px;
+  }
+
+  /* 変化するボタンの設定 */
+  .openbtn{
+    position: relative;
+    /* background:#D54884; */
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+    border-radius: 5px;
+  }
+
+  /*ボタン内側*/
+  .openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 5px;
+     background: #fff;
+    width: 45%;
+  }
+
+
+  .openbtn span:nth-of-type(1) {
+  top:13px;	
+  }
+
+  .openbtn span:nth-of-type(2) {
+  top:19px;
+  }
+
+  .openbtn span:nth-of-type(3) {
+  top:25px;
+  }
+
+  .openbtn span:nth-of-type(3)::after {
+  content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+  position: absolute;
+  top:5px;
+  left:-5px;
+  color: #fff;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  }
+
+  /*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+
+  .openbtn.active span:nth-of-type(1) {
+    top: 14px;
+    left: 17px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+  }
+
+  .openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+  }
+
+  .openbtn.active span:nth-of-type(3){
+    top: 26px;
+    left: 17px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+  }
+
+  .openbtn.active span:nth-of-type(3)::after {
+    content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+    top:3px;
+    left:1px;
+  }
+
+  .opacity1{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .header_user{
+    position:relative;
+    right:13px;
+    top:13px;
+    /* border:1px solid #ffcbe3; */
+    float:right;
+  }
+  .header_user img{
+    border-radius: 50%;
+    box-shadow: 0 1px 13px #b9b9b9;
+    object-fit: cover;
+  }
+
+  .header_logo {
+    position: relative;
+    margin-top: 7px;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  /* サイドバー================================ */
+
+  .sidebar{
+    z-index:10;
+    width:210px;
+    height:calc(100% - 65px);
+    background-color:#ffe8f3;
+    position:fixed;
+    top:65px;
+    left:-210px;
+    transition: all 0.6s;
+  }
+  .panelactive{
+    left: 0;
+  }
+
+  .sidebar_menu{
+    position:relative;
+    width:100%;
+    height:70px;
+    border-bottom:1px solid #6e6e6e;
+  }
+
+  .sidebar_menu_logo{
+    position:absolute;
+    top:19px;
+    left:13px;
+    width:30px;
+    height:30px;
+  }
+
+  .sidebar_menu p{
+    position:absolute;
+    top:23px;
+    left:50px;
+    font-size:17px;
+    width:150px;
+    font-weight:800;
+  }
+
+}
