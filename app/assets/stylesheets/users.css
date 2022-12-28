@@ -34,7 +34,7 @@
   position:fixed;
   top:55%;
   transform:translateY(-50%);
-  border:1px solid #2dbac9;
+  /* border:1px solid #2dbac9; */
 }
 
 .container{
