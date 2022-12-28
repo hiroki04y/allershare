@@ -28,7 +28,7 @@
 </div>
 <div class="base2">
     <div class="partner">
-        <div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= cookies[:user_id] %></div>
+        <div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= @current_user.id %></div>
     </div>
     <div class="chat-container">
     </div>
@@ -36,7 +36,7 @@
 
     <div class="sendchat">
         <textarea id="textarea" class="chat-area" placeholder="メッセージを入力" style="overflow:hidden;"></textarea>
-        <button class="chat-sendbutton" onclick="addmessage(<%= cookies[:user_id] %>)">送信</button>
+        <button class="chat-sendbutton" onclick="addmessage(<%= @current_user.id %>)">送信</button>
     </div>
 </div>
 
