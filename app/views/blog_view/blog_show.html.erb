@@ -18,6 +18,8 @@
       プロフィール
     </div>
     <div class="blog-plofile">
+      <img src="<%="/user_images/#{@user.image_name}"%>" class="author-img">
+      <%=link_to(@user.name,"/users/#{@user.id}")%>
     </div>
   </div>
 </div>

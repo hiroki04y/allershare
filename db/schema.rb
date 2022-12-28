@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_062346) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "follow_users", force: :cascade do |t|
+    t.integer "user1_id"
+    t.integer "user2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user1_id"], name: "index_follow_users_on_user1_id"
+    t.index ["user2_id"], name: "index_follow_users_on_user2_id"
+  end
+
   create_table "personal_chats", force: :cascade do |t|
     t.text "content"
     t.integer "send_id"
@@ -81,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_062346) do
   end
 
   add_foreign_key "chat_messages", "users"
+  add_foreign_key "follow_users", "user1s"
+  add_foreign_key "follow_users", "user2s"
   add_foreign_key "personal_chats", "pairs"
   add_foreign_key "personal_chats", "sends"
   add_foreign_key "relationships", "users", column: "followed_id"
