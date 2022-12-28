@@ -515,12 +515,12 @@ header {
 
   .sidebar{
     z-index:10;
-    width:210px;
+    width:60%;
     height:calc(100% - 65px);
     background-color:#ffe8f3;
     position:fixed;
     top:65px;
-    left:-210px;
+    left:-60%;
     transition: all 0.6s;
   }
   .panelactive{
