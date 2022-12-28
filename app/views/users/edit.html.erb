@@ -136,7 +136,7 @@
     <h3>本当に削除しますか？</h3>
     <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
     <input type="button" class="chancelbutton" value="キャンセル">
-    <a href="/users/#{@user.id}/destroy"><input type="button" class="deletebutton" value="削除"></a>
+    <%= link_to("/users/#{@user.id}/destroy") do  %><input type="button" class="deletebutton" value="削除"><% end %>
     </div>
     </div>
 </div>
