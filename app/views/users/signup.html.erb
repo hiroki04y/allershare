@@ -1,23 +1,47 @@
 <div class="main">
-    <div class="container">
-        <div class="form">
-          <div class="form-body">
-          <%# エラーメッセージ %>
-          <% @user.errors.full_messages.each do |message| %>
-            <div class="form-error">
-               <%= message %>
-            </div>
-          <% end %>
-        
-          <%# 新規登録ボタンが押されたらcreateに飛ぶ %>
-          <%= form_tag("/users/create") do %>  
-              <h2>新規ユーザ作成</h2>
-              <input name="name" class="form-input" placeholder="ユーザ名" value="<%= @name %>">
-              <input name="email" class="form-input" placeholder="メールアドレス" value="<%= @email %>">
-              <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
-              <p>半角英数字8文字以上で入力してください。<p>
-              <input type="submit" value="新規登録">
-          <% end %>
+  <div class="form_screen">
+  <img src="/logo-pink.png" class="signup-img">
+  <div class="signup_container">
+    <h2>新規登録</h2>
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
         </div>
+    <% end %>
+    <%= form_tag("/users/create") do %>  
+    <div class="form">
+      <input name="name" class="form-input" placeholder="ユーザ名" value="<%= @name %>">
+      <input name="email" class="form-input" placeholder="メールアドレス" value="<%= @email %>">
+      <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
+      <p>半角英数字8文字以上で入力してください。<p>
     </div>
+    <input type="submit" value="新規登録">
+    <% end %>
+    </div>
+  <p class="acount-login">アカウントをお持ちの型は<a href="/login">こちら</a>からログインしてください。</p>
+  </div>
+
+
+  <%# スマホ画面-------------------------------------------- %>
+  <div class="r_container">
+   <div class="r_form">
+    <p class="r_top">新規登録</p>
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
+    <%= form_tag("/users/create") do %>  
+    <input name="name" class="form-input top" placeholder="ユーザ名" value="<%= @name %>">
+    <input name="email" class="form-input" placeholder="メールアドレス" value="<%= @email %>">
+    <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
+    <p class="r_pass">半角英数字8文字以上で入力してください。<p>
+    <input type="submit" value="新規登録">
+    <% end %>
+    <p class="r_text">----アカウントをお持ちの方は----<p>
+    <%= link_to("/login") do %>
+    <input type="button" value="ログイン">
+    <% end %>
+   </div>
+  </div>
 </div>

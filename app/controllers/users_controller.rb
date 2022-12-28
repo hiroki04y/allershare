@@ -61,6 +61,7 @@ class UsersController < ApplicationController
           flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
+            @error_message = "値が入力されていない箇所があります"
             @name = params[:name]
             @email = params[:email]
             @password = params[:password]

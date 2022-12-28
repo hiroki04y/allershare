@@ -1,5 +1,6 @@
 <div class="main">
-  <img src="/logo-pink.png">
+  <div class="form_screen">
+  <img src="/logo-pink.png" class="main-img">
   <div class="container">
     <h2>ログイン</h2>
     <% if @error_message %>
@@ -17,18 +18,26 @@
     <% end %>
   </div>
   <p class="acount-new">アカウントをお持ちでない方は<a href="/signup">こちら</a>からアカウント作成を行ってください。</p>
+  </div>
 
 
   <%# スマホ画面-------------------------------------------- %>
   <div class="r_container">
    <div class="r_form">
     <p class="r_top">ログイン</p>
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
     <%= form_tag("/login") do %>  
     <input name="email" class="form-input top" placeholder="メールアドレス" value="<%= @email %>">
     <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
     <p class="r_pass">半角英数字8文字以上で入力してください。<p>
     <input type="submit" value="ログイン">
+    <% end %>
     <p class="r_text">----アカウントをお持ちでない方は----<p>
+    <%= link_to("/signup") do %>
     <input type="button" value="新規登録">
     <% end %>
    </div>
