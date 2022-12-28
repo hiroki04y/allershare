@@ -4,12 +4,13 @@ class BlogViewController < ApplicationController
     end
     def blog_show
         @blog = Blog.find_by(id: params[:id])
+        @user = User.find_by(id: @blog.UserID)
     end
     def blog_new
         @blog = Blog.new
     end
     def blog_create
-        @blog = Blog.create(title: params[:title], content: params[:content])
+        @blog = Blog.new(title: params[:title], content: params[:content], UserID: @current_user.id)
         if params[:image]
             @blog.image = "#{@blog.id}.jpg"
             image = params[:image]

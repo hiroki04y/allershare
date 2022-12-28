@@ -64,3 +64,11 @@
     position: relative;
     top: 100px;
 }
+
+.author-img{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    left: 22%;
+}
