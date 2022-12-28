@@ -1,3 +1,127 @@
+.test-top-main {
+    position: relative;
+    height: auto;
+}
+
+.test-top-title {
+    position: relative;
+    height: 450px;
+}
+
+.test-top-img {
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+.test-top-cc {
+    position: relative;
+    bottom: 250px;
+    left: 28%;
+    color:#ffffff;
+    width: 470px;
+    font-size: 40px;
+    transform: translateX(-50%);
+    text-shadow:1px 1px 3px #888888;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.test-top-blog-search{
+    position: relative;
+    height: 1000px;
+    background-image: url("/haikei.png");
+    background-size: cover;
+}
+
+.test-top-blog-popular{
+    position: relative;
+    left: 15%;
+    top: 50px;
+    width: 70%;
+}
+
+.test-top-blog-new{
+    position: relative;
+    left: 15%;
+    top: 70px;
+    width: 70%;
+}
+
+.test-top-user-popular{
+    position: relative;
+    left: 15%;
+    top: 90px;
+    width: 70%;
+}
+
+.test-top-text {
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.test-top-blog-display{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 5px;
+    width: 260px;
+    height: 220px;
+    min-width: 260px;
+    min-height: 220px;
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #fff7fc;
+    box-shadow: 2px 2px 2px 0 #7d7d7d;
+}
+
+.test-top-user-display{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 5px;
+    width: 260px;
+    height: 150px;
+    min-width: 260px;
+    min-height: 150px;
+    margin-right: 30px;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: #fff7fc;
+    box-shadow: 2px 2px 2px 0 #7d7d7d;
+}
+
+.test-top-user-img{
+    position: relative;
+    border-radius: 100px;
+    top: 5px;
+    right: 5%;
+}
+
+.test-top-pl {
+    position: relative;
+    top: 20px;
+    font-size: 15px;
+    text-align: right;
+}
+
+.test-top-tag-search{
+    position: relative;
+    background-color: rgb(253, 243, 229);
+    height: 400px;
+}
+
+.test-top-search-view{
+    position: relative;
+    left: 15%;
+    top: 50px;
+    width: 70%;
+}
+
+
+
 .main-top {
     position: relative;
     background-image: url("/haikei.png");
@@ -16,7 +140,6 @@
 .topimage{
     position: relative;
     width: 100%;
-    left: 0%;
     height: 360px;
 }
 
