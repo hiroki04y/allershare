@@ -61,6 +61,38 @@
       </div>
   </div>
   <div class="other_bottom"></div>
+
+  <%# レスポンシブ %>
+  <div class="r_other_user">
+    <div class="r_other_top">
+      <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
+      <p class="other_name"><%= @user.name%></p>
+      <% if @current_user.id == @user.id %>
+        <%= link_to("/users/#{@user.id}/edit") do %>
+          <div class="other_edit">
+          <img src="/edit-icon.png">
+          <p>情報を変更する</p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if @current_user.following?(@user) %>
+        <%= link_to(user_deleterelationships_path(@user.id)) do %>
+          <div class="other_follow">
+            <img src="/star1.png">
+            <p>フォローを外す</p>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to(user_relationships_path(@user.id)) do %>
+          <div class="other_follow">
+            <img src="/star2.png">
+            <p>フォローする</p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <script>
 window.onload = function(){
