@@ -61,8 +61,8 @@
       </div>
   </div>
   <div class="other_bottom"></div>
-
-  <%# レスポンシブ %>
+</div>
+<%# レスポンシブ %>
   <div class="r_other_user">
     <div class="r_other_top">
       <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
@@ -92,11 +92,35 @@
         <% end %>
       <% end %>
     </div>
+
+    <div class="other_self">
+        <div class="other_self_icon">
+          <img src="/personal-icon1.png">
+        </div>
+        <p class="f60">自己紹介</p>
+        <div class="other_profile"><%= simple_format(@user.introduction) %></div>
+    </div>
+
+    <div class="other_self">
+        <div class="other_self_icon">
+          <img src="/personal-icon2.png">
+        </div>
+        <p class="f60">子供が所持しているアレルギー</p>
+        <div class="other_allergy">
+          <% @tag.each do |post| %>
+          <div class="other_allergy_tag"><%= post %></div>
+          <% end %>
+        </div>
+    </div>
   </div>
-</div>
 <script>
 window.onload = function(){
   $(".use_background").css("background-size","cover")
   $("body").css("background-image","none")
+  if ($(window).width() < 870){
+    var height = $(".other_profile").text().length;
+    var width = $(window).width() / 10;
+    $(".other_self").height(60 + 25*(height / width))
+  }
 }
 </script>
