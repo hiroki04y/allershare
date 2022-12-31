@@ -1015,6 +1015,12 @@
     padding-left: 90px;
   }
 }
+@media screen and (max-width: 420px) {
+  .other_allergy_tag{
+    font-size:11px;
+    min-width:103px;
+  }
+}
 
 
 
