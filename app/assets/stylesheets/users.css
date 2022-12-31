@@ -1015,10 +1015,26 @@
     padding-left: 90px;
   }
 }
+@media screen and (max-width: 715px) {
+  .other_allergy_tag{
+    width:32%;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .other_allergy_tag{
+    width:47%;
+  }
+}
 @media screen and (max-width: 420px) {
   .other_allergy_tag{
+    font-size:10px;
+    min-width:70px;
+    padding-top:12px;
+  }
+
+  .other_self p{
     font-size:11px;
-    min-width:103px;
   }
 }
 

@@ -109,16 +109,16 @@ window.onload = function(){
   var text = $(".other_allergy").html()
   var count = ( text.match( /other_allergy/g ) || [] ).length;
   var width = $(window).width()
-  if(width < 1034 && count > 6 && width > 869){
+  if(width < 1034 && count > 6 && width > 8){
     $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
   }
 
   if(width < 720 && count > 6){
     $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
-  }else if(width < 570 && count > 4){
+  }else if(width < 566 && count > 4){
     $(".other_self").height($(".other_self").height() + Math.ceil(count / 2 - 2)*40)
   }
-  console.log(width)
+  console.log()
   console.log(count)
 
 }
