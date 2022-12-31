@@ -76,28 +76,9 @@
         <% end %>
       <% end %>
 
-      <% if @current_user.following?(@user) %>
-        <%= link_to(user_deleterelationships_path(@user.id)) do %>
-          <div class="other_follow">
-            <img src="/star1.png">
-            <p>フォローを外す</p>
-          </div>
-        <% end %>
-      <% else %>
-        <%= link_to(user_relationships_path(@user.id)) do %>
-          <div class="other_follow">
-            <img src="/star2.png">
-            <p>フォローする</p>
-          </div>
-        <% end %>
-      <% end %>
     </div>
 
-    <div class="other_self">
-        <div class="other_self_icon">
-          <img src="/personal-icon1.png">
-        </div>
-        <p class="f60">自己紹介</p>
+    <div class="r_other_self">
         <div class="other_profile"><%= simple_format(@user.introduction) %></div>
     </div>
 
@@ -120,10 +101,25 @@ window.onload = function(){
   if ($(window).width() < 870){
     var text = $(".other_profile").html()
     var height = $(".other_profile").text().length;
-    var width = $(window).width() / 10;
+    var width = $(window).width()/8.86;
     var count = ( text.match( /br/g ) || [] ).length ;
-    console.log(count);
-    $(".other_self").height(70 + 23*(height / width) + 23 * count)
+    $(".r_other_self").height(40 + 20*(height / width) + 20 * count)
   }
+
+  var text = $(".other_allergy").html()
+  var count = ( text.match( /other_allergy/g ) || [] ).length;
+  var width = $(window).width()
+  if(width < 1034 && count > 6 && width > 869){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
+  }
+
+  if(width < 720 && count > 6){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
+  }else if(width < 570 && count > 4){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 2 - 2)*40)
+  }
+  console.log(width)
+  console.log(count)
+
 }
 </script>
