@@ -29,8 +29,8 @@
 
 .test-top-blog-search{
     position: relative;
-    height: 1000px;
-    background-image: url("/haikei.png");
+    height: 900px;
+    background-image: url("/haikei.png"); 
     background-size: cover;
 }
 
@@ -110,7 +110,7 @@
 .test-top-tag-search{
     position: relative;
     background-color: rgb(253, 243, 229);
-    height: 400px;
+    height: 455px;
 }
 
 .test-top-search-view{
@@ -138,7 +138,8 @@
     top: 70px;
     padding: 10px;
     margin-bottom: 100px;
-    border: 40px solid #FFDDED;
+    border: 25px solid #FFDDED;
+    border-radius: 10px;
     background-color: #ffffff;
 }
 
@@ -146,9 +147,45 @@
     position: relative;
     display: flex;
     text-align: center;
+    top: 100px;
     width: 100%;
     height: 100px;
     background-color: #ff93be;
+}
+
+#box{
+    width: 50%;
+    height: 70px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffbd67;
+}
+
+#box.orange{
+    background-color: #c7c7c7;
+}
+
+.line{
+    position: relative;
+    top: -1px;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background-color: #ffbd67;
+}
+
+#box p{
+line-height: 140px;
+vertical-align: middle;
+font-size: 20px;
+font-weight:bold;
+}
+
+.tag-select{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #ffffff;
 }
 
 

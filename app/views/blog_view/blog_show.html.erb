@@ -1,25 +1,39 @@
 <div class="main posts-show">
   <div class="main-frame">
     <div class="blog-title">
-        <%= @blog.title%>
+      <%= @blog.title%>
     </div>
     <div class="blog-image">
+      <img src="<%="/blog_images/#{@blog.image}"%>"class="show-img">
     </div>
     <div class="blog-content">
       <%= @blog.content%>
-    </div>
-    <div class="blog-edit">
-        <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
-    </div>
-    <div class="blog-destroy">
-      <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
     </div>
     <div class="plofile">
       プロフィール
     </div>
     <div class="blog-plofile">
       <img src="<%="/user_images/#{@user.image_name}"%>" class="author-img">
-      <%=link_to(@user.name,"/users/#{@user.id}")%>
+      <div class="author-name">
+        <%=link_to(@user.name,"")%>
+      </div>
+      <div class="author-chat">
+        <%= link_to("チャット", "/chat") %>
+      </div>
+      <div class="author-plofile">
+        <%=link_to(@user.introduction,"")%>
+      </div>
+      <div class="author-tag">
+        <a>アレルギータグ</a>
+      </div>
+      <% if @current_user.id ==  @user.id%>
+      <div class="blog-edit">
+        <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
+      </div>
+      <div class="blog-destroy">
+        <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
+      </div>
+      <%end%>
     </div>
   </div>
 </div>

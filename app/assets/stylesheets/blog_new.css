@@ -1,7 +1,7 @@
 .main-blog-new{
     position: relative;
     background-color: #fff7fc;
-    height: 1500px;
+    height: 1682px;
     top: 65px;
 }
 
@@ -16,29 +16,15 @@
     padding: 10px;
     margin-bottom: 100px;
     border-radius: 10px;
-    box-shadow: 0 2px 18px #ededed;
+    box-shadow: 2px 2px 2px 0 #7d7d7d;
     background-color: #ffffff;
 }
 
-.ti{
+.blog-form-ex{
     position: relative;
-    font-weight: bold;
-    font-size: 25px;
-    color: #ff93be;
-}
-
-.co{
-    position: relative;
-    font-weight: bold;
-    font-size: 25px;
-    color: #ff93be;
-}
-
-.ta{
-    position: relative;
-    font-weight: bold;
-    font-size: 25px;
-    color: #ff93be;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #fff7fc;
 }
 
 .blog-form-title{
