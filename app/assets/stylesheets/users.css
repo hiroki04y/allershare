@@ -662,6 +662,7 @@
   transform:translateX(-50%);
   background-color:white;
   padding-bottom:50px;
+  box-shadow: 0px 0px 15px -4px #9e9e9e;
 }
 
 .other_top{
@@ -761,6 +762,18 @@
   border-radius: 5px;
 }
 
+.other_myself{
+  width:90%;
+  height:150px;
+  margin-top:30px;
+  position:relative;
+  left:50%;
+  transform:translateX(-50%);
+  /* border:1px solid #272727; */
+  box-shadow: 0px 0px 15px -4px #9e9e9e;
+  border-radius: 5px;
+}
+
 .other_self_icon{
   width:17%;
   height:90%;
@@ -773,13 +786,22 @@
 }
 
 .other_self_icon img{
-  width:60px;
-  height:60px;
-  margin:26% 0 0 27%;
+  width: 60px;
+  height: 60px;
+  margin: 0% 0 0 27%;
   opacity: 0.4;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .other_self p{
+  padding-right:40px;
+  font-size:17px;
+  padding-top:10px;
+  text-align:center;
+}
+.other_myself p{
   padding-right:40px;
   font-size:17px;
   padding-top:10px;
@@ -897,7 +919,8 @@
 @media screen and (max-width: 870px) {
   /* ユーザプロフィール画面=============================================== */
   .breadcrumbs {
-    left: 20px;
+    left: 25px;
+    font-size:10px;
   }
 
   .other_user{
@@ -1015,12 +1038,11 @@
     padding-left: 90px;
   }
 }
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 1034px) {
   .other_allergy_tag{
     width:32%;
   }
 }
-
 @media screen and (max-width: 565px) {
   .other_allergy_tag{
     width:47%;

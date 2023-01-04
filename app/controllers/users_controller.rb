@@ -27,7 +27,6 @@ class UsersController < ApplicationController
                 value: @user.id,
                 expires: 100.day.from_now
               }
-            flash[:notice] = "ようこそallershareへ"
             redirect_to("/users/index")
         else
             @error_message = "メールアドレスまたはパスワードが間違っています"
@@ -42,7 +41,6 @@ class UsersController < ApplicationController
 
     def logout
         cookies.delete :user_id
-        flash[:notice] = "ログアウトしました"
         redirect_to("/login")
     end
 
@@ -77,7 +75,6 @@ class UsersController < ApplicationController
             @user.introduction = params[:introduction]
 
             if @user.save
-                flash[:notice] = "アカウント情報を編集しました"
                 redirect_to("/users/#{@user.id}")
             else
                 redirect_to("/users/#{@user.id}")
