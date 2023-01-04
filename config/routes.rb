@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'blog_view/:id/blog_edit' => 'blog_view#blog_edit'
   post 'blog_view/:id/blog_update' => 'blog_view#blog_update'
   get 'blog_view/:id/blog_destroy' => 'blog_view#blog_destroy'
+  get 'likes/:blog_id/create' => "likes#create"
+  get 'likes/:blog_id/destroy' => "likes#destroy"
 
   #ユーザ関連
   resources :users, only:[:edit, :update] do

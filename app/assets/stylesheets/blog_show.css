@@ -141,3 +141,16 @@
     bottom: 25px;
     font-weight: bold;
 }
+
+.unliked-btn {
+    color: #8899a6;
+}
+  
+.liked-btn {
+    color: #ff2581;
+}
+
+.fa {
+    font-size: 25px;
+    margin-right: 3px;
+  }

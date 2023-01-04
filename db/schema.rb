@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_062346) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_141954) do
   create_table "blogs", force: :cascade do |t|
     t.text "title"
     t.datetime "created_at", null: false
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_062346) do
     t.datetime "updated_at", null: false
     t.index ["user1_id"], name: "index_follow_users_on_user1_id"
     t.index ["user2_id"], name: "index_follow_users_on_user2_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_chats", force: :cascade do |t|
