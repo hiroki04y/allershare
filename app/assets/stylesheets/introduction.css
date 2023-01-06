@@ -84,7 +84,6 @@
 
 .use_main2 p{
     width:600px;
-    width:100%;
     position:relative;
     top:30px;
     left:50%;
@@ -332,7 +331,11 @@
     cursor:pointer;
 }
 
-
+@media screen and (min-width: 851px) {
+   .r_field{
+       display:none;
+   }
+}
 @media screen and (max-width: 850px) {
   .use_top{
     width:100%;
@@ -357,6 +360,49 @@
     left:50%;
     transform:translateX(-50%);
     overflow-wrap: break-word;
+  }
+
+  .use_main2 p{
+    width:100%;
+  }
+
+  .field{
+    display:none;
+  }
+
+  .field_block{
+    width:100%;
+    height:100%;
+    position:relative;
+    top:0px;
+    display:block;
+  }
+
+  .r_field{
+    width:100%;
+    height:auto;
+    position:relative;
+    margin-top:100px;
+    left:0px;
+    /* background-color:red; */
+  }
+
+  .r_img{
+    width:100%;
+    height:200px;
+  }
+  .r_field img{
+    width:70%;
+    max-width:300px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  .field_left{
+    width:100%;
+    margin-left:0px;
+    padding:30px 15px 0 15px;
   }
 }
 
