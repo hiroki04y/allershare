@@ -29,7 +29,7 @@
       <% end %>
 
     </div>
-      <div class="other_self">
+      <div class="other_myself">
         <div class="other_self_icon">
           <img src="/personal-icon1.png">
         </div>
@@ -62,9 +62,63 @@
   </div>
   <div class="other_bottom"></div>
 </div>
+<%# レスポンシブ %>
+  <div class="r_other_user">
+    <div class="r_other_top">
+      <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
+      <p class="other_name"><%= @user.name%></p>
+      <% if @current_user.id == @user.id %>
+        <%= link_to("/users/#{@user.id}/edit") do %>
+          <div class="other_edit">
+          <img src="/edit-icon.png">
+          <p>情報を変更する</p>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="r_other_self">
+        <div class="other_profile"><%= simple_format(@user.introduction) %></div>
+    </div>
+
+    <div class="other_self">
+        <div class="other_self_icon">
+          <img src="/personal-icon2.png">
+        </div>
+        <p class="f60">子供が所持しているアレルギー</p>
+        <div class="other_allergy">
+          <% @tag.each do |post| %>
+          <div class="other_allergy_tag"><%= post %></div>
+          <% end %>
+        </div>
+    </div>
+  </div>
 <script>
 window.onload = function(){
   $(".use_background").css("background-size","cover")
   $("body").css("background-image","none")
+  if ($(window).width() < 870){
+    var text = $(".other_profile").html()
+    var height = $(".other_profile").text().length;
+    var width = $(window).width()/8.86;
+    var count = ( text.match( /br/g ) || [] ).length ;
+    $(".r_other_self").height(40 + 20*(height / width) + 20 * count)
+  }
+
+  var text = $(".other_allergy").html()
+  var count = ( text.match( /other_allergy/g ) || [] ).length;
+  var width = $(window).width()
+  if(width > 1033 && count > 8){
+     $(".other_self").height($(".other_self").height() + Math.ceil(count / 4 - 2)*40)
+  }else if(width < 1034 && count > 6 && width > 719){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
+  }else if(width < 720 && count > 6 && width > 565){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 3 - 2)*40)
+  }else if(width < 566 && count > 4){
+    $(".other_self").height($(".other_self").height() + Math.ceil(count / 2 - 2)*40)
+  }
+  console.log(count)
+
 }
 </script>
