@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_141954) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_07_151820) do
+  create_table "blog_tag_relations", force: :cascade do |t|
+    t.integer "blog_id", null: false
+    t.integer "blog_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_blog_tag_relations_on_blog_id"
+    t.index ["blog_tag_id"], name: "index_blog_tag_relations_on_blog_tag_id"
+  end
+
+  create_table "blog_tag_relationships", force: :cascade do |t|
+    t.integer "blog_id", null: false
+    t.integer "blog_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id", "blog_tag_id"], name: "index_blog_tag_relationships_on_blog_id_and_blog_tag_id", unique: true
+    t.index ["blog_id"], name: "index_blog_tag_relationships_on_blog_id"
+    t.index ["blog_tag_id"], name: "index_blog_tag_relationships_on_blog_tag_id"
+  end
+
+  create_table "blog_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "blogs", force: :cascade do |t|
     t.text "title"
     t.datetime "created_at", null: false
@@ -96,6 +121,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_141954) do
     t.index ["user_id"], name: "index_usertags_on_user_id"
   end
 
+  add_foreign_key "blog_tag_relations", "blog_tags"
+  add_foreign_key "blog_tag_relations", "blogs"
+  add_foreign_key "blog_tag_relationships", "blog_tags"
+  add_foreign_key "blog_tag_relationships", "blogs"
   add_foreign_key "chat_messages", "users"
   add_foreign_key "follow_users", "user1s"
   add_foreign_key "follow_users", "user2s"
