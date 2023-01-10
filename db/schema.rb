@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_040005) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_050511) do
   create_table "blog_tag_relations", force: :cascade do |t|
     t.integer "blog_id", null: false
     t.integer "blog_tag_id", null: false
