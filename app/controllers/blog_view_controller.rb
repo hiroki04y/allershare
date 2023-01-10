@@ -5,6 +5,7 @@ class BlogViewController < ApplicationController
     def blog_show
         @blog = Blog.find_by(id: params[:id])
         @user = User.find_by(id: @blog.UserID)
+        @likes_count = Like.where(blog_id: @blog.id).count
     end
     def blog_new
         @blog = Blog.new

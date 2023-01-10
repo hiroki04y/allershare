@@ -1,40 +1,8 @@
 .blog_view-top{
     position: relative;
-    background-color: #fff7fc;
+    background-image: url("/haikei.png"); 
+    background-size: cover;
     top: 65px;
-}
-
-.v1{
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 110px;
-}
-
-.blog_view-genre{
-    position: absolute;
-    top: 46px;
-    left: 20%;
-    color: #9b9b9b;
-}
-
-.v2{
-    left: 15%;
-    width: 70%;
-    position: relative;
-    resize: none;
-    display: flex;
-    justify-content: left;
-    border-bottom:5px solid #ffeb9d;
-}
-
-.v3{
-    position: relative;
-    resize: none;
-    left: 15%;
-    width: 70%;
-    height: 400px;
-    display: flex;
 }
 
 .v4{
@@ -53,17 +21,16 @@
     text-align: center;
     left: 15px;
     top: 5px;
-    width: 250px;
-    height: 250px;
-    min-width: 250px;
-    min-height: 250px;
+    width: 260px;
+    height: 220px;
+    min-width: 260px;
+    min-height: 220px;
     margin-top: 80px;
     margin-bottom: 20px;
     margin-right: 30px;
     padding: 10px;
-    border: 1px solid #a4e38b;
     border-radius: 25px;
-    background-color: #ffffff;
+    background-color: #fff7fc;
     box-shadow: 2px 2px 2px 0 #7d7d7d;
 }
 
@@ -105,5 +72,5 @@
     width: 100%;
     height: 100px;
     margin-top: 100px;
-    background-color: #fed1e6;
+    background-color: #ff93c3;
 }
