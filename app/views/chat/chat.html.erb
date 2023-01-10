@@ -1,5 +1,10 @@
 <% if @current_user != nil %>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!--<div class="testfield">
+<%= @following_users.each do |pair| %>
+    <%= pair.name %>
+<% end %>
+</div>-->
 <div class="base">
     <!-- 検索ボタン -->
     <div class="changeroom">
@@ -82,6 +87,7 @@
 
 <script>
     var ch = "1";
+    var roomtype=1;   //group == 1  personal == 2
 
     // cookie取得
     var cookie = $('.cookie').html();
@@ -128,6 +134,8 @@
     $(function () {
         //グループを選択時----------------------------------------------------------
         $('.group').on('click', function(){
+            roomtype = 1;   //roomtypeをgroupに変更
+            $("#roomsearch").css("display","flex")
             $(this).css('background-color','white');
             $(this).css('color','rgb(55, 175, 65)');
             $('.parson').css('background-color','rgba(230,230,230,40%)');
@@ -160,11 +168,12 @@
 
         //個人チャットを選択時---------------------------------------------------------------
         $('.parson').on('click', function(){
+            roomtype = 2;   //roomtypeをpersonalに変更
+            $("#roomsearch").css("display","none"); //検索機能を消す
             $(this).css('background-color','white');
             $(this).css('color','rgb(55, 175, 65)');
             $('.group').css('background-color','rgba(230,230,230,40%)');
             $('.group').css('color','black');
-            $(roomtext).attr('placeholder','アカウントを検索');
             ch = "2"
             $.ajax({
                 type: 'GET', // リクエストのタイプ
@@ -173,16 +182,17 @@
                 dataType: 'json' // サーバーから返却される型
             })
             .done(function(data){ // dataにはレスポンスされたデータが入る
-                $('.grouplist ul').remove();
+                $('.grouplist ul').remove();    //グループリストをいったん消す
                 //console.log(data);
                 $('.grouplist').append(
                     '<ul></ul>'
                 )
 
-                $(data).each(function(i,room) {
+                $(data).each(function(i,pair) {     //取得したデータの個数分繰り返えしてグループリストに追加する
+                    console.log(pair)
                     $('.grouplist ul').append(
-                        `<img src="/user_images/${room.image_name}" class="grouplogo">
-                        <li class="chat-list -${room.id}"><a id="${room.id}" href="#${ room.name }" onclick="roomchange(this.text,this.id,${cookie})">${room.name}</a></li>`
+                        `<img src="/user_images/${pair.image_name}" class="grouplogo">
+                        <li class="chat-list -${pair.id}"><a id="${pair.id}" href="#${ pair.name }" onclick="roomchange(this.text,this.id,${cookie})">${pair.name}</a></li>`
                     );
                 });
             })
@@ -277,48 +287,51 @@
 
     // 左側の選択グループをクリックでグループのルームに飛ぶ----------------------------------------
     function roomchange(name,id,usr){
-        document.getElementById('textarea').focus();
-        $('.send_group').html(name);
-        $(".chat-list").css('background-color','white');
-        $(".-" + id).css('background-color','#fffff0');
-        $(".base3").css("visibility", "hidden");
-        room_num = Number(id);
-        //alert(id)
+        if(roomtype==1){        //選ばれたのがgroupだったら
+            document.getElementById('textarea').focus();
+            $('.send_group').html(name);
+            $(".chat-list").css('background-color','white');
+            $(".-" + id).css('background-color','#fffff0');
+            $(".base3").css("visibility", "hidden");
+            room_num = Number(id);
+            //alert(id)
 
-        $.ajax({
-            type: 'GET', // リクエストのタイプ
-            url: 'message/sendchat', // リクエストを送信するURL
-            data:  { room: room_num }, // サーバーに送信するデータ
-            dataType: 'json' // サーバーから返却される型
-        })
-        .done(function(data){ // dataにはレスポンスされたデータが入る
-            $('.chat-container div').remove();
-            //console.log(data);
+            $.ajax({
+                type: 'GET', // リクエストのタイプ
+                url: 'message/sendchat', // リクエストを送信するURL
+                data:  { room: room_num }, // サーバーに送信するデータ
+                dataType: 'json' // サーバーから返却される型
+            })
+            .done(function(data){ // dataにはレスポンスされたデータが入る
+                $('.chat-container div').remove();
+                //console.log(data);
 
-            $(data).each(function(i,room) {
-                if (room.user_id == usr) {
-                    $('.chat-container').append(
-                        `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
-                    );
-                }else{
-                    $('.chat-container').append(
-                        `<div class="paircomment">
-                        <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
-                        <div class="pair-name">${room.name}</div>
-                        <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
-                        </div>`  
-                    );
-                }
-            });
-            scroll(1);
-         })
-
+                $(data).each(function(i,room) {
+                    if (room.user_id == usr) {
+                        $('.chat-container').append(
+                            `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
+                        );
+                    }else{
+                        $('.chat-container').append(
+                            `<div class="paircomment">
+                            <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
+                            <div class="pair-name">${room.name}</div>
+                            <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
+                            </div>`  
+                        );
+                    }
+                });
+                scroll(1);
+            })
+        }else{
+            alert("personalです");
+        }
     }
 
     //chat内容の更新、登録----------------------------------------------------------------
     function addmessage(usr){
         var cont = $('.chat-area').val();
-        document.getElementById('textarea').focus();
+        // document.getElementById('textarea').focus();
         if(cont != "" && room_num != 0){
             $.ajax({
                 type: 'get', // リクエストのタイプ
