@@ -287,8 +287,9 @@
 
     // 左側の選択グループをクリックでグループのルームに飛ぶ----------------------------------------
     function roomchange(name,id,usr){
+        console.log(name,id,usr);
         if(roomtype==1){        //選ばれたのがgroupだったら
-            document.getElementById('textarea').focus();
+            //document.getElementById('textarea').focus();
             $('.send_group').html(name);
             $(".chat-list").css('background-color','white');
             $(".-" + id).css('background-color','#fffff0');
@@ -299,7 +300,7 @@
             $.ajax({
                 type: 'GET', // リクエストのタイプ
                 url: 'message/sendchat', // リクエストを送信するURL
-                data:  { room: room_num }, // サーバーに送信するデータ
+                data:  { room: room_num ,id:"1"}, // サーバーに送信するデータ
                 dataType: 'json' // サーバーから返却される型
             })
             .done(function(data){ // dataにはレスポンスされたデータが入る
@@ -324,7 +325,26 @@
                 scroll(1);
             })
         }else{
-            alert("personalです");
+            //document.getElementById('textarea').focus();
+            $('.send_group').html(name);
+            $(".chat-list").css('background-color','white');
+            $(".-" + id).css('background-color','#fffff0');
+            $(".base3").css("visibility", "hidden");
+            room_num = Number(id);
+            //alert(id)
+            // alert("personalです");
+
+            $.ajax({
+                type: 'GET', // リクエストのタイプ
+                url: 'message/sendchat', // リクエストを送信するURL
+                data:  { room: room_num ,id:"2"}, // サーバーに送信するデータ
+                dataType: 'json' // サーバーから返却される型
+            })
+            .done(function(data){ // dataにはレスポンスされたデータが入る
+                $('.chat-container div').remove();
+                console.log(data);
+                scroll(1);
+            })
         }
     }
 

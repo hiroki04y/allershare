@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_07_151820) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_040005) do
   create_table "blog_tag_relations", force: :cascade do |t|
     t.integer "blog_id", null: false
     t.integer "blog_tag_id", null: false
@@ -20,20 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_151820) do
     t.index ["blog_tag_id"], name: "index_blog_tag_relations_on_blog_tag_id"
   end
 
-  create_table "blog_tag_relationships", force: :cascade do |t|
-    t.integer "blog_id", null: false
-    t.integer "blog_tag_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["blog_id", "blog_tag_id"], name: "index_blog_tag_relationships_on_blog_id_and_blog_tag_id", unique: true
-    t.index ["blog_id"], name: "index_blog_tag_relationships_on_blog_id"
-    t.index ["blog_tag_id"], name: "index_blog_tag_relationships_on_blog_tag_id"
-  end
-
   create_table "blog_tags", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -60,30 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_151820) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "follow_users", force: :cascade do |t|
-    t.integer "user1_id"
-    t.integer "user2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user1_id"], name: "index_follow_users_on_user1_id"
-    t.index ["user2_id"], name: "index_follow_users_on_user2_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "personal_chats", force: :cascade do |t|
-    t.text "content"
-    t.integer "send_id"
-    t.integer "pair_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["pair_id"], name: "index_personal_chats_on_pair_id"
-    t.index ["send_id"], name: "index_personal_chats_on_send_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -123,13 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_151820) do
 
   add_foreign_key "blog_tag_relations", "blog_tags"
   add_foreign_key "blog_tag_relations", "blogs"
-  add_foreign_key "blog_tag_relationships", "blog_tags"
-  add_foreign_key "blog_tag_relationships", "blogs"
   add_foreign_key "chat_messages", "users"
-  add_foreign_key "follow_users", "user1s"
-  add_foreign_key "follow_users", "user2s"
-  add_foreign_key "personal_chats", "pairs"
-  add_foreign_key "personal_chats", "sends"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "usertags", "tags"
