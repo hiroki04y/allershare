@@ -1,3 +1,3 @@
 class Personalchat < ApplicationRecord
-    belongs_to :pair_id, class_name: "User"
+    belongs_to :user
 end

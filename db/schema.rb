@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_050511) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_050755) do
   create_table "blog_tag_relations", force: :cascade do |t|
     t.integer "blog_id", null: false
     t.integer "blog_tag_id", null: false
@@ -55,6 +55,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_050511) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "personalchats", force: :cascade do |t|
+    t.text "content"
+    t.integer "send_id"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_personalchats_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -93,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_050511) do
   add_foreign_key "blog_tag_relations", "blog_tags"
   add_foreign_key "blog_tag_relations", "blogs"
   add_foreign_key "chat_messages", "users"
+  add_foreign_key "personalchats", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "usertags", "tags"
