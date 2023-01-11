@@ -33,7 +33,7 @@
 </div>
 <div class="base2">
     <div class="partner">
-        <div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= @current_user.id %></div>
+        <a>◀</a><div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= @current_user.id %></div>
     </div>
     <div class="chat-container">
     </div>
@@ -106,7 +106,6 @@
             $("textarea").height(18);
             var ctop = document.getElementsByClassName('chat-container');
             ctop[0].scrollTop = ctop[0].scrollHeight;
-            document.getElementById('textarea').focus();
         }else{
              var ctop = document.getElementsByClassName('chat-container');
              ctop[0].scrollTop = ctop[0].scrollHeight;
@@ -291,11 +290,13 @@
     function roomchange(name,id,usr){
         console.log(name,id,usr);
         if(roomtype==1){        //選ばれたのがgroupだったら
-            //document.getElementById('textarea').focus();
             $('.send_group').html(name);
-            $(".chat-list").css('background-color','white');
-            $(".-" + id).css('background-color','#fffff0');
-            $(".base3").css("visibility", "hidden");
+            if(screen.width >= 800){
+                //document.getElementById('textarea').focus();
+                $(".chat-list").css('background-color','white');
+                $(".-" + id).css('background-color','#fffff0');
+                $(".base3").css("visibility", "hidden");
+            }
             room_num = Number(id);
             //alert(id)
 
@@ -327,14 +328,20 @@
                         );
                     }
                 });
+                if(screen.width < 800){
+                    $(".base").css("display","none")
+                    $(".base2").css("display","flex")
+                }
                 scroll(1);
             })
         }else{
-            //document.getElementById('textarea').focus();
             $('.send_group').html(name);
-            $(".chat-list").css('background-color','white');
-            $(".-" + id).css('background-color','#fffff0');
-            $(".base3").css("visibility", "hidden");
+            if(screen.width >= 800){
+                //document.getElementById('textarea').focus();
+                $(".chat-list").css('background-color','white');
+                $(".-" + id).css('background-color','#fffff0');
+                $(".base3").css("visibility", "hidden");
+            }
             room_num = Number(id);
             //alert(id)
             // alert("personalです");
@@ -366,11 +373,24 @@
                         );
                     }
                 });
-
+                if(screen.width < 800){
+                    $(".base").css("display","none")
+                    $(".base2").css("display","flex")
+                    $(".paircomment p").css("max-width",screen.width - 100)
+                }
                 scroll(1);
             })
         }
     }
+
+    //戻るボタンが押されたとき用----------------------------------------------------
+    $(function () {
+        // room検索script ボタン用
+        $('.partner a').on('click', function () {
+            $(".base").css("display","inline")
+            $(".base2").css("display","none")
+        })
+    })
 
     //chat内容の更新、登録----------------------------------------------------------------
     function addmessage(usr){
@@ -403,8 +423,7 @@
                             );
                         }
                     });
-                    var chat = document.getElementsByClassName('chat-container');
-                    chat[0].style.height = 68.5+"%";
+                    $(".chat-container").height(windowSize - sendHeight - 133 + "px");
                     scroll(2);
                 })
             }else{
@@ -432,8 +451,7 @@
                             );
                         }
                     });
-                    var chat = document.getElementsByClassName('chat-container');
-                    chat[0].style.height = 68.5+"%";
+                    $(".chat-container").height(windowSize - sendHeight - 133 + "px");
                     scroll(2);
                 })
             }
