@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     resources :search, only: :index, defaults: { format: :json }
     resources :sendchat, only: :index, defaults: { format: :json }
     resources :createchat, only: :index, defaults: { format: :json }
+    resources :createchat2, only: :index, defaults: { format: :json }
   end
 
 end

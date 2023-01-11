@@ -178,7 +178,7 @@
             $.ajax({
                 type: 'GET', // リクエストのタイプ
                 url: 'message/search', // リクエストを送信するURL
-                data:  { roomname: room , id: "2"}, // サーバーに送信するデータ
+                data:  { user: cookie , id: "2"}, // サーバーに送信するデータ
                 dataType: 'json' // サーバーから返却される型
             })
             .done(function(data){ // dataにはレスポンスされたデータが入る
@@ -189,11 +189,13 @@
                 )
 
                 $(data).each(function(i,pair) {     //取得したデータの個数分繰り返えしてグループリストに追加する
-                    console.log(pair)
-                    $('.grouplist ul').append(
-                        `<img src="/user_images/${pair.image_name}" class="grouplogo">
-                        <li class="chat-list -${pair.id}"><a id="${pair.id}" href="#${ pair.name }" onclick="roomchange(this.text,this.id,${cookie})">${pair.name}</a></li>`
-                    );
+                    // console.log(pair)
+                    if(pair.id != cookie){
+                        $('.grouplist ul').append(
+                            `<img src="/user_images/${pair.image_name}" class="grouplogo">
+                            <li class="chat-list -${pair.id}"><a id="${pair.id}" href="#${ pair.name }" onclick="roomchange(this.text,this.id,${cookie})">${pair.name}</a></li>`
+                        );
+                    }
                 });
             })
         })
@@ -308,6 +310,9 @@
                 //console.log(data);
 
                 $(data).each(function(i,room) {
+                    $(".paircomment p").css("top", "-8px");
+                    $(".paircomment p").css("left", "52px");
+                    $(".paircomment p").css("margin-bottom", "0px");
                     if (room.user_id == usr) {
                         $('.chat-container').append(
                             `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
@@ -345,6 +350,9 @@
                 console.log(data);
 
                 $(data).each(function(i,chat) {
+                    $(".paircomment p").css("top", "-25px");
+                    $(".paircomment p").css("left", "56px");
+                    $(".paircomment p").css("margin-bottom", "-10px");
                     if (chat.user_id == usr) {
                         $('.chat-container').append(
                             `<div class="mycomment"><p>${chat.content.replace(/\r?\n/g, '<br>')}</p></div>`  
@@ -352,8 +360,7 @@
                     }else{
                         $('.chat-container').append(
                             `<div class="paircomment">
-                            <img src="/user_images/${chat.image_name}" class="pair-icon" width=33 height=33>
-                            <div class="pair-name">${chat.name}</div>
+                            <a href="/users/${chat.user_id}"><img src="/user_images/${chat.image_name}" class="pair-icon" width=33 height=33></a>
                             <p>${chat.content.replace(/\r?\n/g, '<br>')}</p>
                             </div>`  
                         );
@@ -370,35 +377,66 @@
         var cont = $('.chat-area').val();
         // document.getElementById('textarea').focus();
         if(cont != "" && room_num != 0){
-            $.ajax({
-                type: 'get', // リクエストのタイプ
-                url: 'message/createchat', // リクエストを送信するURL
-                data:  { text : cont, room : room_num, user : usr}, // サーバーに送信するデータ
-                dataType: 'json' // サーバーから返却される型
-            })
-            .done(function(data){ // dataにはレスポンスされたデータが入る
-                $('.chat-container div').remove();
-                console.log(data);
+            if(roomtype==1){ 
+                $.ajax({
+                    type: 'get', // リクエストのタイプ
+                    url: 'message/createchat', // リクエストを送信するURL
+                    data:  { text : cont, room : room_num, user : usr}, // サーバーに送信するデータ
+                    dataType: 'json' // サーバーから返却される型
+                })
+                .done(function(data){ // dataにはレスポンスされたデータが入る
+                    $('.chat-container div').remove();
+                    console.log(data);
 
-                $(data).each(function(i,room) {
-                    if (room.user_id == usr) {
-                        $('.chat-container').append(
-                            `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
-                        );
-                    }else{
-                        $('.chat-container').append(
-                            `<div class="paircomment">
-                            <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
-                            <div class="pair-name">${room.email}</div>
-                            <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
-                        </div>`    
-                        );
-                    }
-                });
-                var chat = document.getElementsByClassName('chat-container');
-                chat[0].style.height = 68.5+"%";
-                scroll(2);
-            })
+                    $(data).each(function(i,room) {
+                        if (room.user_id == usr) {
+                            $('.chat-container').append(
+                                `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
+                            );
+                        }else{
+                            $('.chat-container').append(
+                                `<div class="paircomment">
+                                <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
+                                <div class="pair-name">${room.email}</div>
+                                <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
+                            </div>`    
+                            );
+                        }
+                    });
+                    var chat = document.getElementsByClassName('chat-container');
+                    chat[0].style.height = 68.5+"%";
+                    scroll(2);
+                })
+            }else{
+                $.ajax({
+                    type: 'get', // リクエストのタイプ
+                    url: 'message/createchat2', // リクエストを送信するURL
+                    data:  { text : cont, room : room_num, user : usr}, // サーバーに送信するデータ
+                    dataType: 'json' // サーバーから返却される型
+                })
+                .done(function(data){ // dataにはレスポンスされたデータが入る
+                    $('.chat-container div').remove();
+                    console.log(data);
+
+                    $(data).each(function(i,chat) {
+                        if (chat.user_id == usr) {
+                            $('.chat-container').append(
+                                `<div class="mycomment"><p>${chat.content.replace(/\r?\n/g, '<br>')}</p></div>`  
+                            );
+                        }else{
+                            $('.chat-container').append(
+                                `<div class="paircomment">
+                                <a href="/users/${chat.user_id}"><img src="/user_images/${chat.image_name}" class="pair-icon" width=33 height=33></a>
+                                <p>${chat.content.replace(/\r?\n/g, '<br>')}</p>
+                                </div>`  
+                            );
+                        }
+                    });
+                    var chat = document.getElementsByClassName('chat-container');
+                    chat[0].style.height = 68.5+"%";
+                    scroll(2);
+                })
+            }
         }
 
          //valを削除
