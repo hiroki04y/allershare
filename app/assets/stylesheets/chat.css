@@ -360,6 +360,8 @@
 
     .paircomment p{
       max-width:80%;
+      top: -27px;
+      left: 56px;
     }
 
     .partner a{

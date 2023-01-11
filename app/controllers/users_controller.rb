@@ -27,7 +27,7 @@ class UsersController < ApplicationController
                 value: @user.id,
                 expires: 100.day.from_now
               }
-            redirect_to("/users/index")
+              redirect_to("/")
         else
             @error_message = "メールアドレスまたはパスワードが間違っています"
             @email = params[:email]
