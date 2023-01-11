@@ -8,6 +8,8 @@
     </div>
     <div class="blog-content">
       <%= @blog.content%>
+      <div class="like">
+      <a>いいね！</a>
       <% if Like.find_by(user_id: @current_user.id, blog_id: @blog.id) %>
         <%=link_to("/likes/#{@blog.id}/destroy") do %>
         <span class="fa fa-heart liked-btn"></span>
@@ -17,7 +19,8 @@
         <span class="fa fa-heart unliked-btn"></span>
         <% end %>
       <% end %>
-      <%= @likes_count %>
+        <%= @likes_count %>
+      </div>
     </div>
     <div class="plofile">
       プロフィール
@@ -45,5 +48,10 @@
       </div>
       <%end%>
     </div>
+  </div>
+
+  <div class="test-top-bottom">
+    <img src="/rogo2.png" class="under-logo" width=220 height=60>
+    <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
   </div>
 </div>

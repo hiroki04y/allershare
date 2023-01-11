@@ -5,9 +5,10 @@
 
       <% @blogs.each do |blog| %>
         <div class="blog_view-display">
-            <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
-                <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
-            <%= blog.content %><br>
+            <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+            <div class="blog_view_title">
+                <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
+            </div>
         </div>
       <% end %>
 
