@@ -264,6 +264,10 @@
     border-radius: 20px;
 }
 
+.use_button a{
+    text-decoration:none;
+}
+
 /* ブログ一覧---------------------------- */
 .use_blog{
     width:100%;
