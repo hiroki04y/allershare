@@ -673,7 +673,7 @@ font-weight:bold;
 .animal-logo{
     position: absolute;
     top: 25px;
-    left: 90%;
+    right:3%;
     z-index: 10;
 }
 

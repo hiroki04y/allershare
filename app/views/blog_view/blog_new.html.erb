@@ -1,4 +1,6 @@
+<div class="wrap">
 <div class="main-blog-new">
+<p class="blog_new_top">ブログを作成する</p>
     <%= form_tag("/blog_view/blog_create",{multipart:true}) do %>
     <div class="blog-form">
     <% @blog.errors.full_messages.each do |message| %>
@@ -7,27 +9,199 @@
         </div>
     <% end %>
         <div class = "blog-form-title">
-            <textarea name = "title"></textarea>
+            <p>ブログタイトル</p>
+            <input type="text" name="title">
         </div>
         <div class = "blog-form-image">
+            <p>ヘッダー画像</p>
             <img src="/blog_images/blog_default.png" class="blog-noimage">
-            <input name="image" a class="image-button" type="file">
+            <input name="image" class="blog-image-button" type="file">
         </div>
         <div class = "blog-form-content">
+            <p>ブログ本文</p>
             <textarea name = "content"></textarea>
         </div>
+        <textarea class="sendtags" name="sendtags" value=""></textarea>
+
+        <p class="tag-p">タグを選択</p>
+        <div class="blog-tag-change">
+            <div class="blog-tag-class1">アレルギー別</div>
+            <div class="blog-tag-class2">ライフスタイル症状別</div>
+        </div>
+        <div class="blog-tag-change2"></div>
         <div class = "blog-form-tag">
             <div class = "blog-tag-select">
-                
+            <div class="nav">
+                <ul>
+                <li class="has-child"><a href="#">小麦・牛乳・卵</a>
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="1" value="小麦" onclick="tag_select(this.id)">
+                            <input type="button" id="2" value="ミルク" onclick="tag_select(this.id)">
+                            <input type="button" id="3" value="卵白" onclick="tag_select(this.id)">
+                            <input type="button" id="4" value="オボムコイド" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                <li class="has-child"><a href="#">豆・穀・種実類</a>
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="5" value="アーモンド" onclick="tag_select(this.id)">
+                            <input type="button" id="6" value="カシューナッツ" onclick="tag_select(this.id)">
+                            <input type="button" id="7" value="くるみ" onclick="tag_select(this.id)">
+                            <input type="button" id="8" value="米" onclick="tag_select(this.id)">
+                            <input type="button" id="9" value="ごま" onclick="tag_select(this.id)">
+                            <input type="button" id="10" value="そば" onclick="tag_select(this.id)">
+                            <input type="button" id="11" value="ピーナッツ" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                <li class="has-child"><a href="#">野菜・果物</a><!--子要素を持つ li にはhas-childというクラス名をつける-->
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="12" value="オレンジ" onclick="tag_select(this.id)">
+                            <input type="button" id="13" value="キウイ" onclick="tag_select(this.id)">
+                            <input type="button" id="14" value="トマト" onclick="tag_select(this.id)">
+                            <input type="button" id="15" value="バナナ" onclick="tag_select(this.id)">
+                            <input type="button" id="16" value="もも" onclick="tag_select(this.id)">
+                            <input type="button" id="17" value="りんご" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                <li class="has-child"><a href="#">肉類・魚類</a>
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="18" value="牛肉" onclick="tag_select(this.id)">
+                            <input type="button" id="19" value="鶏肉" onclick="tag_select(this.id)">
+                            <input type="button" id="20" value="豚肉" onclick="tag_select(this.id)">
+                            <input type="button" id="21" value="あわび" onclick="tag_select(this.id)">
+                            <input type="button" id="22" value="いか" onclick="tag_select(this.id)">
+                            <input type="button" id="23" value="いくら" onclick="tag_select(this.id)">
+                            <input type="button" id="24" value="さけ" onclick="tag_select(this.id)">
+                            <input type="button" id="25" value="さば" onclick="tag_select(this.id)">
+                            <input type="button" id="26" value="まぐろ" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                <li class="has-child"><a href="#">甲殻類</a>
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+                            <input type="button" id="28" value="かに" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                <li class="has-child"><a href="#">その他</a>
+                    <ul>
+                        <div class="blog_tag_field">
+                            <input type="button" id="29" value="ゼラチン" onclick="tag_select(this.id)">
+                            <input type="button" id="30" value="まつたけ" onclick="tag_select(this.id)">
+                            <input type="button" id="31" value="やまいも" onclick="tag_select(this.id)">
+                        </div>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+                <!--<% @blogtag.each do |post| %>
+                    <%= post.name %>
+                <% end %>-->
             </div>
         </div>
-            <input type="submit" class = "blog-post-button" value="投稿">
+        <div class="blog-tag-select2">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
+        
+        
+        
+        
+        </div>
+        
+        <div class="blog-send-button">
+        <input type="submit" class = "blog-post-button" value="投稿">
+        </div>
     </div>
     <% end %>
-
-    <div class="v7">
+    <div class="blog-new-bottom">
         <img src="/rogo2.PNG" class="under-logo" width=220 height=60>
-        <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
     </div>
-
 </div>
+</div>
+
+<script>
+$(function(){
+    $(".blog-tag-class2").on('click', function () {
+        $(".blog-tag-class2").css("background-color","rgb(255, 200, 112)")
+        $(".blog-tag-class2").css("color","white")
+        $(".blog-tag-select").css("display","none")
+        $(".blog-tag-class1").css("background-color","white")
+        $(".blog-tag-class1").css("color","rgb(255, 200, 112)")
+        $(".blog-tag-select2").css("display","block")
+        $(".main-blog-new").height($(".blog-form").height() + 322)
+    })
+
+    $(".blog-tag-class1").on('click', function () {
+        $(".blog-tag-class1").css("background-color","rgb(255, 200, 112)")
+        $(".blog-tag-class1").css("color","white")
+        $(".blog-tag-select").css("display","block")
+        $(".blog-tag-class2").css("background-color","white")
+        $(".blog-tag-class2").css("color","rgb(255, 200, 112)")
+        $(".blog-tag-select2").css("display","none")
+        $(".main-blog-new").height($(".blog-form").height() + 322)
+    })
+})
+//ドロップダウンの設定を関数でまとめる
+$(function(){
+    var width = $(window).width();
+    // alert(width);
+    // console.log($(".nav").height())
+    $(".blog-tag-select").height($(".nav").height())
+    $(".has-child a").on('click', function() {//has-childクラスがついたaタグをクリックしたら
+        var parentElem =  $(this).parent();// aタグから見た親要素のliを取得し
+        $(parentElem).toggleClass('active');//矢印方向を変えるためのクラス名を付与して
+        $(parentElem).children('ul').stop().slideToggle(400);//liの子要素のスライドを開閉させる※数字が大きくなるほどゆっくり開く
+        setTimeout(function(){
+            $(".blog-tag-select").height($(".nav").height())
+            $(".main-blog-new").height($(".blog-form").height() + 322)
+        },400);
+        return false;//リンクの無効化
+    });
+
+});
+
+var sendbutton = [];
+var sender="";
+function tag_select(button){
+    if($("#"+button).css("color") != "rgb(255, 255, 255)"){
+        $("#"+button).css("background-color","#ffc5dc");
+        $("#"+button).css("color","white");
+        sendbutton.push(button);
+        sender = sender + button + ",";
+        $('.sendtags').val(sender.slice(0,-1));
+    }else{
+        $("#"+button).css("background-color","white");
+        $("#"+button).css("color","#ff93be");
+        var result = sendbutton.indexOf(button);
+        sendbutton.splice(result,1)
+        var str=button + ",";
+        sender = sender.replace(str,"")
+        $('.sendtags').val(sender.slice(0,-1));
+    }
+}
+
+
+//画像表示
+$('.blog-image-button').on('change', function (e) {
+    var reader = new FileReader();
+    console.log(reader);
+    reader.onload = function (e) {
+        $(".blog-noimage").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+</script>
