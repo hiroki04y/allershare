@@ -379,7 +379,7 @@
 
 .mycontainer {
   position:relative;
-  max-width:800px;
+  max-width:1000px;
   width:80%;
   clear: both;
   margin-top:50px;
@@ -389,10 +389,15 @@
 }
 
 .user_index{
-  text-align:left;
-  font-size:25px;
-  color:#7a7a7d;
-  padding-left: 60px;
+  text-align: left;
+  font-size: 25px;
+  color: #7a7a7d;
+  width: 90%;
+  max-width: 900px;
+  min-width: 700px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
 }
 
 .user {
@@ -400,6 +405,7 @@
   margin-top:1%;
   margin-bottom: 20px;
   width:90%;
+  min-width:700px;
   background-color:#ffffff;
   border-radius:10px;
   box-shadow: 0 2px 18px #ededed;
@@ -409,7 +415,7 @@
 
 .user_left{
   width:25%;
-  height:490px;
+  height:425px;
   position:relative;
   float:left;
   margin: 20px 0 0 20px;
@@ -538,7 +544,7 @@
 /* フォームとボタン */
 
 .show_form{
-  width:62%;
+  width:70%;
   position:absolute;
   top:15px;
   left:28%;
@@ -547,7 +553,7 @@
 .show_submit{
   position:relative;
   top:40px;
-  left:0%;
+  left:170px;
   font-size:15px;
   transform: translateX(-70%);
   border: 1px solid rgb(186, 186, 186);
@@ -600,6 +606,7 @@
   position:relative;
   top:25px;
   left:30px;
+  text-align:left;
 }
 
 .user img {
@@ -617,7 +624,7 @@
   position:absolute;
   top:9.5px;
   left:28%;
-  width: 62%;
+  width: 70%;
   height: 102px;
   object-fit: cover;
   resize: none;

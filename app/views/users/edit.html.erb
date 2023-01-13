@@ -6,7 +6,7 @@
     <%# パスワード変更画面------------------------------------------------------------------- %>
     <div class="password_change">
       <div class="back"><b><</b></div>
-      <%= form_tag("/users/#{@user.id}/passchange") do %>
+      <%= form_with(url: "/users/#{@user.id}/passchange") do %>
         <div class="now_password">
           <p>現在のパスワード*</p>
           <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
@@ -31,7 +31,7 @@
     <%# ユーザ編集画面---------------------------------------------------------------------------------- %>
     <div class="user">
       <div class="user_left">
-        <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード<br>アレルギー管理</p>
+        <p>ユーザ名<br>プロフィール画像<br><br>自己紹介<br><br>メールアドレス<br>パスワード
       </div>
 
       <%# 保存ボタンでユーザ情報の書き換え %>
@@ -64,14 +64,14 @@
           <h5>登録済み</h5>
         </div>
 
-        <%# アレルギー情報 %>
+        <%# アレルギー情報
         <div class="user_border">
           <div class="user_radio">
             <input type="radio" name="wheight" value="軽度" checked> 軽度
             <input type="radio" name="wheight" value="中度"> 中度
             <input type="radio" name="wheight" value="中度"> 重度
           </div>
-        </div>
+        </div> %>
 
         <div class="aller_border">
         <p>所持しているアレルギー</p>

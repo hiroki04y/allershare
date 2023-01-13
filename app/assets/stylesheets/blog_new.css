@@ -2,17 +2,20 @@
     position: relative;
     background-color: #fff7fc;
     height: auto;
-    top: 65px;
+    top: 75px;
 }
 
 .blog_new_top{
-    position:relative;
-    font-size:27px;
-    width:70%;
-    top:30px;
-    left:50%;
-    transform:translateX(-50%);
-    min-width:750px;
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    color: #7a7a7d;
+    width: 70%;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 750px;
+    max-width: 870px;
 }
 
 .blog-form{
@@ -22,6 +25,7 @@
     left: 50%;
     transform:translateX(-50%);
     width: 70%;
+    max-width:850px;
     padding: 10px;
     margin-bottom: 80px;
     border-radius: 10px;
@@ -260,6 +264,16 @@
     .blog-form-content p,
     .blog-form-image p{
         float:left;
+    }
+
+    .blog-form-content p{
+        text-align: right;
+        padding-right: 40px;
+    }
+
+    .blog-form-image p{
+        text-align:right;
+        padding-right: 30px;
     }
 
     .blog-form-title input,

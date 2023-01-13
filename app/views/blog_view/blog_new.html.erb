@@ -1,4 +1,5 @@
 <div class="wrap">
+<% breadcrumb :blog_new %>
 <div class="main-blog-new">
 <p class="blog_new_top">ブログを作成する</p>
     <%= form_tag("/blog_view/blog_create",{multipart:true}) do %>
@@ -26,7 +27,7 @@
         <p class="tag-p">タグを選択</p>
         <div class="blog-tag-change">
             <div class="blog-tag-class1">アレルギー別</div>
-            <div class="blog-tag-class2">ライフスタイル症状別</div>
+            <div class="blog-tag-class2">ライフスタイル・症状別</div>
         </div>
         <div class="blog-tag-change2"></div>
         <div class = "blog-form-tag">

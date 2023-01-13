@@ -17,6 +17,11 @@ crumb :blog_view do
   parent :root
 end
 
+crumb :blog_new do
+  link "ブログ作成", blog_view_path
+  parent :root
+end
+
 crumb :user_view do |user|
   link "#{user.name}さんの詳細", users_index_path(user)
   parent :root
