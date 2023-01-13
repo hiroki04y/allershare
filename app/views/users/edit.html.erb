@@ -35,7 +35,7 @@
       </div>
 
       <%# 保存ボタンでユーザ情報の書き換え %>
-      <%= form_tag("/users/#{@user.id}/change",{multipart: true}) do %>
+      <%= form_with(url: "/users/#{@user.id}/change",multipart: true) do %>
       <input type="hidden" name="id" value="<%= @user.id %>" autocomplete="off" />
       <input type="hidden" name="tag" value="1" autocomplete="off" class="user_tag"/>
         <%# ユーザ名 %>

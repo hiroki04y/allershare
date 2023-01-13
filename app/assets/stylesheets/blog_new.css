@@ -294,10 +294,12 @@
 @media screen and (max-width: 800px) {
     .blog-form{
         width:100%;
+        top:25px;
     }
     .blog_new_top{
         font-size:25px;
         text-align:center;
+        top:40px;
     }
     
     .blog-form-title p,
