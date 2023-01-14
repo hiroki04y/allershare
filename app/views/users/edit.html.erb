@@ -1,32 +1,9 @@
+<div class="blackcover"></div>
 <div class="breadcrumbs"><%= link_to "TOP", root_path %> &rsaquo; <%= link_to "#{@user.name}さんの詳細" , "/users/#{@user.id}" %>  &rsaquo; <span class="current">編集画面</span></div>
 <div class="main user-show">
   <div class="mycontainer" id="<%= @user.id %>">
     <div class="blackhole"><%= @tag %></div>
     <div class="user_index"><b>ユーザ情報</b></div>
-    <%# パスワード変更画面------------------------------------------------------------------- %>
-    <div class="password_change">
-      <div class="back"><b><</b></div>
-      <%= form_with(url: "/users/#{@user.id}/passchange") do %>
-        <div class="now_password">
-          <p>現在のパスワード*</p>
-          <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
-          <p class="error_message"></p>
-        </div>
-        <div class="now_password">
-          <p>新しいパスワード*</p>
-          <input id="p1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
-          <p class="error_message1"></p>
-        </div>
-        <div class="now_password">
-          <p>新しいパスワードを確認*</p>
-          <input id="p2"name="pass2" placeholder="再度入力してください" type="password">
-          <p class="error_message2"></p>
-        </div>
-        <input type="submit" value="変更" onclick="checkpassword('<%= @user.password %>')">
-      <% end %>
-
-
-    </div>
 
     <%# ユーザ編集画面---------------------------------------------------------------------------------- %>
     <div class="user">
@@ -89,9 +66,10 @@
 
           <div class="allergy allergy_right">
             <p><b><メモ></b></p>
-            <textarea name="memo" class="memo" placeholder="140字以内">
+            <textarea name="memo" class="memo" placeholder="140字以内"><%= @user.memo %>
             </textarea>
           </div>
+          <textarea class="sendtags" name="sendtags" value=""></textarea>
         </div>
         
 
@@ -103,6 +81,73 @@
 
       <% end %>
     </div>
+    <%= form_with(url: "/users/#{@user.id}/change",multipart: true) do %>
+    <div class="r_user">
+      <div class="getweight">
+      <div class="r_user_name">
+        <p>ユーザ名</p>
+        <input name="name" class="show_form" placeholder="ユーザ名" value="<%= @user.name %>">
+      </div>
+      <div class="r_user_image">
+        <p>プロフィール画像</p>
+        <img class="r_show_image" name="image" src="<%="/user_images/#{@user.image_name}"%>">
+        <input type="button"class="r_show_button" value="アイコン編集">
+        <input name="image" class="r_image_button" type="file">
+      </div>
+      <div class="r_user_introduction">
+        <p>自己紹介</p>
+        <textarea name="introduction" maxlength="140" placeholder="140字以内" rows="4" ><%= @user.introduction %></textarea>
+      </div>
+      <div class="r_user_mail">
+        <p>メールアドレス</p>
+        <input name="email" class="show_form" placeholder="メールアドレス" value="<%= @user.email %>">
+      </div>
+      <div class="r_user_password">
+        <p>パスワード</p>
+        <input type="button"class="r_pass_button" value="パスワード編集">
+      </div>
+      <div class="r_user_allergy">
+        <p>所持しているアレルギー</p>
+          <div class="r_aller_button">
+            <p>小麦・卵・牛乳</p>
+            <div id="r_aller_button1"></div>
+          </div>
+          <div class="r_aller_button">
+            <p>豆・穀・種実類</p>
+            <div id="r_aller_button2"></div>
+          </div>
+          <div class="r_aller_button">
+            <p>野菜・果物</p>
+            <div id="r_aller_button3"></div>
+          </div>
+          <div class="r_aller_button">
+            <p>肉類・魚類</p>
+            <div id="r_aller_button4"></div>
+          </div>
+          <div class="r_aller_button">
+            <p>甲殻類</p>
+            <div id="r_aller_button5"></div>
+          </div>
+          <div class="r_aller_button">
+            <p>その他</p>
+            <div id="r_aller_button6"></div>
+          </div>
+      </div>
+
+      <div class="r_user_memo">
+        <p>アレルギー補足情報</p>
+        <textarea name="memo" class="r_memo" placeholder="140字以内"><%= @user.memo %></textarea>
+      </div>
+      <div class="r_user_delete">
+        <p>アカウント削除</p>
+        <input type="button" id="red" value="アカウント削除">
+      </div>
+      <div class="r_user_save">
+        <input type="submit" class="user_save" value="保存する"  name="savebutton">
+      </div>
+      </div>
+    </div>
+    <% end %>
 
     <%# フッター %>
     <div class="t7">
@@ -110,39 +155,67 @@
       <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
     </div>
 
+    <%# パスワード変更画面------------------------------------------------------------------- %>
+    <div class="password_change">
+      <div class="back"><b><</b></div>
+      <%= form_with(url: "/users/#{@user.id}/passchange") do %>
+        <div class="now_password">
+          <p>現在のパスワード*</p>
+          <input id="nowpass" name="nowpass" placeholder="現在のパスワードを入力してください" type="password" />
+          <p class="error_message"></p>
+        </div>
+        <div class="now_password">
+          <p>新しいパスワード*</p>
+          <input id="p1" name="pass1" placeholder="新しいパスワードを入力してください" type="password">
+          <p class="error_message1"></p>
+        </div>
+        <div class="now_password">
+          <p>新しいパスワードを確認*</p>
+          <input id="p2"name="pass2" placeholder="再度入力してください" type="password">
+          <p class="error_message2"></p>
+        </div>
+        <input type="submit" value="変更" onclick="checkpassword('<%= @user.password %>')">
+      <% end %>
+
+
+    </div>
+
     <%# プロフィール画像変更画面------------------------------------------------------------------------- %>
     <div class="image_cover">
-    <div class="popup"></div>
-    <div class="imageselect">
-      <%= form_tag("/users/#{@user.id}/imagechange",{multipart: true}) do |f| %>
-        <div class="form-group">
-          <%= label_tag :image, class: "newselect" do %>
-            <b>画像を選択</b>
-            <%= file_field_tag :image, style:"display:none;" %>
-          <% end %>
-        </div>
-        <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div>
-        <input type="submit" class="new-imagebutton" value="保存">
-      <% end %>
-    </div>
+      <div class="popup"></div>
+      <div class="imageselect">
+        <%= form_tag("/users/#{@user.id}/imagechange",{multipart: true}) do |f| %>
+          <div class="form-group">
+            <%= label_tag :image, class: "newselect" do %>
+              <b>画像を選択</b>
+              <%= file_field_tag :image, style:"display:none;" %>
+            <% end %>
+          </div>
+          <div id="new-image"><img name="image" class="new-img" src="<%="/user_images/#{@user.image_name}"%>"></div>
+          <input type="submit" class="new-imagebutton" value="保存">
+        <% end %>
+      </div>
     </div>
 
     <%# アカウント削除画面表示--------------------------------------------------------------- %>
     <div class="delete_cover">
-    <div class="popup"></div>
-    <div class="imageselect">
-    <h3>本当に削除しますか？</h3>
-    <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
-    <input type="button" class="chancelbutton" value="キャンセル">
-    <%= link_to("/users/#{@user.id}/destroy") do  %><input type="button" class="deletebutton" value="削除"><% end %>
+      <div class="popup"></div>
+      <div class="imageselect2">
+      <h3>本当に削除しますか？</h3>
+      <p>・投稿したブログはすべて削除されます<br></p><p>・送信したチャットはすべて削除されます</p>
+      <input type="button" class="chancelbutton" value="キャンセル">
+      <%= link_to("/users/#{@user.id}/destroy") do  %><input type="button" class="deletebutton" value="削除"><% end %>
+      </div>
     </div>
-    </div>
+</div>
+
 </div>
 
 <%# スクリプト---------------------------------------------------------------------------------- %>
 <script>
   var blob;
   var now_login_user = $(".login_user").attr('id');
+  $(".r_user").height($(".getweight").height() + 240)
   //console.log(now_login_user)
 
   //タグの内容を読み取る
@@ -165,41 +238,60 @@
   var num = [4,7,6,9,2,3]
 
   var f = 0;
+  var width = $(window).width();
   for (var v = 0; v < num.length; v++) {
-    var add = ('#aller_button' + (v + 1));
+    if(width > 800){
+      var add = ('#aller_button' + (v + 1));
+    }else{
+      var add = ('#r_aller_button' + (v + 1));
+    }
     for (var i = 0; i < num[v]; i++){
       $(add).append(
-        `<input type="submit" value="${foods[f]}" id="button${f}" name="commit" onclick="button_select(this.id,this.value,${++f})">`
+        `<input type="button" value="${foods[f]}" id="button${f}" name="commit" onclick="button_select(this.id,this.value,${++f})">`
       )
     }
   }
 
   //選択済みのタグは色を付ける
+  var sender1=[];
   for(var v = 0; v < tagname.length; v++){
-    var selected = "#button" + foods.indexOf(tagname[v])
-    console.log(selected)
+    var selected = foods.indexOf(tagname[v]) + 1
+    sender1.push(selected);
+    selected = "#button" + foods.indexOf(tagname[v])
     $(selected).css('background-color','#cef9bc')
   }
+  console.log(sender1)
 
 
 
   //アレルギー管理用
-  var text = [];
+  var sender="";
   function button_select(button_id,value,id){
     $(".user_tag").val(id);
     // ボタンを選んだ時の色を変更
     var select_button = "#" + button_id;
     if($(select_button).css("background-color") == "rgb(206, 249, 188)"){
-      $(select_button).css('background-color','white');
-      var idx = text.indexOf(value);
-      if(idx >= 0){
-        text.splice(idx, 1); 
+      $(select_button).css('background-color','white')
+      if(sender1.indexOf(id) != -1){
+        sender = sender + id + ",";
+        var result = sender1.indexOf(id);
+      }else{
+        var str=id + ",";
+        sender = sender.replace(str,"")
       }
+      console.log(sender)
+      $('.sendtags').val(sender.slice(0,-1));
     }else{
       $(select_button).css('background-color','#cef9bc');
-      text.push(value)     
+      if(sender.indexOf(id) != -1){
+        var str=id + ",";
+        sender = sender.replace(str,"")
+      }else{
+        sender = sender + id + ",";
+      }
+      console.log(sender)
+      $('.sendtags').val(sender.slice(0,-1));
     }
-    console.log(text);
   }
 
   //-------------------------------------------------------------------------------
@@ -220,6 +312,9 @@
     $('#red').click(function(){
       $('.delete_cover').fadeIn(300);
     });
+    $('.r_user_delete input').click(function(){
+      $('.delete_cover').fadeIn(300);
+    });
     $('.chancelbutton').click(function(){
       $('.delete_cover').fadeOut(300);
     });
@@ -229,12 +324,14 @@
 
     $('#passchange').click(function(){
       $('.password_change').fadeIn(300);
-      $('.user_index b').html("パスワード変更");
+    });
+
+    $('.r_pass_button').click(function(){
+      $('.password_change').fadeIn(300);
     });
 
     $('.back').click(function(){
       $('.password_change').fadeOut(200);
-      $('.user_index b').html("ユーザ情報");
     });
   });
 
@@ -280,4 +377,14 @@
     }
   }
 
+
+//レスポンシブ画像表示
+$('.r_image_button').on('change', function (e) {
+    var reader = new FileReader();
+    console.log(reader);
+    reader.onload = function (e) {
+        $(".r_show_image").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
 </script>

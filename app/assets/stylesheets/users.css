@@ -1,3 +1,17 @@
+/* パスワード変更画面 */
+.password_change{
+  position:absolute;
+  max-width:800px;
+  width:90%;
+  height:630px;
+  background-color:rgb(255, 255, 255);
+  border-radius:10px;
+  box-shadow: 0 2px 18px #ededed;
+  left:50%;
+  transform: translateX(-50%);
+  z-index:1;
+  display:none;
+}
 
 /* フォーム(ログイン・新規登録)=============================================== */
 
@@ -270,7 +284,7 @@
     display:none;
   }
 
-  .main img{
+  .form_screen img{
     display:none;
   }
 
@@ -455,7 +469,6 @@
   top:-5px;
 }
 
-/* レイアウトを保つのは1000pxが限界(´;ω;｀) */
 
 .allergy{
   width:47%;
@@ -483,7 +496,7 @@
   left:0px;
 }
 
-.allergy input[type="submit"]{
+.allergy input[type="button"]{
   height:25px;
   margin-top:3px;
   padding:2px 8px 0 7px;
@@ -539,6 +552,7 @@
   border-radius:10px;
   margin-top:50px;
   padding:10px;
+  color:black;
 }
 
 /* フォームとボタン */
@@ -568,6 +582,7 @@
 .user_save{
   width:90px;
   height:40px;
+  font-weight:bold;
   margin-top:30px;
   margin-bottom:20px;
   position:relative;
@@ -581,7 +596,7 @@
 
 .user_delete{
   position:absolute;
-  top:1080px;
+  top:1020px;
   left:20px;
   text-align: start;
 }
@@ -658,6 +673,370 @@
   top:19px;
   left:0px;
   text-align:left;
+}
+
+/* アカウント削除の最終確認 */
+.delete_cover{
+  position: fixed; 
+	background: rgba(0, 0, 0, .5);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0; 
+	z-index: 99;
+  display:none;
+}
+
+.imageselect{
+  width:400px;
+  height:300px;
+  background-color:white;
+  position:fixed;
+  top:25%;
+  left:50%;
+  transform: translateX(-50%);
+  border-radius:10px;
+}
+
+.imageselect2{
+  width:500px;
+  height:300px;
+  background-color:white;
+  position:fixed;
+  padding-top:40px;
+  top:25%;
+  left:50%;
+  transform: translateX(-50%);
+  border-radius:10px;
+}
+
+.imageselect h3{
+  color:rgb(247, 94, 94);
+  margin-top:30px;
+  margin-bottom:20px;
+}
+
+.imageselect p{
+  line-height:50px;
+  font-size:20px;
+  text-align:left;
+  margin-left:40px;
+}
+
+.imageselect2 p{
+  line-height:50px;
+  font-size:20px;
+  text-align:left;
+  margin-left:40px;
+}
+
+.deletebutton{
+  width:100px;
+  height:50px;
+  margin-top:30px;
+  font-size:18px;
+  font-weight:bold;
+  border: 1px solid rgb(162, 162, 162);
+  border-radius:10px;
+  background-color:rgb(247, 94, 94);
+  color:white;
+}
+
+.chancelbutton{
+  width:100px;
+  height:50px;
+  margin-top:30px;
+  margin-right:20px;
+  font-size:17px;
+  font-weight:bold;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius:10px;
+  background-color:rgb(255, 255, 255);
+  color:#a4e38b;
+}
+
+@media screen and (min-width: 801px) {
+  .r_user{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .user_index{
+    text-align:center;
+    min-width:0px;
+  }
+
+  .user{
+    display:none;
+  }
+
+  /* メイン */
+  .r_user{
+    display:block;
+    position:relative;
+    margin-top:15px;
+    width:100%;
+    height:1800px;
+    /* background-color:white; */
+    text-align:left;
+  }
+
+  /* 氏名 */
+  .r_user_name{
+    position:relative;
+    width:100%;
+    height:95px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_user p{
+    position:relative;
+    width:90%;
+    left:50%;
+    transform:translateX(-50%);
+    font-weight:bold;
+    font-size:17px;
+    padding-top:10px;
+  }
+
+  .show_form {
+    width: 90%;
+    height:35px;
+    position: relative;
+    top: 5px;
+    left:50%;
+    padding-left:10px;
+    transform:translateX(-50%);
+    border-radius:5px;
+    border:1px solid #6ea857;
+  }
+
+  /* プロフィール画面 */
+  .r_user_image{
+    position:relative;
+    width:100%;
+    height:240px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_user_image img{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform:translateX(-50%);
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+
+  .r_show_button{
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform:translateX(-50%);
+    font-size: 14px;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 10px;
+    background-color: #fff7fc;
+    color: rgb(91, 91, 91);
+    width: 105px;
+    height: 40px;
+    padding-top: 2px;
+  }
+
+  .r_image_button{
+    width:100%;
+    height:180px;
+    position:absolute;
+    top:50px;
+    left:0px;
+    opacity:0;
+  }
+
+  /* 自己紹介 */
+  .r_user_introduction{
+    position:relative;
+    width:100%;
+    height:235px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_user_introduction textarea{
+    position: relative;
+    top: 5px;
+    width: 90%;
+    height: 170px;
+    object-fit: cover;
+    resize: none;
+    line-break: anywhere;
+    left:50%;
+    padding-left:10px;
+    transform:translateX(-50%);
+    border-radius:5px;
+    border:1px solid #6ea857;
+  }
+
+  /* メールアドレス */
+  .r_user_mail{
+    position:relative;
+    width:100%;
+    height:95px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  /* パスワード */
+  .r_user_password{
+    position:relative;
+    width:100%;
+    height:95px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_pass_button{
+    position: absolute;
+    top: 40px;
+    left:5%;
+    font-size: 14px;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 10px;
+    background-color: #fff7fc;
+    color: rgb(91, 91, 91);
+    width: 150px;
+    height: 40px;
+    padding-top: 2px;
+  }
+
+  .password_change{
+    position: fixed;
+    top: 65px;
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  /* アレルギー */
+  .r_user_allergy{
+    position:relative;
+    width:100%;
+    height:auto;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_aller_button{
+    width:100%;
+    height:auto;
+    border-bottom:1px solid #d7d7d7;
+    position:relative;
+    padding-left:5%;
+    padding-right:2%;
+    padding-bottom:10px;
+  }
+
+  .r_aller_button p{
+    width:100%;
+    text-align:left;
+    padding-left:0px;
+    font-size:16px;
+    color:#686868;
+  }
+
+  .r_aller_button input[type="button"] {
+    height: 34px;
+    margin-top: 3px;
+    padding: 3px 10px 4px 10px;
+    margin-left: 5px;
+    font-size: 14px;
+    border-radius: 15px;
+    border: 1px solid #b2b2b2;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;
+    color: black;
+  }
+
+  /* メモ */
+  .r_user_memo{
+    position:relative;
+    width:100%;
+    height:180px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_memo{
+    position: relative;
+    top: 5px;
+    width: 90%;
+    height: 120px;
+    object-fit: cover;
+    resize: none;
+    line-break: anywhere;
+    left:50%;
+    padding-left:10px;
+    transform:translateX(-50%);
+    border-radius:5px;
+    border:1px solid #6ea857;
+  }
+
+  .r_user_delete{
+    position:relative;
+    width:100%;
+    height:100px;
+    background-color:white;
+    border-bottom:1px solid #b2b2b2;
+  }
+
+  .r_user_delete input{
+    position: absolute;
+    top: 40px;
+    left:5%;
+    font-size: 15px;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 10px;
+    background-color: #fff7fc;
+    color: rgb(91, 91, 91);
+    width: 150px;
+    height: 40px;
+    padding-top: 2px;
+    font-weight:bold;
+  }
+
+  .imageselect2{
+    width:340px;
+  }
+
+  .imageselect2 p{
+    margin-top:8px;
+    font-size:16px;
+    margin-left:17px;
+  }
+
+  .imageselect2 h3{
+    color:rgb(247, 94, 94);
+    margin-bottom:5px;
+  }
+
+  .r_user_save{
+    position:relative;
+    width:100%;
+    height:130px;
+    background-color:white;
+  }
+
+  .user_save{
+    width:120px;
+  }
+
 }
 
 
@@ -1144,19 +1523,6 @@
   position:absolute;
 }
 
-.imageselect{
-  width:400px;
-  height:300px;
-  background-color:white;
-  position:fixed;
-  top:25%;
-  left:50%;
-  transform: translateX(-50%);
-  border-radius:10px;
-}
-
-
-
 .new-img{
   width: 150px;
   height:150px;
@@ -1185,71 +1551,6 @@
   border-radius:10px;
   background-color:#a4e38b;
   color:white;
-}
-
-/* アカウント削除の最終確認 */
-.delete_cover{
-  position: fixed; 
-	background: rgba(0, 0, 0, .5);
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0; 
-	z-index: 99;
-  display:none;
-}
-
-.imageselect h3{
-  color:rgb(247, 94, 94);
-  margin-top:30px;
-  margin-bottom:20px;
-}
-
-.imageselect p{
-  line-height:50px;
-  font-size:20px;
-  text-align:left;
-  margin-left:40px;
-}
-
-.deletebutton{
-  width:100px;
-  height:50px;
-  margin-top:30px;
-  font-size:25px;
-  border: 1px solid rgb(162, 162, 162);
-  border-radius:10px;
-  background-color:rgb(247, 94, 94);
-  color:white;
-}
-
-.chancelbutton{
-  display:inline-block;
-  width:100px;
-  height:50px;
-  margin-top:30px;
-  margin-right:20px;
-  font-size:20px;
-  border: 1px solid rgb(161, 161, 161);
-  border-radius:10px;
-  background-color:rgb(255, 255, 255);
-  color:#a4e38b;
-}
-
-
-/* パスワード変更画面 */
-.password_change{
-  position:absolute;
-  max-width:800px;
-  width:90%;
-  height:630px;
-  background-color:rgb(255, 255, 255);
-  border-radius:10px;
-  box-shadow: 0 2px 18px #ededed;
-  left:50%;
-  transform: translateX(-50%);
-  z-index:1;
-  display:none;
 }
 
 .back{
