@@ -53,8 +53,6 @@ class BlogViewController < ApplicationController
             end
             image = params[:image]
             File.binwrite("public/blog_images/#{@blog.image}", image.read)
-        else
-            @blog.image = "blog_default.png"
         end
         if @blog.save
             str = params[:sendtags]
