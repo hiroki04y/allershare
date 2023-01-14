@@ -133,13 +133,6 @@
 </div>
 
 <script>
-//タグを選択済みに
-var tagname = $(".blackhole").html().slice(0,-1)
-tagname = tagname.split(",");
-for(var v = 0; v < tagname.length; v++){
-    $("#"+tagname[v]).css("background-color","#ffc5dc");
-    $("#"+tagname[v]).css("color","white");
-}
 $(function(){
     $(".blog-tag-class2").on('click', function () {
         $(".blog-tag-class2").css("background-color","rgb(255, 200, 112)")
@@ -179,6 +172,14 @@ $(function(){
     });
 
 });
+
+//タグを選択済みに
+var tagname = $(".blackhole").html().slice(0,-1);
+tagname = tagname.split(",");
+for(var v = 0; v < tagname.length; v++){
+    $('#'+Number(tagname[v])).css('background-color','#ffc5dc');
+    $("#"+Number(tagname[v])).css("color","white");
+}
 
 var sendbutton = [];
 var sender="";
