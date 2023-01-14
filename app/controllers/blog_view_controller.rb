@@ -16,7 +16,8 @@ class BlogViewController < ApplicationController
     def blog_create
         @blog = Blog.new(title: params[:title], content: params[:content], UserID: @current_user.id)
         if params[:image]
-            @blog.image = "#{@blog.id}.jpg"
+            blogstr = SecureRandom.alphanumeric(15)
+            @blog.image = "#{blogstr}.jpg"
             image = params[:image]
             File.binwrite("public/blog_images/#{@blog.image}", image.read)
         else
@@ -36,21 +37,39 @@ class BlogViewController < ApplicationController
 
     def blog_edit
         @blog = Blog.find_by(id: params[:id])
+        @blogtags = BlogTagRelation.where('blog_id = ?', params[:id])
     end
 
     def blog_update
         @blog = Blog.find_by(id: params[:id])
         @blog.title = params[:title]
         @blog.content = params[:content]
-        @blog.image = params[:image]
         if params[:image]
-            @blog.image = "#{@blog.id}.jpg"
+            if @blog.image != "blog_default.png"
+                @blog.image = "#{@blog.image}.jpg"
+            else
+                blogstr = SecureRandom.alphanumeric(15)
+                @blog.image = "#{blogstr}.jpg"
+            end
             image = params[:image]
             File.binwrite("public/blog_images/#{@blog.image}", image.read)
         else
             @blog.image = "blog_default.png"
         end
         if @blog.save
+            str = params[:sendtags]
+            if str != nil
+                tag = str.split(",")
+                for st in tag do
+                    @find_tag = BlogTagRelation.find_by(blog_id: params[:id], blog_tag_id: st.to_i)
+                    if @find_tag == nil
+                        @tag = BlogTagRelation.create(blog_id: params[:id], blog_tag_id: st.to_i)
+                    else
+                        @tag = BlogTagRelation.find_by(blog_id: params[:id], blog_tag_id: st.to_i)
+                        @tag.destroy
+                    end
+                end
+            end
             flash[:notice] = "投稿を編集しました"
             redirect_to("/blog_view")
         else
@@ -60,6 +79,9 @@ class BlogViewController < ApplicationController
 
     def blog_destroy
         @blog = Blog.find_by(id: params[:id])
+        if @blog.image != "blog_default.png"
+            File.delete("public/blog_images/#{@blog.image}")
+        end
         @blog.destroy
         flash[:notice] = "投稿を削除しました"    
         redirect_to("/blog_view")

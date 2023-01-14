@@ -129,10 +129,12 @@
 }
 
 .base3 p{
-  font-size:30px;
-  position:absolute;
-  top:40%;
-  left:20%;
+  width: 100%;
+  font-size: 30px;
+  position: absolute;
+  top: 40%;
+  /* text-align: center; */
+  left: 20%;
 }
 
 .partner{
@@ -367,6 +369,8 @@
 
     .partner a{
       display:flex;
+      font-size: 29px;
+      margin-top: 2px;
     }
   }
   @media (max-width: 500px) {

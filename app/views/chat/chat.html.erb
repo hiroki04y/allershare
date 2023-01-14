@@ -33,7 +33,7 @@
 </div>
 <div class="base2">
     <div class="partner">
-        <a>＜</a><div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= @current_user.id %></div>
+        <a><ion-icon name="backspace-outline"></ion-icon></a><div class="send_group">おしらせ</div><div class="cookie" style="color:#fff7fc"><%= @current_user.id %></div>
     </div>
     <div class="chat-container">
     </div>
@@ -249,7 +249,7 @@
         //Enterを押したときにも同じ処理
         $(roomtext).on('keypress', function (e) {
             room = $.trim($(this).val());
-            console.log(room); // 検索窓の値が取れているか確認
+            //console.log(room); // 検索窓の値が取れているか確認
             //console.log(e);
             if(e.keyCode == 13){
                 $.ajax({
@@ -288,7 +288,7 @@
 
     // 左側の選択グループをクリックでグループのルームに飛ぶ----------------------------------------
     function roomchange(name,id,usr){
-        console.log(name,id,usr);
+        //console.log(name,id,usr);
         if(roomtype==1){        //選ばれたのがgroupだったら
             $('.send_group').html(name);
             if(screen.width >= 800){
@@ -354,7 +354,7 @@
             })
             .done(function(data){ // dataにはレスポンスされたデータが入る
                 $('.chat-container div').remove();
-                console.log(data);
+                //console.log(data);
 
                 $(data).each(function(i,chat) {
                     $(".paircomment p").css("top", "-25px");
@@ -406,7 +406,7 @@
                 })
                 .done(function(data){ // dataにはレスポンスされたデータが入る
                     $('.chat-container div').remove();
-                    console.log(data);
+                    //console.log(data);
 
                     $(data).each(function(i,room) {
                         if (room.user_id == usr) {
@@ -435,7 +435,7 @@
                 })
                 .done(function(data){ // dataにはレスポンスされたデータが入る
                     $('.chat-container div').remove();
-                    console.log(data);
+                    //console.log(data);
 
                     $(data).each(function(i,chat) {
                         if (chat.user_id == usr) {
