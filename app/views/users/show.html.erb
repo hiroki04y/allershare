@@ -12,20 +12,22 @@
           </div>
         <% end %>
       <% end %>
+      <% if @current_user.id != @user.id %>
       <% if @current_user.following?(@user) %>
-        <%= link_to(user_deleterelationships_path(@user.id)) do %>
+        <%= link_to("/chat") do %>
           <div class="other_follow">
-            <img src="/star1.png">
-            <p>フォローを外す</p>
+            <img src="/chat.png">
+            <p>この人と会話する</p>
           </div>
         <% end %>
       <% else %>
         <%= link_to(user_relationships_path(@user.id)) do %>
           <div class="other_follow">
-            <img src="/star2.png">
-            <p>フォローする</p>
+            <img src="/chat.png">
+            <p>この人と会話する</p>
           </div>
         <% end %>
+      <% end %>
       <% end %>
 
     </div>
@@ -74,6 +76,23 @@
           <p>情報を変更する</p>
           </div>
         <% end %>
+      <% end %>
+      <% if @current_user.id != @user.id %>
+      <% if @current_user.following?(@user) %>
+        <%= link_to("/chat") do %>
+          <div class="other_follow">
+            <img src="/chat.png">
+            <p>この人と会話する</p>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to(user_relationships_path(@user.id)) do %>
+          <div class="other_follow">
+            <img src="/chat.png">
+            <p>この人と会話する</p>
+          </div>
+        <% end %>
+      <% end %>
       <% end %>
 
     </div>

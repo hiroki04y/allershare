@@ -1,7 +1,7 @@
 class RelationshipController < ApplicationController
     def create
         @current_user.follow(params[:user_id])
-        redirect_to request.referer
+        redirect_to("/chat")
     end
       
     def destroy

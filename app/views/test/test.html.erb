@@ -1,209 +1,213 @@
-<div class="main">
-  <div class="container">
-    <% if @error_message %>
-        <div class="form-error">
-            <%= @error_message %>
-        </div>
-    <% end %>
-    <h2>ログイン</h2>
-    <%= form_tag("/login") do %>  
-    <div class="form">
-      <input name="email" class="form-input" placeholder="メールアドレス" value="<%= @email %>">
-      <input type="password" class="form-input" name="password" placeholder="パスワード" value="<%= @password %>">
-      <p>半角英数字8文字以上で入力してください。<p>
-    </div>
-    <input type="submit" value="ログイン">
-    <% end %>
-  </div>
-  <p class="acount-new">アカウントをお持ちでない方は<a href="/signup">こちら</a>からアカウント作成を行ってください。</p>
+<div class="nav">
+<ul>
+<li><a href="#">Top</a></li>
+<li><a href="#">About</a></li>
+<li class="has-child"><a href="#">Service</a><!--子要素を持つ li にはhas-childというクラス名をつける-->
+  <ul>
+  <li><a href="#">Service Top</a></li>
+  <li><a href="#">Service-1</a></li>
+  <li class="has-child"><a href="#">Service-2</a>
+    <ul>
+    <li><a href="#">Service-2 Top</a></li>
+    <li><a href="#">Service-2-1</a></li>
+    <li><a href="#">Service-2-2</a></li>
+    <li><a href="#">Service-2-3</a></li>
+    <li><a href="#">Service-2-4</a></li>
+    </ul>
+ </li>
+ <li><a href="#">Service-3</a></li>
+</ul>
+</li>
+<li class="has-child"><a href="#">Blog</a>
+  <ul>
+  <li><a href="#">Blog Top</a></li>
+  <li><a href="#">Blog-1</a></li>
+  <li><a href="#">Blog-2</a></li>
+  <li><a href="#">Blog-3</a></li>
+  <li><a href="#">Blog-4</a></li>
+  </ul>
+</li>
+</ul>
 </div>
 
 
-
-<%# <div class="spinner">
-  <div class="rect1"></div>
-  <div class="rect2"></div>
-  <div class="rect3"></div>
-  <div class="rect4"></div>
-  <div class="rect5"></div>
-</div> %>
-
 <style>
-.form-error {
-  color: #ff4d75;
-}
+/*========= ナビゲーションドロップダウンのためのCSS ===============*/
 
-.main{
-  width:100%;
-  height:88vh;
-  position:relative;
-  top:65px;
-  left:0px;
-}
-
-.container{
-  width: 35%;
-  min-width: 350px;
-  height: auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
-  border: 1px solid red;
-  border-radius: 20px;
-  border: 4px solid #ffbedd;
-  background-color:white;
-}
-
-.container h2{
-  width:50%;
-  height:50px;
-  position:relative;
-  margin-top:20px;
-  left:25%;
-  /* border: 1px solid red; */
-  font-weight:800;
-  text-align:center;
-  padding-top:10px
-}
-
-.form{
-  width:80%;
-  height:180px;
-  position:relative;
-  left:50%;
-  transform:translateX(-50%);
-  /* border: 1px solid red; */
-  padding-top:10px;
-}
-
-.form p{
-  width:100%;
-  position:relative;
-  top:5px;
-  text-align:center;
-  /* border:1px solid red; */
-  padding-left:10px;
-  font-size:12px;
-  color: #57575f;
-}
-
-.form-input {
-  width: 90%;
-  padding: 12px;
-  color: #57575f;
-  font-size: 16px;
-  letter-spacing: 2px;
-  border: 1px solid #a4e38b;
-  border-radius: 30px;
-  margin-top: 13px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-}
-
-.container input[type="submit"] {
-  background-color: #a4e38b;
-  color: white;
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
-  width: 120px;
-  height: 40px;
-  border: 1px solid #6ea857;
-  border-radius: 30px;
-  letter-spacing: 2px;
-  position: relative;
-  left: 50%;
-  transform:translateX(-50%);
-  margin-bottom: 20px;
-}
-
-.acount-new{
-  position:relative;
-  top:110px;
-  left:0px;
-  width:100%;
-  font-size:15px;
-  color: #57575f;
-  text-align:center;
-}
-
-.acount-new a{
-  color:red;
-  font-size:17px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.spinner {
-  width: 50px;
-  height: 40px;
+/*==ナビゲーション全体の設定*/
+.nav{
+	background:#333;
+	color:#fff;
+	text-align: center;
   position:absolute;
-  top:270px;
-  left:50%;
-  transform:translateX(-50%);
-  text-align: center;
-  font-size: 10px;
+  width:100%;
+}
+/*ナビゲーションを横並びに*/
+.nav ul{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+  width:100%;
+}
+/*2階層目以降は横並びにしない*/
+.nav ul ul{
+	display: block;
+}
+
+/*下の階層のulや矢印の基点にするためliにrelativeを指定*/
+.nav ul li{
+	position: relative;
+}
+
+/*ナビゲーションのリンク設定*/
+.nav ul li a{
+	display: block;
+	text-decoration: none;
+	color: #999;
+	padding:20px 35px;
+	transition:all .3s;
+}
+
+.nav ul li li a{
+	padding:10px 35px;
+}
+
+.nav ul li a:hover{
+	color:#fff;	
+}
+
+/*==矢印の設定*/
+
+/*2階層目を持つliの矢印の設定*/
+.nav ul li.has-child::before{
+	content:'';
+	position: absolute;
+	left:15px;
+	top:25px;
+	width:6px;
+	height:6px;
+	border-top: 2px solid #999;
+    border-right:2px solid #999;
+    transform: rotate(135deg);
+    
+}
+
+/*== 2・3階層目の共通設定 */
+
+/*下の階層を持っているulの指定*/
+.nav li.has-child ul{
+    /*絶対配置で位置を指定*/
+	position: absolute;
+	left:0;
+	top:62px;
+	z-index: 4;
+    /*形状を指定*/
+	background:#28BFE7;
+	width:180px;
+    /*はじめは非表示*/
+	visibility: hidden;
+	opacity: 0;
+    /*アニメーション設定*/
+	transition: all .3s;
+}
+
+/*hoverしたら表示*/
+.nav li.has-child:hover > ul,
+.nav li.has-child ul li:hover > ul,
+.nav li.has-child:active > ul,
+.nav li.has-child ul li:active > ul{
+  visibility: visible;
+  opacity: 1;
+}
+
+/*ナビゲーションaタグの形状*/
+.nav li.has-child ul li a{
+	color: #fff;
+	border-bottom:solid 1px rgba(255,255,255,0.6);
+}
+
+.nav li.has-child ul li:last-child a{
+	border-bottom:none;
+}
+
+.nav li.has-child ul li a:hover,
+.nav li.has-child ul li a:active{
+	background:#3577CA;
 }
 
 
-.spinner > div {
-  background-color: #333;
-  height: 100%;
-  width: 6px;
-  display: inline-block;
-  
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+
+/*==768px以下の形状*/
+
+@media screen and (max-width:1308px){
+	.nav{
+		padding: 0;
+	}
+	
+	.nav ul{
+		display: block;
+	}
+	
+	.nav li.has-child ul,
+	.nav li.has-child ul ul{
+  	position: relative;
+	left:0;
+	top:0;
+	width:100%;
+	visibility:visible;/*JSで制御するため一旦表示*/
+	opacity:1;/*JSで制御するため一旦表示*/
+	display: none;/*JSのslidetoggleで表示させるため非表示に*/
+	transition:none;/*JSで制御するためCSSのアニメーションを切る*/
+}
+	
+.nav ul li a{
+	border-bottom:1px solid #ccc;
 }
 
-.spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
-  animation-delay: -1.1s;
+/*矢印の位置と向き*/
+
+.nav ul li.has-child::before{
+	left:20px;	
 }
 
-.spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.nav ul ul li.has-child::before{
+    transform: rotate(135deg);
+	left:20px;
 }
-
-.spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
+    
+.nav ul li.has-child.active::before{
+    transform: rotate(-45deg);
 }
-
-.spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
-  animation-delay: -0.8s;
 }
-
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-  20% { -webkit-transform: scaleY(1.0) }
-}
-
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% { 
-    transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
-  }  20% { 
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
-  }
-}*/
 </style>
+
+
+<script>
+//ドロップダウンの設定を関数でまとめる
+$(function(){
+	var width = $(window).width();
+  alert(width);
+	if(width <= 1400) {//横幅が768px以下の場合 $(".has-child>a").off('click');	//has-childクラスがついたaタグのonイベントを複数登録を避ける為offにして一旦初期状態へ
+		$(".has-child a").on('click', function() {//has-childクラスがついたaタグをクリックしたら
+			var parentElem =  $(this).parent();// aタグから見た親要素のliを取得し
+			$(parentElem).toggleClass('active');//矢印方向を変えるためのクラス名を付与して
+			$(parentElem).children('ul').stop().slideToggle(500);//liの子要素のスライドを開閉させる※数字が大きくなるほどゆっくり開く
+			return false;//リンクの無効化
+		});
+	}else{//横幅が768px以上の場合
+		$(".has-child a").off('click');//has-childクラスがついたaタグのonイベントをoff(無効)にし
+		$(".has-child").removeClass('active');//activeクラスを削除
+		$('.has-child').children('ul').css("display","");//スライドトグルで動作したdisplayも無効化にする
+	}
+});
+
+// ページがリサイズされたら動かしたい場合の記述
+$(window).resize(function() {
+	mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
+});
+
+// ページが読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load',function(){
+	mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
+});
+</script>

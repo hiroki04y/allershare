@@ -27,7 +27,7 @@ class UsersController < ApplicationController
                 value: @user.id,
                 expires: 100.day.from_now
               }
-            redirect_to("/users/index")
+              redirect_to("/")
         else
             @error_message = "メールアドレスまたはパスワードが間違っています"
             @email = params[:email]
@@ -68,25 +68,29 @@ class UsersController < ApplicationController
     end
 
     def change
-        if params[:savebutton]
-            @user = User.find_by(id: params[:id])
-            @user.name = params[:name]
-            @user.email = params[:email]
-            @user.introduction = params[:introduction]
+        @user = User.find_by(id: params[:id])
+        @user.name = params[:name]
+        @user.email = params[:email]
+        @user.introduction = params[:introduction]
+        @user.memo = params[:memo]
 
-            if @user.save
-                redirect_to("/users/#{@user.id}")
-            else
-                redirect_to("/users/#{@user.id}")
+        if @user.save
+            str = params[:sendtags]
+            if str != nil
+                tag = str.split(",")
+                for st in tag do
+                    @find_tag = Usertag.find_by(user_id: params[:id], tag_id: st.to_i)
+                    if @find_tag == nil
+                        @tag = Usertag.create(user_id: params[:id], tag_id: st.to_i)
+                    else
+                        @tag = Usertag.find_by(user_id: params[:id], tag_id: st.to_i)
+                        @tag.destroy
+                    end
+                end
             end
+            redirect_to("/users/#{@user.id}")
         else
-            @find_tag = Usertag.find_by(user_id: params[:id], tag_id: params[:tag])
-            if @find_tag == nil
-                @tag = Usertag.create(user_id: params[:id], tag_id: params[:tag])
-            else
-                @tag = Usertag.find_by(user_id: params[:id], tag_id: params[:tag])
-                @tag.destroy
-            end
+            redirect_to("/users/#{@user.id}")
         end
     end
 
