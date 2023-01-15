@@ -29,7 +29,7 @@ class BlogViewController < ApplicationController
             blogtag = str.split(",")
             @blog = Blog.find_by(title:params[:title])
             for st in blogtag do
-            BlogTagRelation.create(blog_id:@blog.id, blog_tag_id: st.to_i)
+            BlogTagRelation.create(blog_id:@blog.id.to_i, blog_tag_id: st.to_i)
             end
             redirect_to("/blog_view")
         end
@@ -59,11 +59,11 @@ class BlogViewController < ApplicationController
             if str != nil
                 tag = str.split(",")
                 for st in tag do
-                    @find_tag = BlogTagRelation.find_by(blog_id: params[:id], blog_tag_id: st.to_i)
+                    @find_tag = BlogTagRelation.find_by(blog_id: params[:id].to_i, blog_tag_id: st.to_i)
                     if @find_tag == nil
-                        @tag = BlogTagRelation.create(blog_id: params[:id], blog_tag_id: st.to_i)
+                        @tag = BlogTagRelation.create(blog_id: params[:id].to_i, blog_tag_id: st.to_i)
                     else
-                        @tag = BlogTagRelation.find_by(blog_id: params[:id], blog_tag_id: st.to_i)
+                        @tag = BlogTagRelation.find_by(blog_id: params[:id].to_i, blog_tag_id: st.to_i)
                         @tag.destroy
                     end
                 end
