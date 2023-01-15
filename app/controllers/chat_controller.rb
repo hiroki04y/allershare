@@ -3,6 +3,8 @@ class ChatController < ApplicationController
         @room = Chatroom.all
         @user = User.all
         @top = ChatMessage.where('room LIKE(?)', "0")
-        @following_users = @current_user.following_user
+        if @current_user != nil
+            @following_users = @current_user.following_user
+        end
     end
 end

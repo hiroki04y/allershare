@@ -183,6 +183,22 @@ header {
   margin-top:19px;
 }
 
+.test-header_select_img{
+  position:relative;
+  top:5px;
+  left:39%;
+  transform:translateY(-50%);
+  width:27px;
+  height:27px;
+  margin-right:2px;
+}
+
+.test-header_select_img img{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .test-header_menus a{
   position:relative;
   display:inline-block;
