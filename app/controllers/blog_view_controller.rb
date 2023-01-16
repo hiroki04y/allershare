@@ -1,6 +1,7 @@
 class BlogViewController < ApplicationController
     def blog_view
         @blogs = Blog.all
+        @tags = BlogTagRelation.joins(:blog_tag).select('*').all
     end
 
     def blog_show

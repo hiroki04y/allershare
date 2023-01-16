@@ -2,7 +2,7 @@
 <div class="blackhole"><% @blogtags.each do |post| %><%= post.blog_tag_id %>,<% end %></div>
 <% breadcrumb :blog_new %>
 <div class="main-blog-new">
-<p class="blog_new_top">ブログを作成する</p>
+<p class="blog_new_top">ブログを編集する</p>
     <%= form_tag("/blog_view/#{@blog.id}/blog_update",{multipart:true}) do %>
     <div class="blog-form">
     <% @blog.errors.full_messages.each do |message| %>
