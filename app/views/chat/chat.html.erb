@@ -96,7 +96,7 @@
     //console.log(windowSize);
 
     var sendHeight = $("#textarea").outerHeight();
-    $(".chat-container").height(windowSize - sendHeight - 133 + "px");
+    $(".chat-container").height(windowSize - sendHeight - 124 + "px");
     $(".chat-container").css('min-height',windowSize - 280 + "px");
 
     // 処理をしたときに一番下までスクロールする-----------------------------------
@@ -123,7 +123,7 @@
             e.srcElement.style.height = 0
             e.srcElement.style.height = e.srcElement.scrollHeight + 3 +"px"
             //console.log(e.srcElement.style.height);
-            chat[0].style.height = windowSize - 133 - e.srcElement.scrollHeight + "px"
+            chat[0].style.height = windowSize - 124 - e.srcElement.scrollHeight + "px"
             scroll(1);
         })
     })
