@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @blogs2 = Blog.all.order(id: "DESC").limit(7)
     @tags = BlogTagRelation.joins(:blog_tag).select('*').all
     @users = User.all.limit(4)
+    @usertags = Usertag.joins(:tag).select('*').all
   end
 
   def top2

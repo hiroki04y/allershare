@@ -129,24 +129,33 @@
     display: inline-block;
     text-align: center;
     top: 5px;
-    width: 260px;
-    height: 150px;
-    min-width: 260px;
+    width: 250px;
+    height: auto;
+    min-width: 250px;
     min-height: 150px;
-    margin-right: 30px;
+    margin-right: 10px;
     margin: 15px 10px 15px 10px;
-    padding: 20px;
+    padding: 5px;
     border-radius: 25px;
     background-color: #ffffff;
     box-shadow: 2px 2px 2px 0 #7d7d7d;
+    white-space: normal;
+    vertical-align: top;
 }
 
 .test-top-user-img{
     position: relative;
     border-radius: 100px;
     top: 5px;
-    right: 5%;
+    left: 0px;
 }
+
+.test-top-user-display p{
+    position:relative;
+    margin-top:15px;
+    margin-bottom:5px;
+}
+
 
 .test-top-pl {
     position: relative;
@@ -417,13 +426,13 @@
     display: inline-block;
     text-align: center;
     left: 15px;
-    width: 260px;
+    width: 250px;
     height: auto;
-    min-width: 260px;
+    min-width: 250px;
     min-height: 220px;
     margin-top: 30px;
     margin-bottom: 20px;
-    margin-right: 30px;
+    margin-right: 10px;
     padding: 20px;
     padding-bottom:5px;
     border-radius: 25px;
@@ -483,23 +492,6 @@
         overflow: hidden;
     }
     
-    .test-top-user-display{
-        width: 150px;
-        height: 80px;
-        min-width: 150px;
-        min-height: 80px;
-        margin-right: 20px;
-        padding: 0px;
-        border-radius: 0px;
-        font-size: 14px;
-    }
-    
-    .test-top-user-img{
-        top: 10px;
-        right: 0%;
-        width: 60px;
-        height: 60px;
-    }
     
     .test-top-register {
         height: 450px;
@@ -518,6 +510,12 @@
     .test-top-bottom {
         height: 65px;
         background-color: #ff93be;
+    }
+
+    .top-tag-text{
+        font-size: 15px;
+        left:6%;
+        margin-top:130px;
     }
 
     .under-logo{
@@ -699,5 +697,4 @@
         color: #ffffff;
         border-radius: 20px;
     }
-
 }
