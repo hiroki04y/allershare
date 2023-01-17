@@ -3,14 +3,19 @@ class BlogViewController < ApplicationController
         if params[:cat1] != nil
             if params[:cat1] == "2"
                 @cat1 = "人気のブログ"
+                @blogs = Blog.all
+            elsif params[:cat1] == "3"
+                @cat1 = "新着ブログ"
+                @blogs = Blog.all.order(id: "DESC")
             else
                 @cat1 = params[:cat1]
+                @blogs = Blog.all
             end
-            @blogs = Blog.all
         else
             str = params[:sendtags]
             blogtag = str.split(",")
             @blogs = BlogTagRelation.joins(:blog).select('title,image,blogs.id').distinct.where("blog_tag_id IN (?)",blogtag)
+            @count = BlogTagRelation.joins(:blog).select('title,image,blogs.id').distinct.where("blog_tag_id IN (?)",blogtag).length
             @cat2 = BlogTag.where("id IN (?)",blogtag)
         end
         @tags = BlogTagRelation.joins(:blog_tag).select('*').all
@@ -19,6 +24,7 @@ class BlogViewController < ApplicationController
     def blog_show
         @blog = Blog.find_by(id: params[:id])
         @user = User.find_by(id: @blog.UserID)
+        @tags = BlogTagRelation.joins(:blog_tag).select('name').where("blog_id = ?", params[:id])
         @likes_count = Like.where(blog_id: @blog.id).count
     end
 

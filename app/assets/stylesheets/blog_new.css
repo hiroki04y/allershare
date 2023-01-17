@@ -204,7 +204,7 @@
 .blog-tag-select{
     position: relative;
     background-color: #ffffff;
-    height: 500px;
+    height: 360px;
     width: 90%;
     top: 0px;
     left:50%;
@@ -564,7 +564,8 @@
     }
 
     .blog_tag_field input {
-        width:100px;
+        min-width: 90px;
+        width: auto;
         font-size:13px;
         height:42px;
         margin: 15px 1px 0px 1px
