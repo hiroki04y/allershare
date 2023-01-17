@@ -53,6 +53,7 @@
     height: auto;
     background-image: url("/haikei.png"); 
     background-size: 100% auto;
+    text-align:left;
 }
 
 .test-top-blog-search input[type="submit"]{
@@ -68,6 +69,7 @@
     left:50%;
     transform:translateX(-50%);
     margin-top:20px;
+    margin-bottom:50px;
 }
 
 .test-top-blog-popular{
