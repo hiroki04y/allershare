@@ -1,13 +1,18 @@
 class BlogViewController < ApplicationController
     def blog_view
-        if params[:cat] != nil
-            @cat1 = params[:cat]
+        if params[:cat1] != nil
+            if params[:cat1] == "2"
+                @cat1 = "人気のブログ"
+            else
+                @cat1 = params[:cat1]
+            end
+            @blogs = Blog.all
         else
             str = params[:sendtags]
             blogtag = str.split(",")
+            @blogs = BlogTagRelation.joins(:blog).select('title,image,blogs.id').distinct.where("blog_tag_id IN (?)",blogtag)
             @cat2 = BlogTag.where("id IN (?)",blogtag)
         end
-        @blogs = Blog.all
         @tags = BlogTagRelation.joins(:blog_tag).select('*').all
     end
 
@@ -77,7 +82,7 @@ class BlogViewController < ApplicationController
                 end
             end
             flash[:notice] = "投稿を編集しました"
-            redirect_to("/blog_view/view")
+            redirect_to("/blog_view/2")
         else
             render("/blog_view/blog_edit")
         end
@@ -90,6 +95,6 @@ class BlogViewController < ApplicationController
         end
         @blog.destroy
         flash[:notice] = "投稿を削除しました"    
-        redirect_to("/blog_view/view")
+        redirect_to("/blog_view/2")
     end
 end

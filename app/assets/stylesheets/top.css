@@ -5,12 +5,13 @@
 
 .slick-slider{
     width: 100%;
-    height: 100%;
+    height: 430px;
+    margin-top: 65px;
 }
 
 .slidetopimage{
     width: auto;
-    height: 100%;
+    height: 430px;
     object-fit: cover;
 }
 
@@ -53,6 +54,7 @@
     height: auto;
     background-image: url("/haikei.png"); 
     background-size: 100% auto;
+    text-align:left;
 }
 
 .test-top-blog-search input[type="submit"]{
@@ -68,6 +70,7 @@
     left:50%;
     transform:translateX(-50%);
     margin-top:20px;
+    margin-bottom:50px;
 }
 
 .test-top-blog-popular{

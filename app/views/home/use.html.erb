@@ -107,6 +107,7 @@
     <div class="use_infomation">
         <h2 class="pink f90">お問い合わせ</div>
     </div>
+    
 
     <%# <div class="change_blue">水色</div>
     <div class="change_pink">濃い</div>
@@ -121,7 +122,22 @@
 </div>
 </div>
 
+<!-- スタートのロゴ -->
+<div class="logo_fadein">
+  <p><img src="/rogo.png" width="300px" height="300px"></p>
+</div>
+
 <script>
+//logofadein
+$(function() {  
+setTimeout(function(){
+    $('.logo_fadein p').fadeIn(1600);
+},150); //0.5秒後にロゴをフェードイン!
+setTimeout(function(){
+    $('.logo_fadein').fadeOut(500);
+},3000); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+});
+
 $(function () {
   $(window).scroll(function () {
     const windowHeight = $(window).height();    //ウィンドウの高さ

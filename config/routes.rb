@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'blog_view/:id/blog_edit' => 'blog_view#blog_edit'
   post 'blog_view/:id/blog_update' => 'blog_view#blog_update'
   get 'blog_view/:id/blog_destroy' => 'blog_view#blog_destroy'
-  get '/blog_view/:cat' => 'blog_view#blog_view'
+  get '/blog_view/:cat1' => 'blog_view#blog_view'
   post '/blog_view' => 'blog_view#blog_view'
   get 'likes/:blog_id/create' => "likes#create"
   get 'likes/:blog_id/destroy' => "likes#destroy"
