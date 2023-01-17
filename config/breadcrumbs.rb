@@ -8,17 +8,17 @@ crumb :use do
 end
 
 crumb :blog_search do
-  link "ブログを探す", blog_view_path
+  link "ブログを探す", blog_path
   parent :root
 end
 
 crumb :blog_view do
-  link "ブログ編集", blog_view_path
+  link "ブログ編集", blog_path
   parent :root
 end
 
 crumb :blog_new do
-  link "ブログ作成", blog_view_path
+  link "ブログ作成", blog_path
   parent :root
 end
 

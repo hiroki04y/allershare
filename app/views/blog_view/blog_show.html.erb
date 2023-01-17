@@ -9,26 +9,32 @@
     <div class="blog-content">
       <%= @blog.content%>
       <div class="like">
-      <a>いいね！</a>
-      <% if Like.find_by(user_id: @current_user.id, blog_id: @blog.id) %>
-        <%=link_to("/likes/#{@blog.id}/destroy") do %>
-        <span class="fa fa-heart liked-btn"></span>
+        <a>いいね！</a>
+        <% if @current_user != nil %>
+          <% if Like.find_by(user_id: @current_user.id, blog_id: @blog.id) %>
+            <%=link_to("/likes/#{@blog.id}/destroy") do %>
+            <span class="fa fa-heart liked-btn"></span>
+            <% end %>
+          <% else %>
+            <%=link_to("/likes/#{@blog.id}/create") do %>
+            <span class="fa fa-heart unliked-btn"></span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <span class="fa fa-heart unliked-btn"></span>
         <% end %>
-      <% else %>
-        <%=link_to("/likes/#{@blog.id}/create") do %>
-        <span class="fa fa-heart unliked-btn"></span>
-        <% end %>
-      <% end %>
         <%= @likes_count %>
       </div>
+      <% if @current_user != nil %>
       <% if @current_user.id ==  @user.id%>
-      <div class="blog-edit">
-        <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
-      </div>
-      <div class="blog-destroy">
-        <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
-      </div>
+        <div class="blog-edit">
+          <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
+        </div>
+        <div class="blog-destroy">
+          <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
+        </div>
       <%end%>
+      <% end %>
     </div>
   </div>
 
@@ -62,62 +68,3 @@
 
 
 
-<!--
-<div class="main-posts-show">
-  <div class="main-frame">
-    <div class="blog-title">
-      <%= @blog.title%>
-    </div>
-    <div class="blog-image">
-      <img src="<%="/blog_images/#{@blog.image}"%>"class="show-img">
-    </div>
-    <div class="blog-content">
-      <%= @blog.content%>
-      <div class="like">
-      <a>いいね！</a>
-      <% if Like.find_by(user_id: @current_user.id, blog_id: @blog.id) %>
-        <%=link_to("/likes/#{@blog.id}/destroy") do %>
-        <span class="fa fa-heart liked-btn"></span>
-        <% end %>
-      <% else %>
-        <%=link_to("/likes/#{@blog.id}/create") do %>
-        <span class="fa fa-heart unliked-btn"></span>
-        <% end %>
-      <% end %>
-        <%= @likes_count %>
-      </div>
-    </div>
-    <div class="plofile">
-      プロフィール
-    </div>
-    <div class="blog-plofile">
-      <img src="<%="/user_images/#{@user.image_name}"%>" class="author-img">
-      <div class="author-name">
-        <%=link_to(@user.name,"")%>
-      </div>
-      <div class="author-chat">
-        <%= link_to("チャット", "/chat") %>
-      </div>
-      <div class="author-plofile">
-        <%=link_to(@user.introduction,"")%>
-      </div>
-      <div class="author-tag">
-        <a>アレルギータグ</a>
-      </div>
-      <% if @current_user.id ==  @user.id%>
-      <div class="blog-edit">
-        <%= link_to("編集", "/blog_view/#{@blog.id}/blog_edit") %>
-      </div>
-      <div class="blog-destroy">
-        <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
-      </div>
-      <%end%>
-    </div>
-  </div>
-
-  <div class="test-top-bottom">
-    <img src="/rogo2.png" class="under-logo" width=220 height=60>
-    <img src="/ひよこ.png" class="animal-logo" width=90 height=75>
-  </div>
-</div>
--->

@@ -1,31 +1,40 @@
 .blog_view_main{
     position: relative;
-    background-color: rgb(255, 255, 255);
+    height: auto;
+    top: 75px;
 }
 
-.blog_view-top{
+.blog_view_top{
     position: relative;
-    background-color: rgb(253, 243, 229);
-    background-size: cover;
-    top: 105px;
-    height: auto;
+    font-size: 25px;
+    font-weight: bold;
+    color: #7a7a7d;
+    width: 70%;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 900px;
 }
 
-.blog-view-blog{
+
+.blog-view-blogs{
     position: relative;
-    top: 100px;
+    top: 50px;
+    width:70%;
     height: auto;
+    left:50%;
+    transform:translateX(-50%);
     margin-bottom: 60px;
-    background-image: url("/haikei.png"); 
+    border:1px solid red;
+    max-width: 900px;
 }
 
 .v4{
     position: relative;
     text-align: center;
-    left: 15%;
-    width: 70%;
+    left:0px;
+    width: 100%;
     margin-bottom: 60px;
-    max-width: 70%;
     height: auto;
 }
 
@@ -35,18 +44,20 @@
     text-align: center;
     left: 15px;
     width: 260px;
-    height: 220px;
+    height: auto;
     min-width: 260px;
     min-height: 220px;
-    margin-top: 80px;
+    margin-top: 30px;
     margin-bottom: 20px;
     margin-right: 30px;
     padding: 20px;
+    padding-bottom:5px;
     border-radius: 25px;
-    background-color: #fff7fc;
+    background-color: #ffffff;
     box-shadow: 2px 2px 2px 0 #7d7d7d;
     text-overflow: ellipsis;
     overflow: hidden;
+    vertical-align: top;
 }
 
 .blog_view_title{
@@ -55,12 +66,30 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom:14px;
 }
 
 .blog-view-image{
     position: relative;
-    width: 100%;
-    height: 100px;
+    width:auto;
+    max-width: 200px;
+    height: 120px;
+}
+
+.blog_view_tag{
+    display: inline-block;
+	margin: 0 .3em .2em 0;
+	padding: .3em;
+	line-height: 1;
+	text-decoration: none;
+	color: #5b7fff;
+	background-color: #fff;
+	border: 1px solid #5b9cfd;
+	border-radius: 2em;
+}
+
+.blog_view_tag:before {
+	content: "#";	
 }
 
 .v5{
@@ -101,12 +130,12 @@
 
     .blog_view_main{
         position: relative;
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
     }
     
     .blog_view-top{
         position: relative;
-        background-color: rgb(253, 243, 229);
+        /* background-color: rgb(253, 243, 229); */
         background-size: cover;
         top: 105px;
         height: auto;
@@ -117,7 +146,6 @@
         top: 100px;
         height: auto;
         margin-bottom: 60px;
-        background-image: url("/haikei.png"); 
     }
     
     .v4{

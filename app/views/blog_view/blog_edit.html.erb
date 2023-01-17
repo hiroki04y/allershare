@@ -2,7 +2,7 @@
 <div class="blackhole"><% @blogtags.each do |post| %><%= post.blog_tag_id %>,<% end %></div>
 <% breadcrumb :blog_new %>
 <div class="main-blog-new">
-<p class="blog_new_top">ブログを作成する</p>
+<p class="blog_new_top">ブログを編集する</p>
     <%= form_tag("/blog_view/#{@blog.id}/blog_update",{multipart:true}) do %>
     <div class="blog-form">
     <% @blog.errors.full_messages.each do |message| %>
@@ -107,18 +107,19 @@
             </div>
         </div>
         <div class="blog-tag-select2">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-            <input type="button" id="27" value="えび" onclick="tag_select(this.id)">
-        
-        
-        
-        
+            <input type="button" id="32" value="アナフィラキシー" onclick="tag_select(this.id)">
+            <input type="button" id="33" value="アレルギー検査" onclick="tag_select(this.id)">
+            <input type="button" id="34" value="治療法" onclick="tag_select(this.id)">
+            <input type="button" id="35" value="症状" onclick="tag_select(this.id)">
+            <input type="button" id="36" value="アトピー" onclick="tag_select(this.id)">
+            <input type="button" id="37" value="喘息" onclick="tag_select(this.id)">
+            <input type="button" id="38" value="免疫" onclick="tag_select(this.id)">
+            <input type="button" id="39" value="薬" onclick="tag_select(this.id)">
+            <input type="button" id="40" value="エピペン" onclick="tag_select(this.id)">
+            <input type="button" id="41" value="料理" onclick="tag_select(this.id)">
+            <input type="button" id="42" value="調理方法" onclick="tag_select(this.id)">
+            <input type="button" id="43" value="レシピ" onclick="tag_select(this.id)">
+            <input type="button" id="44" value="アレルゲンフリー" onclick="tag_select(this.id)">
         </div>
         
         <div class="blog-send-button">

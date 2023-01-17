@@ -1,8 +1,37 @@
 <% breadcrumb :blog_search %>
 
 <div class="blog_view_main">
+    <% if @chat1 != nil %>
+        <p class="blog_view_top"><%= @cat1 %></p>
+    <% else %>
+        <p class="blog_view_top"><%= @cat1 %></p>
+    <% end %>
+    <div class="blog-view-blogs">
 
-<div class="blog_view-top">
+        <div class="v4">
+
+            <% @blogs.each do |blog| %>
+                <div class="blog_view-display">
+                    <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+                    <div class="blog_view_title">
+                        <%= link_to(blog.title,"/blog/#{blog.id}") %><br>
+                    </div>
+                    <p><% @tags.each do |tag| %>
+                        <% if blog.id == tag.blog_id%>
+                            <div class="blog_view_tag"><%= tag.name %></div>
+                        <% end %>
+                    <% end %>
+                    </p>
+
+                </div>
+            <% end %>
+
+        </div>
+
+    </div>
+</div>
+
+<!--<div class="blog_view-top2">
     <%# 追加部分-------------------------------------------------------------------------- %>
     <div class="blog-tag-change">
             <div class="blog-tag-class1">アレルギー別</div>
@@ -36,7 +65,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="has-child"><a href="#">野菜・果物</a><!--子要素を持つ li にはhas-childというクラス名をつける-->
+                <li class="has-child"><a href="#">野菜・果物</a>
                     <ul>
                         <div class="blog_tag_field">
                             <input type="button" id="12" value="オレンジ" onclick="tag_select(this.id)">
@@ -164,6 +193,7 @@
 </div>
 
 </div>
+-->
 
 
 <script>
