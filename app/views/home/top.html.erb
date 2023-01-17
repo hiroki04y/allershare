@@ -36,12 +36,26 @@ $('.slick01').slick({
       <div class="test-top-text">
         <a>人気ブログ</a>
       </div>
-      <div class="test-top-blog-display">
-        <img src=/blog_images/blog_default.png class="test-top-blog-img" width=100% height=100px>
-        <a>あいうえおかきくけこ</a>
-      </div>
+      <ul class="image-horizontal-scroll">
+      <% @blogs.each do |blog| %>
+          <%= link_to "/blog/#{blog.id}" do %>
+          <div class="top_view-display">
+              <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+              <div class="blog_view_title">
+                  <%= blog.title %><br>
+              </div>
+              <% @tags.each do |tag| %>
+                  <% if blog.id == tag.blog_id%>
+                      <div class="blog_view_tag"><%= tag.name %></div>
+                  <% end %>
+              <% end %>
+
+          </div>
+          <% end %>
+      <% end %>
+      </ul>
       <div class="test-top-pl">
-        <%= link_to("➤もっと見る", "/blog_view/人気のブログ") %>
+        <%= link_to("➤もっと見る", "/blog_view/2") %>
       </div>
     </div>
 
@@ -50,12 +64,25 @@ $('.slick01').slick({
       <div class="test-top-text">
         <a>新着ブログ</a>
       </div>
-      <div class="test-top-blog-display">
-        <img src=/blog_images/blog_default.png class="test-top-blog-img" width=100% height=100px>
-        <a>あいうえおかきくけこ</a>
-      </div>
+      <ul class="image-horizontal-scroll">
+      <% @blogs2.each do |blog2| %>
+        <%= link_to "/blog/#{blog2.id}" do %>
+          <div class="top_view-display">
+              <img src="<%="/blog_images/#{blog2.image}"%>"class="blog-view-image"><br>
+              <div class="blog_view_title">
+                  <%= blog2.title %><br>
+              </div>
+              <% @tags.each do |tag| %>
+                  <% if blog2.id == tag.blog_id%>
+                      <div class="blog_view_tag"><%= tag.name %></div>
+                  <% end %>
+              <% end %>
+          </div>
+          <% end %>
+      <% end %>
+      </ul>
       <div class="test-top-pl">
-        <%= link_to("➤もっと見る", "/blog_view/新着ブログ") %>
+        <%= link_to("➤もっと見る", "/blog_view/3") %>
       </div>
     </div>
 
@@ -64,10 +91,14 @@ $('.slick01').slick({
       <div class="test-top-text">
         <a>おすすめユーザー</a>
       </div>
+      <ul class="image-horizontal-scroll">
+      <% @users.each do |post| %>
       <div class="test-top-user-display">
-        <img src=/user_images/default_image.jpg class="test-top-user-img" width=100 height=100>
-        <a>神戸太郎</a>
+        <img src="<%="/user_images/#{post.image_name}"%>" class="test-top-user-img" width=100 height=100>
+        <%= link_to(post.name, "/users/#{post.id}") %>
       </div>
+      <% end %>
+      </ul>
     </div>
 
     <%# タグ検索 %>
@@ -170,7 +201,7 @@ $('.slick01').slick({
             <input type="button" id="44" value="アレルゲンフリー" onclick="tag_select(this.id)">
           </div>
         </div>
-    </div>
+  </div>
 
     <%= form_tag("/blog_view") do %>
       <input type="submit" value="検索する">

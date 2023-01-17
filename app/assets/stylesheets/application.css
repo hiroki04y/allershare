@@ -34,6 +34,10 @@ input {
   outline-width: 0;
 }
 
+img{
+  object-fit: cover;
+}
+
 form input[type="submit"] {
   border: none;
   cursor: pointer;
