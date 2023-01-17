@@ -20,12 +20,11 @@
 .blog-view-blogs{
     position: relative;
     top: 50px;
-    width:70%;
+    width:86%;
     height: auto;
     left:50%;
     transform:translateX(-50%);
     margin-bottom: 60px;
-    border:1px solid red;
     max-width: 900px;
 }
 
@@ -135,7 +134,7 @@
     
     .blog_view-top{
         position: relative;
-        /* background-color: rgb(253, 243, 229); */
+        /* backgrou_nd-color: rgb(253, 243, 229); */
         background-size: cover;
         top: 105px;
         height: auto;
