@@ -169,7 +169,7 @@
     position: relative;
     left: 15%;
     margin-top: 90px;
-    width: 70%;
+    width: 100%;
     font-weight: bold;
     font-size: 20px;
 }
@@ -474,7 +474,7 @@
     }
     
     .test-top-text {
-        font-size: 15px;
+        font-size: 18px;
     }
     
     .test-top-blog-display{
@@ -512,7 +512,7 @@
     }
 
     .top-tag-text{
-        font-size: 15px;
+        font-size: 18px;
         left:6%;
         margin-top:130px;
     }

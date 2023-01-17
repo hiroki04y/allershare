@@ -24,6 +24,7 @@ class BlogViewController < ApplicationController
     def blog_show
         @blog = Blog.find_by(id: params[:id])
         @user = User.find_by(id: @blog.UserID)
+        @tags = BlogTagRelation.joins(:blog_tag).select('name').where("blog_id = ?", params[:id])
         @likes_count = Like.where(blog_id: @blog.id).count
     end
 

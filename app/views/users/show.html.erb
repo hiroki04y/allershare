@@ -4,30 +4,38 @@
     <div class="other_top">
       <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
       <p class="other_name"><%= @user.name%></p>
-      <% if @current_user.id == @user.id %>
-        <%= link_to("/users/#{@user.id}/edit") do %>
-          <div class="other_edit">
-          <img src="/setting.png">
-          <p>情報を変更する</p>
-          </div>
-        <% end %>
-      <% end %>
-      <% if @current_user.id != @user.id %>
-      <% if @current_user.following?(@user) %>
-        <%= link_to("/chat") do %>
-          <div class="other_follow">
-            <img src="/chat.png">
-            <p>この人と会話する</p>
-          </div>
+      <% if @current_user %>
+        <% if @current_user.id == @user.id %>
+          <%= link_to("/users/#{@user.id}/edit") do %>
+            <div class="other_edit">
+            <img src="/setting.png">
+            <p>情報を変更する</p>
+            </div>
+          <% end %>
+        <% else %>
+          <% if @current_user.following?(@user) %>
+            <%= link_to("/chat") do %>
+              <div class="other_follow">
+                <img src="/chat.png">
+                <p>この人と会話する</p>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to(user_relationships_path(@user.id)) do %>
+              <div class="other_follow">
+                <img src="/chat.png">
+                <p>この人と会話する</p>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% else %>
-        <%= link_to(user_relationships_path(@user.id)) do %>
+        <%= link_to("/login") do %>
           <div class="other_follow">
             <img src="/chat.png">
             <p>この人と会話する</p>
           </div>
         <% end %>
-      <% end %>
       <% end %>
 
     </div>
@@ -69,30 +77,39 @@
     <div class="r_other_top">
       <img name="image" class="other-img" src="<%="/user_images/#{@user.image_name}"%>">
       <p class="other_name"><%= @user.name%></p>
-      <% if @current_user.id == @user.id %>
-        <%= link_to("/users/#{@user.id}/edit") do %>
-          <div class="other_edit">
-          <img src="/edit-icon.png">
-          <p>情報を変更する</p>
-          </div>
+      <% if @current_user %>
+        <% if @current_user.id == @user.id %>
+          <%= link_to("/users/#{@user.id}/edit") do %>
+            <div class="other_edit">
+            <img src="/edit-icon.png">
+            <p>情報を変更する</p>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if @current_user.id != @user.id %>
-      <% if @current_user.following?(@user) %>
-        <%= link_to("/chat") do %>
-          <div class="other_follow">
-            <img src="/chat.png">
-            <p>この人と会話する</p>
-          </div>
+        <% if @current_user.id != @user.id %>
+          <% if @current_user.following?(@user) %>
+            <%= link_to("/chat") do %>
+              <div class="other_follow">
+                <img src="/chat.png">
+                <p>この人と会話する</p>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to(user_relationships_path(@user.id)) do %>
+              <div class="other_follow">
+                <img src="/chat.png">
+                <p>この人と会話する</p>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% else %>
-        <%= link_to(user_relationships_path(@user.id)) do %>
+        <%= link_to("/login") do %>
           <div class="other_follow">
             <img src="/chat.png">
             <p>この人と会話する</p>
           </div>
         <% end %>
-      <% end %>
       <% end %>
 
     </div>
