@@ -1,7 +1,7 @@
 <% breadcrumb :blog_search %>
 
 <div class="blog_view_main">
-    <p class="blog_view_top">人気のブログ</p>
+    <p class="blog_view_top"><% @cat.each do |post| %><%= post.name %><% end %></p>
     <div class="blog-view-blogs">
 
         <div class="v4">
@@ -10,7 +10,7 @@
                 <div class="blog_view-display">
                     <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
                     <div class="blog_view_title">
-                        <%= link_to(blog.title,"/blog_view/#{blog.id}") %><br>
+                        <%= link_to(blog.title,"/blog/#{blog.id}") %><br>
                     </div>
                     <p><% @tags.each do |tag| %>
                         <% if blog.id == tag.blog_id%>

@@ -248,11 +248,11 @@
   }
 }
 
-@media screen and (max-height: 580px) {
+/* @media screen and (max-height: 580px) {
   .signup-img{
     display:none;
   }
-}
+} */
 
 @media screen and (min-height: 900px) {
 

@@ -1,5 +1,12 @@
 class BlogViewController < ApplicationController
     def blog_view
+        if params[:cat] != nil
+            @cat = params[:cat]
+        else
+            str = params[:sendtags]
+            blogtag = str.split(",")
+            @cat = BlogTag.where("id IN (?)",blogtag)
+        end
         @blogs = Blog.all
         @tags = BlogTagRelation.joins(:blog_tag).select('*').all
     end

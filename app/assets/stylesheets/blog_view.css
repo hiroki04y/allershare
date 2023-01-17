@@ -130,12 +130,12 @@
 
     .blog_view_main{
         position: relative;
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
     }
     
     .blog_view-top{
         position: relative;
-        background-color: rgb(253, 243, 229);
+        /* background-color: rgb(253, 243, 229); */
         background-size: cover;
         top: 105px;
         height: auto;
@@ -146,7 +146,6 @@
         top: 100px;
         height: auto;
         margin-bottom: 60px;
-        background-image: url("/haikei.png"); 
     }
     
     .v4{
