@@ -1,7 +1,11 @@
 <% breadcrumb :blog_search %>
 
 <div class="blog_view_main">
-    <p class="blog_view_top"><% @cat.each do |post| %><%= post.name %><% end %></p>
+    <% if @chat1 != nil %>
+        <p class="blog_view_top"><%= @cat1 %></p>
+    <% else %>
+        <p class="blog_view_top"><%= @cat1 %></p>
+    <% end %>
     <div class="blog-view-blogs">
 
         <div class="v4">

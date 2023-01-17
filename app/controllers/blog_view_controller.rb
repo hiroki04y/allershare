@@ -1,11 +1,11 @@
 class BlogViewController < ApplicationController
     def blog_view
         if params[:cat] != nil
-            @cat = params[:cat]
+            @cat1 = params[:cat]
         else
             str = params[:sendtags]
             blogtag = str.split(",")
-            @cat = BlogTag.where("id IN (?)",blogtag)
+            @cat2 = BlogTag.where("id IN (?)",blogtag)
         end
         @blogs = Blog.all
         @tags = BlogTagRelation.joins(:blog_tag).select('*').all
@@ -39,7 +39,7 @@ class BlogViewController < ApplicationController
             for st in blogtag do
             BlogTagRelation.create(blog_id:@blog.id.to_i, blog_tag_id: st.to_i)
             end
-            redirect_to("/blog_view")
+            redirect_to("/blog_view/2")
         end
     end
 
@@ -77,7 +77,7 @@ class BlogViewController < ApplicationController
                 end
             end
             flash[:notice] = "投稿を編集しました"
-            redirect_to("/blog_view")
+            redirect_to("/blog_view/view")
         else
             render("/blog_view/blog_edit")
         end
@@ -90,6 +90,6 @@ class BlogViewController < ApplicationController
         end
         @blog.destroy
         flash[:notice] = "投稿を削除しました"    
-        redirect_to("/blog_view")
+        redirect_to("/blog_view/view")
     end
 end
