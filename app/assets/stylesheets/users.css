@@ -1448,6 +1448,10 @@
   .r_other_top p{
     font-size:24px;
   }
+
+  .other_follow p {
+    font-size: 10px;
+  }
 }
 @media screen and (max-width: 420px) {
   .other_allergy_tag{
