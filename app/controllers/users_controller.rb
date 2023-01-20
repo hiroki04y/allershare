@@ -61,7 +61,21 @@ class UsersController < ApplicationController
           flash[:notice] = "アカウントを作成しました"
           redirect_to("/users/#{@user.id}")
         else
-            @error_message = "値が入力されていない箇所があります"
+            if User.exists?(name: params[:name])
+                @error_message = "このユーザ名は既に存在しています"
+            end
+            if User.exists?(email: params[:email])
+                @error_message = "メールアドレスが既に登録されています"
+            end
+            
+            if params[:name].empty?
+                @error_message = "値が入力されていない箇所があります"
+            end
+
+            if params[:email].empty?
+                @error_message = "値が入力されていない箇所があります"
+            end
+
             @name = params[:name]
             @email = params[:email]
             @password = params[:password]
@@ -98,6 +112,12 @@ class UsersController < ApplicationController
             end
             redirect_to("/users/#{@user.id}")
         else
+            if User.exists?(name: params[:name])
+                @error_message = "このユーザ名は既に存在しています"
+            end
+            if User.exists?(email: params[:email])
+                @error_message = "メールアドレスが既に登録されています"
+            end
             redirect_to("/users/#{@user.id}")
         end
     end
