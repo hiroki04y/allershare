@@ -112,7 +112,7 @@
           <div class="test-header_text"><ion-icon name="pencil-outline" class="test-header_icon"></ion-icon><p>ブログを作る</p></div>
         </div>
         <% end %>
-        <%= link_to "/chat" do %>
+        <%= link_to "/chat/1" do %>
         <div class="test-header_select">
           <div class="test-header_text"><ion-icon name="logo-wechat" class="test-header_icon"></ion-icon><p>チャット</p></div>
         </div>
@@ -166,12 +166,12 @@
         <p>Myプロフィール</p>
       </div>
       <% end %>
-      <%= link_to("/users/#{@current_user.id}/edit") do %>
+      <!--<%= link_to("/users/#{@current_user.id}/edit") do %>
       <div class="user_popup_select">
         <img src="/setting.png">
         <p>プロフィール編集</p>
       </div>
-      <% end %>
+      <% end %>-->
       <%= link_to("/logout") do %>
       <div class="user_popup_select">
         <img src="/door.png">
@@ -195,7 +195,7 @@
       <%= link_to "/blog_view/blog_new" do %>
       <div class="sidebar_menu"><ion-icon name="pencil-outline" class="sidebar_menu_logo"></ion-icon><p>ブログを作る</p></div>
       <% end %>
-      <%= link_to "/chat" do %>
+      <%= link_to "/chat/1" do %>
       <div class="sidebar_menu"><ion-icon name="logo-wechat" class="sidebar_menu_logo"></ion-icon><p>チャット</p></div>
       <% end %>
     </div>

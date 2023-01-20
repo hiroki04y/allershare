@@ -1,4 +1,12 @@
-<% breadcrumb :user_view, @user %>
+<% if @current_user %>
+  <% if @current_user.id == @user.id %>
+    <div class="breadcrumbs"><a href="/">TOP</a> &rsaquo; <span class="current">Myプロフィール</span></div>
+  <% else %>
+    <% breadcrumb :user_view, @user %>
+  <% end %>
+<% else %>
+  <% breadcrumb :user_view, @user %>
+<% end  %>
 <div class="use_background">
   <div class="other_user">
     <div class="other_top">

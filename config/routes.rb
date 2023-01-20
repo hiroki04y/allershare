@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
 
   # チャット
+  get '/chat/:cat1' => "chat#chat"
   get '/chat' => "chat#chat"
 
   namespace :message do 
