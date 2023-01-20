@@ -178,6 +178,11 @@ header {
   height:60px;
   /* background-color:red; */
 }
+@media screen and (min-width: 1500px) {
+  .test-header_menus{
+    width:650px;
+  }
+}
 
 .test-header_select{
   width: 100px;
