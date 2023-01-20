@@ -1201,7 +1201,7 @@
 
 .other_profile{
   width: 80%;
-  height: 70%;
+  height: auto;
   position: absolute;
   top: 40px;
   left: 18%;

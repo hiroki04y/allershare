@@ -170,12 +170,16 @@
 window.onload = function(){
   $(".use_background").css("background-size","cover")
   $("body").css("background-image","none")
+  console.log($(window).width())
   if ($(window).width() < 870){
     var text = $(".other_profile").html()
     var height = $(".other_profile").text().length;
     var width = $(window).width()/8.86;
     var count = ( text.match( /br/g ) || [] ).length ;
     $(".r_other_self").height(40 + 20*(height / width) + 20 * count)
+  }else{
+    $(".other_myself").height($(".other_profile").height() + 60 + "px")
+    console.log($(".other_profile").height())
   }
 
   var text = $(".other_allergy").html()
