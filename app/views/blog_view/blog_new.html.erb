@@ -1,4 +1,5 @@
 <div class="wrap">
+<% if @current_user != nil %>
 <% breadcrumb :blog_new %>
 <div class="main-blog-new">
 <p class="blog_new_top">ブログを作成する</p>
@@ -135,6 +136,43 @@
     </div>
 </div>
 </div>
+
+<%# ログイン推奨 %>
+<% else %>
+<div class="register-margin"></div>
+    <div class="test-top-register">
+    <div class="test-top-r-register">
+        <div class="bottom-top">
+        <div class="manage">
+        <img src="/管理.png" class="manage-logo" width=80 height=80>
+        </div>
+        <div class="talk">
+        <img src="/会話.png" class="talk-logo" width=80 height=80>
+        </div>
+        <div class="outgo">
+        <img src="/発信.png" class="outgo-logo" width=40 height=40>
+        </div>
+    </div>
+    <div class="bottom-middle">
+        <div class="manage-se">
+        <h5>管理</h5>
+        <a><br>自分のアレルギー<br>情報をまとめて管理</a>
+        </div>
+        <div class="talk-se">
+        <h5>会話</h5>
+        <a><br>ほかのユーザーと<br>チャットで<br>情報交換<br></a>
+        </div>
+        <div class="outgo-se">
+        <h5>発信</h5>
+        <a><br>ブログの投稿が<br>可能になる</a>
+        </div>
+    </div>
+    <div class="bottom-bottom">
+        <a class="button4" href="/signup">アカウント作成</a>
+        <a class="button5" href="/login">ログイン</a>
+    </div>
+    </div>
+<% end %>
 
 <script>
 $(function(){

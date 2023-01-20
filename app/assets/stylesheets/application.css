@@ -288,6 +288,12 @@ header {
 	z-index: 9999;
 }
 
+.register-margin{
+  width:100%;
+  height:70px;
+  position:relative;
+}
+
 /* ユーザポップアップ ========================== */
 .user_popup{
   position: fixed;

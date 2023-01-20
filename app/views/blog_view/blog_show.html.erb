@@ -58,10 +58,11 @@
       作成者のプロフィール
     </div>
     <div class="blog-plofile">
+      <div class="size-check">
       <div class="show_profile_left">
         <img src="<%="/user_images/#{@user.image_name}"%>" class="author-img">
         <div class="author-name">
-          <%=link_to(@user.name,"")%>
+          <%= @user.name %>
         </div>
         <div class="author-chat">
           <%= link_to("プロフィール", "/users/#{@user.id}") %>
@@ -80,9 +81,10 @@
       </div>
       <div class="show_profile_right">
         <div class="author-plofile"><b>自己紹介</b>：<br>
-          <%=link_to(@user.introduction,"")%>
+          <%= @user.introduction %>
         </div>
       </div>
+    </div>
     </div>
   </div>
 
@@ -113,6 +115,19 @@ window.setTimeout(function(){
 window.setTimeout(function(){
     $(".main-frame").height($(".size").height() + 30);
 }, 3000);
+
+window.onload = function(){
+  documentWidth = jQuery(document).width();
+  if(documentWidth > 1000){
+    blogprofile = $(".size-check").innerHeight();
+    $(".blog-plofile").height(blogprofile + "px")
+  }else{
+    blogprofile = $(".show_profile_right").innerHeight();
+    if(blogprofile > 250){
+      $(".blog-plofile").height(blogprofile + 50 + "px")
+    }
+  }
+}
 
 jQuery(window).on("scroll", function() {
   documentHeight = jQuery(document).height();
