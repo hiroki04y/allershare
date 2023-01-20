@@ -322,9 +322,9 @@
         border-radius: 25px;
         width: 70px;
         height: 40px;
-        top: 1000px;
-        left: 50%;
-        padding: 7px;
+        top: 8px;
+        left: 39%;
+        padding: 10px;
     }
     
     .blog-destroy{
@@ -336,9 +336,9 @@
         width: 70px;
         height: 40px;
         left: 113px;
-        top: 960px;
-        left: 75%;
-        padding: 7px;
+        top: -33px;
+        left: 70%;
+        padding: 10px;
     }
     
     .author-img{
