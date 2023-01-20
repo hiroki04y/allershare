@@ -74,7 +74,7 @@
         
 
         <%# 各種ボタン %>
-        <div class="user_delete"><a href="#" id="red">アカウント削除</a><a href="#" id="passchange">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
+        <div class="user_delete"><a href="#!" id="red">アカウント削除</a><a href="#!" id="passchange">パスワードを変更</a><%= link_to "ログアウト", "/logout" %></div>
           <input type="submit" class="user_save" value="保存する"  name="savebutton">
         </div>
 
@@ -320,6 +320,7 @@
     });
     $('.popup').click(function(){
       $('.delete_cover').fadeOut(300);
+    
     })
 
     $('#passchange').click(function(){

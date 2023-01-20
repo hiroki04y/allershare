@@ -1,15 +1,16 @@
 /* パスワード変更画面 */
 .password_change{
-  position:absolute;
-  max-width:800px;
+  position: fixed;
+    top: 75px;
+    max-width: 800px;
   width:90%;
-  height:630px;
+  height:520px;
   background-color:rgb(255, 255, 255);
   border-radius:10px;
   box-shadow: 0 2px 18px #ededed;
   left:50%;
   transform: translateX(-50%);
-  z-index:1;
+  z-index:8;
   display:none;
 }
 
