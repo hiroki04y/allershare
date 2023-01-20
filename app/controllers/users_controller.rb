@@ -75,6 +75,12 @@ class UsersController < ApplicationController
         @user.email = params[:email]
         @user.introduction = params[:introduction]
         @user.memo = params[:memo]
+        if params[:image]
+            @user.image_name = "#{@user.id}.jpg"
+            image = params[:image]
+            File.binwrite("public/user_images/#{@user.image_name}", image.read)
+            @user.save
+        end
 
         if @user.save
             str = params[:sendtags]
