@@ -11,7 +11,7 @@
         <div class="v4">
             <% if @count != 0 %>
                 <% @blogs.each do |blog| %>
-                    <%= link_to "/blog/#{blog.id}" do %>
+                    <%= link_to "/blog/#{blog.id}"  do %>
                     <div class="blog_view-display">
                         <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
                         <div class="blog_view_title">

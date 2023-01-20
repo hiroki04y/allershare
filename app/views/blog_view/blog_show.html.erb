@@ -1,4 +1,5 @@
 <div class="wrap">
+<div class="breadcrumbs"><a href="/">TOP</a> &rsaquo; <a href="javascript:history.back()">ブログを探す</a> &rsaquo; <span class="current"><%= @blog.title%></span></div>
 <div class="main-blog-show">
   <div class="main-frame">
     <div class="size">
@@ -65,26 +66,21 @@
         <div class="author-chat">
           <%= link_to("プロフィール", "/users/#{@user.id}") %>
         </div>
-        <div class="author-chat">
-          <% if @current_user %>
-            <% if @current_user.id != @user.id %>
-              <% if @current_user.following?(@user) %>
-                <%= link_to("この人と会話する", "/chat") %>
-              <% else %>
-                <%= link_to("この人と会話する", user_relationships_path(@user.id)) %>
-              <% end %>
+        <% if @current_user %>
+          <% if @current_user.id != @user.id %>
+            <% if @current_user.following?(@user) %>
+              <div class="author-chat"><%= link_to("この人と会話する", "/chat") %></div>
+            <% else %>
+              <div class="author-chat"><%= link_to("この人と会話する", user_relationships_path(@user.id)) %></div>
             <% end %>
-          <% else%>
-            <%= link_to("この人と会話する", "/login") %>
           <% end %>
-        </div>
+        <% else%>
+          <div class="author-chat"><%= link_to("この人と会話する", "/login") %></div>
+        <% end %>
       </div>
       <div class="show_profile_right">
-        <div class="author-plofile"<b>自己紹介：<br>
+        <div class="author-plofile"><b>自己紹介</b>：<br>
           <%=link_to(@user.introduction,"")%>
-        </div>
-        <div class="author-tag">
-          <a>タグ</a>
         </div>
       </div>
     </div>
@@ -104,11 +100,50 @@
 
 <script>
 var width = $(window).width();
-if(width > 1000){
-  $(".main-frame").height($(".size").height() + 30);
-}else{
-  $(".main-frame").height($(".size").height() + 30);
-}
+$(".main-frame").height($(".size").height() + 30);
+
+window.setTimeout(function(){
+    $(".main-frame").height($(".size").height() + 30);
+}, 1000);
+
+window.setTimeout(function(){
+    $(".main-frame").height($(".size").height() + 30);
+}, 2000);
+
+window.setTimeout(function(){
+    $(".main-frame").height($(".size").height() + 30);
+}, 3000);
+
+jQuery(window).on("scroll", function() {
+  documentHeight = jQuery(document).height();
+  documentWidth = jQuery(document).width();
+  console.log(documentWidth)
+	scrollPosition = jQuery(this).height() + jQuery(this).scrollTop();
+	footerHeight = jQuery(".blog_show_bottom").innerHeight();
+
+  if(documentWidth > 1000){
+    if (documentHeight - scrollPosition <= footerHeight) {
+      jQuery(".blog-plofile").css({
+        position: "absolute",
+        top:-418 +"px"
+      });
+      jQuery(".plofile").css({
+        position: "absolute",
+        top:-476 +"px"
+      });
+
+    } else {
+      jQuery(".blog-plofile").css({
+        position: "fixed",
+        top: 170+"px"
+      });
+      jQuery(".plofile").css({
+        position: "fixed",
+        top: 114 +"px"
+      });
+    }
+  }
+});
 </script>
 
 

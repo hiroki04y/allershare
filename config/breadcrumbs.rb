@@ -17,6 +17,11 @@ crumb :blog_view do
   parent :root
 end
 
+crumb :blog_show do
+  link "ブログ編集", blog_path
+  parent :blog_search
+end
+
 crumb :blog_new do
   link "ブログ作成", blog_path
   parent :root

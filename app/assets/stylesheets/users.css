@@ -1444,6 +1444,10 @@
   .other_allergy_tag{
     width:47%;
   }
+
+  .r_other_top p{
+    font-size:24px;
+  }
 }
 @media screen and (max-width: 420px) {
   .other_allergy_tag{
