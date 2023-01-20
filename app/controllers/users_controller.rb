@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
         @tag = Usertag.joins(:tag).select('tagname').where('user_id = ?', params[:id]).pluck(:tagname)
+        @blogs = Blog.where(UserID: params[:id])
+        @tags = BlogTagRelation.joins(:blog_tag).select('*').all
     end
 
     def login

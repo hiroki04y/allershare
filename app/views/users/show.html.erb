@@ -61,12 +61,22 @@
       <div class="other_blogs">
         <div class="other_blogs_header"><p><%= @user.name%>さんのブログ一覧</p></div>
         <div class="other_blogfield">
-          <div class="other_blog"></div>
-          <div class="other_blog"></div>
-          <div class="other_blog"></div>
-          <div class="other_blog"></div>
-          <div class="other_blog"></div>
-          <div class="other_blog"></div>
+          <% @blogs.each do |blog| %>
+            <%= link_to "/blog/#{blog.id}" do %>
+            <div class="top_view-display">
+                <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+                <div class="blog_view_title">
+                    <%= blog.title %><br>
+                </div>
+                <% @tags.each do |tag| %>
+                    <% if blog.id == tag.blog_id%>
+                        <div class="blog_view_tag"><%= tag.name %></div>
+                    <% end %>
+                <% end %>
+
+            </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
   </div>
@@ -128,6 +138,32 @@
           <div class="other_allergy_tag"><%= post %></div>
           <% end %>
         </div>
+    </div>
+    <div class="blog-view-blogs">
+
+        <div class="v4">
+            <% if @count != 0 %>
+                <% @blogs.each do |blog| %>
+                    <%= link_to "/blog/#{blog.id}" do %>
+                    <div class="blog_view-display">
+                        <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+                        <div class="blog_view_title">
+                            <%= blog.title %><br>
+                        </div>
+                        <% @tags.each do |tag| %>
+                            <% if blog.id == tag.blog_id%>
+                                <div class="blog_view_tag"><%= tag.name %></div>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <p>選択したタグのブログは現在投稿されていません</p>
+            <% end %>
+
+        </div>
+
     </div>
   </div>
 <script>

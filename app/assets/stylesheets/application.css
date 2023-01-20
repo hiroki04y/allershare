@@ -174,7 +174,7 @@ header {
   float: right;
   padding-right: 2%;
   margin-top:2px;
-  width:530px;
+  width:620px;
   height:60px;
   /* background-color:red; */
 }
@@ -399,7 +399,7 @@ header {
 */
 
 /* ヘッダーメニューレスポンシブ--------------------------------------------------- */
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 829px) {
   .header_user{
     display:none;
   }
@@ -421,7 +421,7 @@ header {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 830px) {
   .test-header_menus{
     display:none;
   }
@@ -535,7 +535,7 @@ header {
 
   .sidebar{
     z-index:10;
-    width:60%;
+    width:230px;
     height:calc(100% - 65px);
     background-color:#ffe8f3;
     position:fixed;

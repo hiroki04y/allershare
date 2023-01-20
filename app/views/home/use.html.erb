@@ -93,19 +93,40 @@
         </div>
     </div>
 
-    <div class="use_blog">
-        <p class="pink f90">人気のブログ</p>
-        <div class="use_topics">
-            <div class="use_topic"></div>
-            <div class="use_topic"></div>
-            <div class="use_topic"></div>
-            <div class="use_topic"></div>
-        </div>
-        <div class="use_a"><a>➤もっと見る</a></div>
-    <div>
+    <div class="test-top-blog-search">
 
-    <div class="use_infomation">
-        <h2 class="pink f90">お問い合わせ</div>
+    <%# 人気ブログ %>
+    <div class="test-top-blog-popular">
+      <div class="test-top-text">
+        <a>人気ブログ</a>
+      </div>
+      <ul class="image-horizontal-scroll">
+      <% @blogs.each do |blog| %>
+          <%= link_to "/blog/#{blog.id}" do %>
+          <div class="top_view-display">
+              <img src="<%="/blog_images/#{blog.image}"%>"class="blog-view-image"><br>
+              <div class="blog_view_title">
+                  <%= blog.title %><br>
+              </div>
+              <% @tags.each do |tag| %>
+                  <% if blog.id == tag.blog_id%>
+                      <div class="blog_view_tag"><%= tag.name %></div>
+                  <% end %>
+              <% end %>
+
+          </div>
+          <% end %>
+      <% end %>
+      </ul>
+      <div class="test-top-pl">
+        <%= link_to("➤もっと見る", "/blog_view/2") %>
+      </div>
+    </div>
+
+    <div class="use_bottom"></div>
+    <div class="blog_show_bottom">
+        <img src="/rogo2.png" class="under-logo" width=220 height=60>
+        <%# <img src="/ひよこ.png" class="animal-logo" width=90 height=75> %>
     </div>
     
 

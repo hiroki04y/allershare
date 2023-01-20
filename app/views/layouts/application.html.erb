@@ -92,6 +92,11 @@
           <% end %>
       </div>-->
       <div class="test-header_menus">
+        <%= link_to "/" do %>
+        <div class="test-header_select">
+          <div class="test-header_text"><ion-icon name="home-outline" class="test-header_icon"></ion-icon><p>トップ</p></div>
+        </div>
+        <% end %>
         <%= link_to "/use" do %>
         <div class="test-header_select">
           <div class="test-header_text"><ion-icon name="bulb-outline" class="test-header_icon"></ion-icon><p>アレルシェアとは</p></div>
@@ -99,7 +104,7 @@
         <% end %>
         <%= link_to "/blog_view/人気のブログ" do %>
         <div class="test-header_select">
-          <div class="test-header_text"><ion-icon name="search-outline" class="test-header_icon"></ion-icon><p>ブログを探す</p></div>
+          <div class="test-header_text"><ion-icon name="search-outline" class="test-header_icon"></ion-icon><p>人気のブログ</p></div>
         </div>
         <% end %>
         <%= link_to "/blog_view/blog_new" do %>
@@ -178,11 +183,14 @@
 
     <%# サイドバー------------------------------------------- %>
     <div class="sidebar">
+      <%= link_to "/" do %>
+      <div class="sidebar_menu"><ion-icon name="home-outline" class="sidebar_menu_logo"></ion-icon><p>トップ</p></div>
+      <% end %>
       <%= link_to "/use" do %>
       <div class="sidebar_menu"><ion-icon name="bulb-outline" class="sidebar_menu_logo"></ion-icon><p>アレルシェアとは</div>
       <% end %>
       <%= link_to "/blog_view/人気のブログ" do %>
-      <div class="sidebar_menu"><ion-icon name="search-outline" class="sidebar_menu_logo"></ion-icon><p>ブログを探す</p></div>
+      <div class="sidebar_menu"><ion-icon name="search-outline" class="sidebar_menu_logo"></ion-icon><p>人気のブログ</p></div>
       <% end %>
       <%= link_to "/blog_view/blog_new" do %>
       <div class="sidebar_menu"><ion-icon name="pencil-outline" class="sidebar_menu_logo"></ion-icon><p>ブログを作る</p></div>

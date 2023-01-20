@@ -7,9 +7,8 @@ class HomeController < ApplicationController
     @usertags = Usertag.joins(:tag).select('*').all
   end
 
-  def top2
-  end
-
   def use
+    @blogs = Blog.all.limit(7)
+    @tags = BlogTagRelation.joins(:blog_tag).select('*').all
   end
 end
