@@ -422,3 +422,13 @@
         padding-top: 7px;
     }
 }
+
+.blog_report{
+    width: 250px;
+    height: auto;
+    /* border: 1px solid red; */
+    margin-right: 10px;
+    margin-left: auto;
+    display: block;
+    margin-top: 0px;
+}

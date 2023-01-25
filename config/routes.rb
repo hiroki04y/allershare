@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'home#top'
   get '/use' => "home#use"
   get '/signup' => "users#signup"
+  get '/report/:id' => "home#report"
+  post '/addreport/:id' => "home#addreport"
+  get '/addreport/:id' => "home#addreport"
   get '/test' => 'test#test'
   
   #ブログ関連

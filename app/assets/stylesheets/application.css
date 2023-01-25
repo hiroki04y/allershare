@@ -261,12 +261,15 @@ header {
 .flash {
   padding: 10px 0;
   color: white;
-  background: rgb(251, 170, 88);
+  background: rgb(255, 195, 135);
   text-align: center;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   top: 64px;
-  z-index: 8;
-  width: 100%;
+  z-index: 4;
+  width: 20%;
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }

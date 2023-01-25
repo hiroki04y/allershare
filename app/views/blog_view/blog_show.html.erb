@@ -47,7 +47,19 @@
                 <%= link_to("削除", "/blog_view/#{@blog.id}/blog_destroy") %>
               </div>
             </div>
-          <%end%>
+          <% else %>
+            <div class="blog_report">
+              <div class="blog-destroy">
+                <%= link_to("通報", "/report/#{@blog.id}") %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="blog_report">
+            <div class="blog-destroy">
+              <%= link_to("通報", "/report/#{@blog.id}") %>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

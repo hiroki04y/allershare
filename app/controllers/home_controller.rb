@@ -11,4 +11,16 @@ class HomeController < ApplicationController
     @blogs = Blog.all.limit(7)
     @tags = BlogTagRelation.joins(:blog_tag).select('*').all
   end
+
+  def report
+    @blog = Blog.find_by(id:params[:id])
+  end
+
+  def addreport
+    @report = Report.new(blog_id: params[:id], title: params[:title], report: params[:report])
+    if @report.save
+      flash[:notice] = "通報しました"
+      redirect_to("/blog/#{params[:id]}")
+    end
+  end
 end
