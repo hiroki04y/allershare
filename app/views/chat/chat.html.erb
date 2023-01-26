@@ -367,7 +367,7 @@
                     }else{
                         $('.chat-container').append(
                             `<div class="paircomment">
-                            <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
+                            <a href="/users/${room.user_id}"><img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33></a>
                             <div class="pair-name">${room.name}</div>
                             <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
                             </div>`  
@@ -462,7 +462,7 @@
                         }else{
                             $('.chat-container').append(
                                 `<div class="paircomment">
-                                <img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33>
+                                <a href="/users/${room.user_id}"><img src="/user_images/${room.image_name}" class="pair-icon" width=33 height=33></a>
                                 <div class="pair-name">${room.email}</div>
                                 <p>${room.content.replace(/\r?\n/g, '<br>')}</p>
                             </div>`    
