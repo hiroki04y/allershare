@@ -1,0 +1,8 @@
+<div class="about-main">
+  <h2>通報ブログ一覧</h2>
+  <% @reports.each do |report| %>
+      <div class="report_view_title">
+        <%= report.title %> <%= report.created_at %>
+      </div>
+    <% end %>
+</div>
