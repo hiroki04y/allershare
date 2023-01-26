@@ -23,4 +23,8 @@ class HomeController < ApplicationController
       redirect_to("/blog/#{params[:id]}")
     end
   end
+
+  def reportview
+    @reports = Report.all
+  end
 end
