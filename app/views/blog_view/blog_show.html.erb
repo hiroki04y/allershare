@@ -8,7 +8,7 @@
         <%= @blog.title%>
         <div class="blog_show_tags">
           <% if @tags != nil%>
-          <% @tags.each do |post| %><p><%= post.name %></p><% end %>
+          <% @tags.each do |post| %><%= link_to blog_view_path(sendtags:post.id) do %><p><%= post.name %></p><% end %><% end %>
           <% end %>
         </div>
       </div>
