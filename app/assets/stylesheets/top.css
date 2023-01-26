@@ -118,19 +118,6 @@
     border-bottom-right-radius: 20px;
     
 }
-::-webkit-scrollbar {
-    width: 16px;
-    height: 20px;
-    }
-::-webkit-scrollbar-track {
-    background-color: rgba(248, 154, 255, 0.3);
-    border-radius: 100px;
-}
-::-webkit-scrollbar-thumb {
-    background: #ffc3e8;
-    border-radius: 100px;
-    width: 130px;
-}
 
 
 .test-top-text {

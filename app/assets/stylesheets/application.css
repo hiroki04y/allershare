@@ -21,6 +21,21 @@ ul, li {
   margin: 0;
 }
 
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 20px;
+  }
+::-webkit-scrollbar-track {
+  background-color: rgba(172, 172, 172, 0.3);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffc3e8;
+  border-radius: 100px;
+  width: 130px;
+}
+
 a {
   text-decoration: none;
   color: #2d3133;
