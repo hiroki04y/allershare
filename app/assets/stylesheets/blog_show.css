@@ -95,6 +95,8 @@
     color: black;
     margin-top: 100px;
     margin-bottom:50px;
+    inline-size: 100%;
+    overflow-wrap: break-word;
 }
 
 .show_content_size{
