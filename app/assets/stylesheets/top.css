@@ -86,7 +86,8 @@
     transform:translateX(-50%);
     top: 50px;
     width: 80%;
-    padding:50px;
+    padding:70px;
+    padding-bottom:10px;
     background-color: #ffe8f6;
     border-top-left-radius:20px;
     border-top-right-radius:20px;
@@ -98,7 +99,8 @@
     transform:translateX(-50%);
     top: 50px;
     width: 80%;
-    padding:50px;
+    padding:70px;
+    padding-bottom:10px;
     background-color: #ffe8f6;
 }
 
@@ -108,7 +110,8 @@
     transform:translateX(-50%);
     top: 50px;
     width: 80%;
-    padding:50px;
+    padding:70px;
+    padding-bottom:10px;
     background-color: #ffe8f6;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
