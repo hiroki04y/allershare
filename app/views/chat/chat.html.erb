@@ -357,9 +357,6 @@
                 //console.log(data);
 
                 $(data).each(function(i,room) {
-                    $(".paircomment p").css("top", "-8px");
-                    $(".paircomment p").css("left", "52px");
-                    $(".paircomment p").css("margin-bottom", "0px");
                     if (room.user_id == usr) {
                         $('.chat-container').append(
                             `<div class="mycomment"><p>${room.content.replace(/\r?\n/g, '<br>')}</p></div>`  
@@ -373,6 +370,9 @@
                             </div>`  
                         );
                     }
+                    $(".paircomment p").css("top", "-8px");
+                    $(".paircomment p").css("left", "52px");
+                    $(".paircomment p").css("margin-bottom", "0px");
                 });
                 if(screen.width < 800){
                     $(".base").css("display","none")
