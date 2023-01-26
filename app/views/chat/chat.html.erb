@@ -27,6 +27,7 @@
         <% end %>
         </ul>
     </div>
+    <%= link_to '/addroom', class: 'add_group' do %><div class="addgroup_button">グループ追加申請</div><% end %>
 </div>
 <div class="base3">
     <p>左から既存の会話を選択してください</p>
@@ -110,6 +111,7 @@
     if($(".routing").html() == 2){
         roomtype = 2;   //roomtypeをpersonalに変更
         $("#roomsearch").css("display","none"); //検索機能を消す
+        $('.add_group').css("display","none")
         $(".parson").css('background-color','white');
         $(".parson").css('color','rgb(55, 175, 65)');
         $('.group').css('background-color','rgba(230,230,230,40%)');
@@ -181,6 +183,7 @@
             $(this).css('color','rgb(55, 175, 65)');
             $('.parson').css('background-color','rgba(230,230,230,40%)');
             $('.parson').css('color','black');
+            $('.add_group').css("display","flex")
             $(roomtext).attr('placeholder','グループを検索');
             ch = "1"
 
@@ -211,6 +214,7 @@
         $('.parson').on('click', function(){
             roomtype = 2;   //roomtypeをpersonalに変更
             $("#roomsearch").css("display","none"); //検索機能を消す
+            $('.add_group').css("display","none")
             $(this).css('background-color','white');
             $(this).css('color','rgb(55, 175, 65)');
             $('.group').css('background-color','rgba(230,230,230,40%)');

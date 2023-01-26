@@ -36,6 +36,12 @@
               </div>
             <% end %>
           <% end %>
+          <%= link_to("/acountreport/#{@user.id}") do %>
+            <div class="other_report">
+              <img src="/report.png">
+              <p>通報</p>
+            </div>
+          <% end %>
         <% end %>
       <% else %>
         <%= link_to("/login") do %>
@@ -119,6 +125,12 @@
                 <p>この人と会話する</p>
               </div>
             <% end %>
+          <% end %>
+          <%= link_to("/acountreport/#{@user.id}") do %>
+            <div class="other_report">
+              <img src="/report.png">
+              <p>通報</p>
+            </div>
           <% end %>
         <% end %>
       <% else %>

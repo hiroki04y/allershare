@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/signup' => "users#signup"
   get '/report/:id' => "home#report"
   get '/reportview' => 'home#reportview'
+  get '/acountreport/:id' => 'home#acountreport'
+  get '/addroom' => 'home#chatroominsert'
   post '/addreport/:id' => "home#addreport"
   get '/addreport/:id' => "home#addreport"
   get '/test' => 'test#test'

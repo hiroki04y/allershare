@@ -1115,6 +1115,32 @@
   font-size:10px;
 }
 
+.other_report{
+  width: 90px;
+  height: 70px;
+  position: absolute;
+  top: 3%;
+  left:3%;
+}
+
+.other_report img{
+  width: 27.4%;
+  height:35%;
+  position:relative;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+
+.other_report p{
+  width:100%;
+  position:relative;
+  top:5px;
+  text-align:center;
+  font-size:10px;
+}
+
 /* 編集----------------------------------------- */
 .other_edit{
   width: 80px;
@@ -1382,10 +1408,23 @@
 
   .other_follow{
     top:0%;
-    right:-3%;
+    right:-4%;
   }
 
   .other_follow p {
+    width: 100%;
+    position: relative;
+    top: 28px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .other_report{
+    top:0%;
+    left:-4%;
+  }
+
+  .other_report p {
     width: 100%;
     position: relative;
     top: 28px;
@@ -1451,6 +1490,10 @@
   }
 
   .other_follow p {
+    font-size: 10px;
+  }
+
+  .other_report p {
     font-size: 10px;
   }
 }

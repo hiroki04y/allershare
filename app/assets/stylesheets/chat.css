@@ -12,7 +12,7 @@
 
 .grouplist {
   left:0px;
-  height:100%;
+  height:auto;
 }
 
 .grouplogo {
@@ -33,14 +33,35 @@
 }
 
 .chat-list {
-    line-height: 60px;
-    border-bottom: 1px solid;
-    border-color: #9e9e9e;
+  line-height: 60px;
+  border-bottom: 1px solid;
+  border-color: #9e9e9e;
+}
+
+.addgroup_button{
+  width:80%;
+  max-width:200px;
+  height:60px;
+  position:relative;
+  margin-top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  border: 3px solid #95cf7f;
+  background-color:white;
+  color: #a4e38b;
+  border-radius:20px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+}
+.addgroup_button:hover{
+  color:#9e9e9e;
 }
 .chat-list a{
   position:relative;
   left:2%;
-  font-size:20px;
+  font-size:18px;
 }
 
 .changeroom{

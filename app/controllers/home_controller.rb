@@ -17,14 +17,28 @@ class HomeController < ApplicationController
   end
 
   def addreport
-    @report = Report.new(blog_id: params[:id], title: params[:title], report: params[:report])
+    @report = Report.new(blog_id: params[:id], title: params[:title], report: params[:report],repotype: params[:type])
     if @report.save
-      flash[:notice] = "通報しました"
-      redirect_to("/blog/#{params[:id]}")
+      if params[:type] == "1"
+        flash[:notice] = "通報しました"
+        redirect_to("/blog/#{params[:id]}")
+      elsif params[:type] == "2"
+        flash[:notice] = "通報しました"
+        redirect_to("/users/#{params[:id]}")
+      else
+        redirect_to(chat_path(cat1:1))
+      end
     end
   end
 
   def reportview
     @reports = Report.all
+  end
+
+  def chatroominsert
+  end
+
+  def acountreport
+    @user = User.find_by(id:params[:id])
   end
 end

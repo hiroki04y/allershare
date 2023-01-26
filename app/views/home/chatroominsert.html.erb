@@ -1,0 +1,21 @@
+<div class="wrap">
+<% breadcrumb :blog_new %>
+<div class="main-blog-new">
+    <p class="blog_new_top">チャットグループを追加する</p>
+    <%= form_tag("/addreport/0") do %>
+    <div class="blog-report-form">
+        <div class = "blog-report-title">
+            <p>追加するグループ名</p>
+            <input type="text" name="title">
+        </div>
+        <div class = "blog-report">
+            <p>追加理由</p>
+            <textarea name = "report"></textarea>
+        </div>
+        <div class="blog-send-button">
+            <input type="submit" class = "blog-post-button" value="追加する">
+        </div>
+    </div>
+    <textarea name="type" class="sendtags">3</textarea>
+    <% end %>
+</div>

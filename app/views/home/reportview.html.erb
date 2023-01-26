@@ -1,8 +1,8 @@
 <div class="about-main">
-  <h2>通報ブログ一覧</h2>
+  <h2>通報・ルーム追加一覧</h2><br><p>type = 1:ブログ通報 2:アカウント通報 3:ルーム追加</p><br><p>タイプ | id | タイトル | 内容 | 時間</p>
   <% @reports.each do |report| %>
       <div class="report_view_title">
-        <%= report.title %> <%= report.created_at %>
+        <p><%= report.repotype %> | <%= report.blog_id %> | <%= report.title %> | <%= report.report %> |<%= report.created_at %></p>
       </div>
     <% end %>
 </div>
