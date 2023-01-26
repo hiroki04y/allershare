@@ -100,7 +100,8 @@
     top: 50px;
     width: 80%;
     padding:70px;
-    padding-bottom:10px;
+    padding-top:20px;
+    padding-bottom:20px;
     background-color: #ffe8f6;
 }
 
@@ -112,6 +113,7 @@
     top: 50px;
     width: 80%;
     padding:70px;
+    padding-top:10px;
     padding-bottom:50px;
     background-color: #ffe8f6;
     border-bottom-left-radius: 20px;
@@ -467,16 +469,20 @@
     .test-top-blog-popular{
         width: 90%;
         padding: 40px;
+        padding-bottom:10px;
     }
     
     .test-top-blog-new{
         width: 90%;
         padding: 40px;
+        padding-top:20px;
+        padding-bottom:20px;
     }
     
     .test-top-user-popular{
         width: 90%;
         padding: 40px;
+        padding-top:10px;
     }
     
     .test-top-text {
