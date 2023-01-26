@@ -598,3 +598,9 @@ header {
   }
 
 }
+
+.index_container{
+  width:90%;
+  height:auto;
+  margin-top:150px;
+}
