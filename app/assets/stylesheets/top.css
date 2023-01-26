@@ -167,9 +167,23 @@
 .test-top-pl {
     position: relative;
     top: 20px;
-    font-size: 18px;
+    font-size: 16px;
     text-align: right;
     margin-bottom: 40px;
+}
+
+.test-top-pbutton{
+    background-color: #ff93be;
+    padding: 8px 12px 8px 12px;
+    border-radius: 14px;
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.test-top-pbutton:hover{
+    color:white;
+    background-color: #ffafcf;
 }
 
 .top-tag-text{
@@ -387,7 +401,7 @@
     height: 40px;
     padding: 5px;
     background-color: #a4e38b;
-    border: 1px solid #6ea857;
+    border: 3px solid #95cf7f;
     color: #ffffff;
     border-radius: 20px;
     font-weight:800;
@@ -398,9 +412,9 @@
     width: 200px;
     height: 40px;
     padding: 5px;
-    background-color: #a4e38b;
-    border: 1px solid #6ea857;
-    color: #ffffff;
+    background-color: #ffffff;
+    border: 3px solid #95cf7f;
+    color: #a4e38b;
     border-radius: 20px;
     font-weight:800;
 }
@@ -678,25 +692,15 @@
     }
     
     .button4{
-        position: relative;
         width: 150px;
-        height: 30px;
-        padding: 2px;
-        background-color: #a4e38b;
-        border: 1px solid #6ea857;
-        color: #ffffff;
-        border-radius: 20px;
+        height: 35px;
+        padding: 3px;
     }
     
     .button5{
-        position: relative;
         width: 150px;
-        height: 30px;
-        padding: 2px;
-        background-color: #a4e38b;
-        border: 1px solid #6ea857;
-        color: #ffffff;
-        border-radius: 20px;
+        height: 35px;
+        padding: 3px;
     }
 }
 
