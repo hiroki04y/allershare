@@ -123,6 +123,7 @@
 	background-color: #fff;
 	border: 1px solid #5b9cfd;
 	border-radius: 2em;
+    font-size: 14px;
 }
 
 .blog_view_tag:before {
